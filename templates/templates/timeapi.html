@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <title>Biotech - Live Time</title>
+</head>
+<body>
+  <h1>Biotechnology - Live Time Feed</h1>
+  <div id="time">Waiting...</div>
+
+  <script>
+    // Listen to the Python backend stream
+    const evtSource = new EventSource("/api/timestream");
+    evtSource.onmessage = (e) => {
+      document.getElementById("time").innerHTML = e.data;
+    };
+  </script>
+</body>
+</html>

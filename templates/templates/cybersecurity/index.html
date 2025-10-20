@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}Cybersecurity{% endblock %}
+{% block content %}
+
+<section id="hero">
+<div class="container">
+	<div class="hero-content">
+		<h1 class="text-primary" data-text="Biology">Cybersecurity</h1>
+		<div class="typewriter" style="display:none;"> <!-- set display none for structure maintainence-->
+			<span id="typewriter-text"></span>
+			<span class="cursor-blink">|</span>
+		</div>
+		<p class="hero-description">
+		Cybersecurity has emerged as one of the most critical domains of the twenty-first century, shaping the way societies, economies, and governments function in the digital era. As technology becomes increasingly interwoven into every aspect of human life—from communication and finance to healthcare, education, and national defense—the necessity of protecting digital systems and information has never been more vital. The interconnected world brings immense opportunities, but it also introduces vulnerabilities that adversaries can exploit for financial gain, political motives, espionage, or sheer disruption.
+		</p>
+		<div class="hero-buttons">
+			<a href="{{ url_for('home') }}" class="btn primary">Home</a>
+			<a href="{{ url_for('home') }}#contact" class="btn secondary">Contact Us</a>
+		</div>
+	</div>
+</div>
+<div class="scroll-indicator">
+    <div class="mouse">
+        <div class="wheel"></div>
+    </div>
+    <div class="arrow">
+    	<span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+</section>
+<section id="about">
+    <div class="container">
+        <div class="section-header">
+            <h2>Subject <span class="accent">Description</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+            	<p>The twenty–first century is defined by interconnection. Every aspect of human life—commerce, communication, governance, science, and even personal relationships—has become intertwined with digital technologies. This transformation has created extraordinary opportunities for growth and innovation, but it has also introduced unprecedented risks. Information no longer resides solely within secure walls; it moves across networks that span the globe. With this evolution, security is no longer an optional safeguard but a foundational necessity.<br>Cybersecurity is the subject that seeks to protect the confidentiality, integrity, and availability of information in this interconnected world. It stands at the intersection of computer science, engineering, law, ethics, and human behavior. To study cybersecurity is to engage with a discipline that is at once technical and societal, practical and philosophical, urgent and enduring. It demands precision, yet rewards creativity.</p>
+                <div class="about-quote">
+                    <blockquote>"Now even defense mechanisms need to be defended from offense!"</blockquote>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-link"></i></div>
+                    <div class="stat-number" data-count="{{ topic_count }}">0</div>
+                    <div class="stat-label">Topics</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-book"></i></div>
+		            <div class="stat-number" data-count="0">0</div>
+                    <div class="stat-label">Documents</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="philosophy">
+    <div class="container">
+        <div class="philosophy-content">
+	        <div class="philosophy-quote">
+                <blockquote>
+                	It is now possible for us to tell that the only thing the human mind has ever acomplished is the <b>Dream before the Awakening</b>
+                </blockquote>
+            </div>
+            <div class="philosophy-details">
+                <p>This subject, <b>Cybersecurity</b>, has been developed with the intention of guiding learners from foundational principles to advanced understandings of the field. Beginning with basic concepts suitable for secondary-level students and advancing toward the complexity of doctoral research, the material seeks to provide a structured path of learning. Each stage is carefully designed to build upon the previous, ensuring clarity for beginners while offering depth for advanced readers.<br>The objective is not only to present definitions, mechanisms, and practices but also to cultivate critical thinking. Cybersecurity is not static; it evolves daily in response to new threats, technologies, and ideas. Therefore, the study of cybersecurity must instill adaptability, analytical rigor, and ethical awareness.<br>This subject owes much to the collective effort of scholars, practitioners, and educators whose contributions have shaped the field. It is also inspired by the countless learners who bring curiosity and determination to understanding this vital discipline. It is my hope that the study of cybersecurity will serve not only as a reference but also as a guide to all who embark on the journey of securing the digital future.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- the topics -->
+<section id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2>Topics <span class="accent">Available</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+        {% for topic, description in topics.items() %}
+            <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+                <div class="project-content">
+                {% if '_' in topic %}
+                    <h3>{{ topic| replace('_', ' ') | title }}</h3>
+                {% else %}
+                	<h3>{{ topic|title }}</h3>
+                {% endif %}
+                {% set parts = description.split('[') %}
+                {% if parts|length > 1 %}
+                	{% set inner = parts[1].split(']') %}
+                {% endif %}
+                    <div class="project-stats">
+                        <span class="project-stat"><i class="fas fa-dna"></i> {{ inner[0] }} </span>
+                    </div>
+                    <p>{{ parts[0] }}</p>
+                    <div class="project-links">
+                        <a href="{{ url_for('cybersecurity_topic', topic=topic) }}" class="project-link"><i class="fas fa-external-link-alt"></i> View It</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Intentionally hidden to preserve the javascript functionality and content-->
+
+<section id="projects" style="display:none;"></section>
+<section id="skills" style="display:none;"></section>
+<section id="contact" style="display:none;"></section>
+{% endblock %}

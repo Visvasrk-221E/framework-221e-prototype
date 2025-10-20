@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block title %}CompDoc{% endblock %}
+{% block content %}
+
+<section id="hero">
+<div class="container">
+	<div class="hero-content">
+		<h1 class="text-primary" data-text="DocHub">CompDoc</h1>
+		<div class="typewriter" style="display:none;"> <!-- set display none for structure maintainence-->
+			<span id="typewriter-text"></span>
+			<span class="cursor-blink">|</span>
+		</div>
+		<p class="hero-description">
+This a collection of all the books that are related to computer science, from cybersecurity, networking and hacking to deep, darkweb and behavioural analysis stuffs. You can also corelate the content with your textbooks to gain advanced knowledge about what is happening.
+		</p>
+		<div class="hero-buttons">
+			<a href="{{ url_for('home') }}" class="btn primary">Home</a>
+			<a href="{{ url_for('dochub') }}" class="btn secondary">DocHub</a>
+		</div>
+	</div>
+</div>
+<div class="scroll-indicator">
+    <div class="mouse">
+        <div class="wheel"></div>
+    </div>
+    <div class="arrow">
+    	<span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+</section>
+<section id="about">
+    <div class="container">
+        <div class="section-header">
+            <h2>Confirmation <span class="accent"></span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+            	<p>All these documents are legitimate to download and can be trusted to read. No illegal content is served as per my consent. Most of the documents are from internet archive and other verified sources. Click the download icon below the document to download it.</p>
+                <div class="about-quote">
+                    <blockquote>"Your choice : Free offer is available till user account feature kicks in."</blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2>Documents <span class="accent">Available</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <h3 class="accent">General Documents</h3>        
+		<div class="projects-grid">
+	        {% if not gendocs %}
+    	    	<p>No documents are posted yet under this session</p>
+        	{% endif %}
+	        {% for doc in gendocs %}
+    	        <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+        	        <div class="project-content">
+            	        <h3>{{ doc| replace("[comp]", '')| replace("[gen]",'') | replace(".pdf", '') | title }}</h3>
+                	    <div class="project-stats">
+                    	    <span class="project-stat"><i class="fas fa-code"></i> Compdoc - General Docs</span>
+	                    </div>                    
+    	                <div class="project-links">
+        	                <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+            	        </div>                    
+                	</div>
+	            </div>
+	        {% endfor %}                    
+	    </div>
+	    <br><h3 class="accent">Networking Documents</h3>
+		<div class="projects-grid">
+        	
+	        {% if not netdocs %}
+    	    	<p>No documents are posted yet under this session</p>
+        	{% endif %}
+	        {% for doc in netdocs %}
+    	        <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+        	        <div class="project-content">
+            	        <h3>{{ doc| replace("[comp]", '')| replace("[net]",'') | replace(".pdf", '') | title }}</h3>
+                	    <div class="project-stats">
+                    	    <span class="project-stat"><i class="fas fa-globe"></i> Compdoc - Network Docs</span>
+	                    </div>                    
+    	                <div class="project-links">
+        	                <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+            	        </div>                    
+                	</div>
+	            </div>
+	        {% endfor %}                    
+	    </div>
+	    <br><h3 class="accent">Hacking Documents</h3>
+		<div class="projects-grid">
+        	
+	        {% if not hackdocs %}
+    	    	<p>No documents are posted yet under this session</p>
+        	{% endif %}
+	        {% for doc in hackdocs %}
+    	        <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+        	        <div class="project-content">
+            	        <h3>{{ doc| replace("[comp]", '')| replace("[hack]",'') | replace(".pdf", '') | title }}</h3>
+                	    <div class="project-stats">
+                    	    <span class="project-stat"><i class="fas fa-lock"></i> Compdoc - Hacking Docs</span>
+	                    </div>                    
+    	                <div class="project-links">
+        	                <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+            	        </div>                    
+                	</div>
+	            </div>
+	        {% endfor %}                    
+	    </div>	    	    
+	    <br><h3 class="accent">Python Documents</h3>
+		<div class="projects-grid">
+	        {% if not pydocs %}
+    	    	<p>No documents are posted yet under this session</p>
+        	{% endif %}
+	        {% for doc in pydocs %}
+    	        <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+        	        <div class="project-content">
+            	        <h3>{{ doc| replace("[comp]", '')| replace("[pydoc]",'') | replace(".pdf", '') | title }}</h3>
+                	    <div class="project-stats">
+                    	    <span class="project-stat"><i class="fas fa-code"></i> Compdoc - Python Docs</span>
+	                    </div>                    
+    	                <div class="project-links">
+        	                <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+            	        </div>                    
+                	</div>
+	            </div>
+	        {% endfor %}                    
+	    </div>
+	    <br><h3 class="accent">C Documents</h3>
+		<div class="projects-grid">
+        	
+	        {% if not cdocs %}
+    	    	<p>No documents are posted yet under this session</p>
+        	{% endif %}
+	        {% for doc in cdocs %}
+    	        <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+        	        <div class="project-content">
+            	        <h3>{{ doc| replace("[comp]", '')| replace("[cdoc]",'') | replace(".pdf", '') | title }}</h3>
+                	    <div class="project-stats">
+                    	    <span class="project-stat"><i class="fas fa-code"></i> Compdoc - C Docs</span>
+	                    </div>                    
+    	                <div class="project-links">
+        	                <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+            	        </div>                    
+                	</div>
+	            </div>
+	        {% endfor %}                    
+	    </div>
+	    <br><h3 class="accent">JavaScript Documents</h3>
+		<div class="projects-grid">
+        	
+	        {% if not jsdocs %}
+    	    	<p>No documents are posted yet under this session</p>
+        	{% endif %}
+	        {% for doc in jsdocs %}
+    	        <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+        	        <div class="project-content">
+            	        <h3>{{ doc| replace("[comp]", '')| replace("[jsdoc]",'') | replace(".pdf", '') | title }}</h3>
+                	    <div class="project-stats">
+                    	    <span class="project-stat"><i class="fas fa-code"></i> Compdoc - Javascript Docs</span>
+	                    </div>                    
+    	                <div class="project-links">
+        	                <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+            	        </div>                    
+                	</div>
+	            </div>
+	        {% endfor %}                    
+	    </div>
+	    <br><h3 class="accent">Java Documents</h3>
+		<div class="projects-grid">
+        	
+	        {% if not javadocs %}
+    	    	<p>No documents are posted yet under this session</p>
+        	{% endif %}
+	        {% for doc in javadocs %}
+    	        <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+        	        <div class="project-content">
+            	        <h3>{{ doc| replace("[comp]", '')| replace("[javadoc]",'') | replace(".pdf", '') | title }}</h3>
+                	    <div class="project-stats">
+                    	    <span class="project-stat"><i class="fas fa-code"></i> Compdoc - Java Docs</span>
+	                    </div>                    
+    	                <div class="project-links">
+        	                <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+            	        </div>                    
+                	</div>
+	            </div>
+	        {% endfor %}                    
+	    </div>
+	    <br><h3 class="accent">Filesystem and OS Documents</h3>
+		<div class="projects-grid">
+        	
+	        {% if not fsdocs %}
+    	    	<p>No documents are posted yet under this session</p>
+        	{% endif %}
+	        {% for doc in fsdocs %}
+    	        <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+        	        <div class="project-content">
+            	        <h3>{{ doc| replace("[comp]", '')| replace("[fsdoc]",'') | replace(".pdf", '') | title }}</h3>
+                	    <div class="project-stats">
+                    	    <span class="project-stat"><i class="fas fa-book"></i> Compdoc - OS Docs</span>
+	                    </div>                    
+    	                <div class="project-links">
+        	                <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+            	        </div>                    
+                	</div>
+	            </div>
+	        {% endfor %}                    
+	    </div>	    	    	   	    	    	    	    	    	    
+	</div>
+</section>
+
+
+
+<!-- Intentionally hidden to preserve the javascript functionality and content-->
+
+<section id="projects" style="display:none;"></section>
+<section id="skills" style="display:none;"></section>
+<section id="contact" style="display:none;"></section>
+{% endblock %}

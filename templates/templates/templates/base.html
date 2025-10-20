@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Framework-221E{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cryo.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="framework-version:221e" content="build:prototype0.1">
+</head>
+<!-- Body Starts Here -->
+<body>
+<!-- Start Main Content -->
+
+
+    
+<!------------------------------------------------->
+
+<!-- start cursor -->
+<div class="Noise Overlay"></div>
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+<!-- end cursor -->
+
+<!-- start header -->
+<header>
+    <!-- start container -->
+    <div class="container">
+        <!-- logo -->
+        <div class="logo">
+            <span class="logo-text">Framework<span class="accent">-221E</span></span>
+        </div>
+        <!-- end logo -->
+        <!-- nav -->
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}#framework-about">About-Framework</a></li>
+                <li><a href="{{ url_for('home') }}#skills">Courses</a></li>
+                <li><a href="{{ url_for('home') }}#projects">Subjects</a></li>
+                <li><a href="{{ url_for('home') }}#analyticaldomains">Analytical-Domains</a></li>
+            </ul>
+        </nav>
+        <!-- end nav -->
+        <!-- theme toggle -->
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <!-- end theme toggle -->
+    <!-- end container -->
+    </div>
+<!-- end header -->    
+</header>
+<!-- start main -->
+<main>
+	{% block content %} {% endblock %}
+</main>
+<footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Framework<span class="accent">-221E</span></span>
+                </div>
+                <div class="footer-links">
+                	<a href="{{ url_for('home') }}#about">About Me</a>
+                    <a href="{{ url_for('home') }}#framework-about">About Framework</a>
+                    <a href="{{ url_for('home') }}#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/visvasrk-0" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="mailto:visvasrk.221e.2025.org@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 framework-221e. All rights reserved.</p>
+                <p>Built with hardwork and a lot of analysis. CSS and JS source contributor : <a href="https://micr0.dev/">micr0byte <i class="fas fa-external-link-alt"></i></a></p>
+            </div>
+        </div>
+    </footer>
+
+<!-- Script Content Starts Here -->               
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="{{ url_for('static', filename='cryo.js') }}"></script>
+<!-- Script Ends Here -->
+<!-- Body Ends Here -->
+</body>
+</html>

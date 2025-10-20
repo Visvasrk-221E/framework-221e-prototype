@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+{% block title %}Cybersec0{% endblock %}
+{% block content %}
+<!-- hero section -->
+<section id="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="text-primary">Cybersec0</h1>
+            <div class="typewriter" style="display:none;">
+                <span id="typewriter-text"></span>
+                <span class="cursor-blink">|</span>
+	        </div>
+            <p class="hero-description">Cybersecurity begins with an awareness of the digital environment we inhabit. Information has become one of the most valuable assets in human society, shaping economies, governance, education, and even personal identity. As our dependence on digital systems deepens, so too does our exposure to risks. The study of cybersecurity arises from the recognition that security is fundamental to sustaining trust and resilience in this interconnected world.<br>Cybersec0 represents the starting point. It is the first step in understanding not only the technical aspects of security but also its history, motivations, and human implications.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('cybersecurity') }}#projects" class="btn primary">Explore Topics</a>
+            </div>
+        </div>
+    </div>
+	<div class="scroll-indicator">
+    	<div class="mouse">
+        	<div class="wheel"></div>
+        </div>
+        <div class="arrow">
+	        <span></span>
+    	    <span></span>
+        </div>
+    </div>
+</section>
+            
+<!-- about section : Introduction part --> 
+<section id="about">
+	<div class="container">
+		<div class="section-header">
+			<h2><span class="accent">Introduction</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<p>Cybersecurity is not confined to a narrow technical domain. It exists at the intersection of technology, human behavior, policy, and ethics. To understand it requires not only technical literacy but also historical perspective and social awareness. This chapter traces the journey of cybersecurity from its ancient origins to its modern challenges, introduces the principles that guide it, examines the nature of threats and attackers, and explores the significance of advanced persistent threats in the contemporary landscape. It concludes with an overview of current and emerging trends, emphasizing that cybersecurity is not a static discipline but a constantly evolving field.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- history section : about old.--> 
+<section id="about">
+	<div class="container">
+		<div class="section-header">
+			<h2>Historical<span class="accent"> Perspective</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Introduction</h3><hr><br>
+				<p>The roots of cybersecurity lie in the broader human struggle to protect information. Long before the invention of computers, civilizations understood that knowledge was power and that the ability to conceal or reveal information could determine the fate of empires. In the Roman Empire, Julius Caesar used a simple cipher to obscure military messages by shifting letters of the alphabet. Centuries later, the Vigenère cipher in Renaissance Europe introduced more complexity, frustrating codebreakers for generations. During the Second World War, the Enigma machine exemplified the highest achievements of cryptography in the mechanical age. The breaking of Enigma by Allied codebreakers was not only a triumph of mathematics and engineering but also a decisive factor in the course of the war, proving that the security of information could determine global outcomes.</p>
+				<h3>The ARPANET</h3><hr><br>
+				<p>With the birth of digital computing in the mid-twentieth century, the challenge of securing information entered a new era. The creation of ARPANET in the 1960s, the precursor to today’s internet, was a landmark moment. Its designers focused on innovation and collaboration, assuming trust among researchers. This optimism left little room for security considerations. Yet, as soon as networks grew, so did the possibilities of misuse. The introduction of passwords was among the first attempts at digital protection, but their weaknesses soon became apparent.</p>
+				<h3>The Morris Worm</h3><hr><br>
+				<p>By the 1980s, personal computing had become widespread, and with it arose the first major incidents of malicious software. The Morris Worm of 1988 disrupted around ten percent of ARPANET, demonstrating that a single piece of code could cause immense damage across interconnected systems. The 1990s witnessed the explosion of the internet into public life, and with it came a surge of new threats. Malware such as the Michelangelo virus and the ILOVEYOU worm spread rapidly, exploiting the growing interconnectivity of households and businesses. Security software such as firewalls and antivirus programs became common defenses, yet the arms race between attackers and defenders had only begun.</p>
+				<h3>Early 2000s</h3><hr><br>
+				<p>In the early 2000s, cybersecurity became a global issue as the stakes of digital attacks increased. The Melissa virus caused widespread damage to corporate systems, while the ILOVEYOU worm demonstrated the potency of social engineering. In 2010, the discovery of the Stuxnet worm changed the perception of what cyberattacks could achieve. Unlike previous malware, which primarily targeted data, Stuxnet attacked physical systems, sabotaging Iranian nuclear centrifuges. This event marked the beginning of cyber operations as instruments of geopolitical power. Since then, major incidents such as the WannaCry ransomware outbreak, the Equifax data breach, and the SolarWinds supply chain attack have shown that cybersecurity failures can compromise economies, governments, and critical infrastructures.</p>
+				<h3>Historical Attacks and Attack Vectors</h3><hr><br>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3>The Stuxnet : Weaponization of Code</h3>
+						<p>The Stuxnet worm, discovered in 2010, marked a turning point in the history of cyber conflict. Unlike ordinary malware designed to steal data or disrupt business operations, Stuxnet was a precision-crafted cyber weapon. It targeted the supervisory control and data acquisition (SCADA) systems that governed industrial processes, specifically those used in Iran’s Natanz nuclear facility. By exploiting four zero-day vulnerabilities in Microsoft Windows and concealing its presence through advanced rootkit techniques, Stuxnet infiltrated centrifuge controllers and subtly altered their rotational speeds. To the operators, all system readings appeared normal, yet the centrifuges were being silently destroyed from within. This attack represented the first time digital code directly caused physical destruction in the real world, blending espionage, sabotage, and psychological warfare. Its sophistication lay not only in its technical complexity but also in its geopolitical implications, signaling the dawn of state-sponsored cyber warfare.</p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3>WannaCry : Ransomware on a Global Scale</h3>
+						<p>The WannaCry outbreak of May 2017 demonstrated how a single piece of malicious software could bring global systems to their knees in a matter of hours. This ransomware attack exploited a vulnerability in Microsoft’s SMB protocol, using an exploit known as EternalBlue, which had reportedly been developed by the National Security Agency and subsequently leaked. Once deployed, WannaCry spread like wildfire across networks, encrypting user data and demanding payment in Bitcoin for decryption keys. Hospitals, businesses, transportation systems, and even critical infrastructure fell victim. In the United Kingdom, the National Health Service was crippled, surgeries were canceled, and emergency services were delayed. The attack’s sheer speed and reach underscored the dangers of unpatched systems and highlighted the growing menace of ransomware as a business model for cybercriminals. While a kill switch was accidentally discovered by a security researcher, halting its spread, WannaCry remains a chilling reminder of the fragility of digital systems when confronted with weaponized ransomware.</p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3>NotPetya : The False Disguise of Ransomware</h3>
+						<p>Just a month after WannaCry, in June 2017, the world witnessed an attack of even greater devastation, known as NotPetya. At first glance, it appeared to be ransomware, encrypting files and demanding payment. Yet closer inspection revealed that it was not designed for financial gain but for pure destruction. Originating from a corrupted update mechanism of a Ukrainian accounting software widely used for tax purposes, NotPetya spread rapidly through supply chains and international networks. Its impact was catastrophic. Major corporations such as Maersk, Merck, and FedEx suffered billions of dollars in damages. Entire shipping operations were halted, pharmaceutical research was disrupted, and global logistics chains collapsed temporarily. Unlike typical ransomware, the encryption keys were irretrievable, meaning data loss was permanent. This campaign, widely attributed to state actors, was a blunt demonstration of cyber sabotage at a global scale, blurring the line between criminal activity and acts of war.</p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3>SolarWinds : The Supply Chain Compromise</h3>
+						<p>The SolarWinds attack, uncovered in December 2020, revealed the vulnerability of even the most trusted digital supply chains. Hackers, believed to be affiliated with a nation-state, infiltrated the software build process of SolarWinds’ Orion platform, embedding a malicious backdoor into legitimate software updates. When these updates were distributed to clients, the attackers gained access to a vast array of sensitive networks, including those of U.S. government agencies and Fortune 500 companies. Unlike the blunt-force destruction of NotPetya, SolarWinds was a masterclass in stealth and persistence. The attackers remained undetected for months, exfiltrating valuable intelligence and mapping critical systems. The sophistication of the operation lay not only in its technical execution but also in its patience and strategic intent. It revealed that adversaries no longer needed to break down the front door when they could simply slip inside through trusted channels. The SolarWinds breach redefined the importance of supply chain security, emphasizing that every digital link, no matter how trusted, can be exploited.</p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3>Colonial Pipeline : The Critical Infrastructure Wake-Up Call</h3>
+						<p>In May 2021, the Colonial Pipeline ransomware attack struck at the heart of U.S. critical infrastructure. A criminal group known as DarkSide infiltrated the pipeline operator’s systems, forcing the shutdown of one of the largest fuel distribution networks in the country. Panic buying ensued, fuel shortages rippled across multiple states, and national security concerns were raised. While the attackers initially sought financial gain through ransom, the incident revealed the fragility of essential services in the face of cyber disruption. Unlike prior attacks that targeted data or software systems, this case highlighted how digital intrusions could paralyze real-world supply and infrastructure. The Colonial Pipeline event became a pivotal moment in public awareness, sparking government initiatives to strengthen critical infrastructure security and elevating cybersecurity to a matter of everyday concern for citizens.</p>
+					</div>
+				</div><br>
+				<h3>Lessons from the Dreaded Attacks Above</h3><hr><br>
+				<p>Taken together, these attacks reveal the diverse motivations and capabilities of modern adversaries. Stuxnet showed that cyber weapons could rival traditional military power, causing physical damage through invisible code. WannaCry exposed the dangers of criminal ransomware spreading uncontrolled across the globe. NotPetya demonstrated the destructive power of masquerading malware designed solely to cripple. SolarWinds highlighted the stealth and patience of state-sponsored espionage through supply chain compromise. Colonial Pipeline brought the reality of cyber vulnerability into the daily lives of ordinary citizens, showing that even the flow of fuel can be interrupted by malicious code.<br>The common thread across these events is the escalating sophistication of cyberattacks, the blending of criminal and state interests, and the direct consequences they have on global security, economics, and daily life. As technology advances, the potential for even more devastating cyber incidents grows, demanding constant vigilance, innovation in defense, and recognition that cybersecurity is no longer an abstract concept but a frontline in protecting modern civilization.</p>
+				
+															
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Name -->
+<section id="principles">
+	<div class="container">
+		<div class="section-header">
+			<h2>Principles of <span class="accent">Cybersecurity</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content" style="font-size:18px;">
+			<div class="text-primary">
+				<p>At the core of cybersecurity lies a set of guiding principles that provide structure and direction. The most widely recognized framework is the CIA triad, which stands for confidentiality, integrity, and availability. These three principles define the goals of every cybersecurity measure.</p>
+				<p>Confidentiality refers to the assurance that information is accessible only to those authorized to view it. The principle of confidentiality is achieved through methods such as encryption, authentication, and access control, and its violation results in the exposure of sensitive data to adversaries. Integrity concerns the accuracy and reliability of information. It ensures that data remains unaltered except through legitimate and authorized means. Integrity is preserved through mechanisms such as checksums, hashing, and controlled updates. Availability emphasizes that systems and information must be accessible when required. A system that is secure but unavailable fails its purpose. Availability is safeguarded through redundancy, failover systems, and resilience against denial-of-service attacks.</p>
+				<p>While the CIA triad forms the foundation, modern cybersecurity has expanded to include other principles. Authentication, authorization, and accounting, often referred to collectively as AAA, provide mechanisms for verifying identity, assigning privileges, and tracking actions. Non-repudiation ensures that entities cannot deny their activities, often achieved through digital signatures. Defense in depth emphasizes layered protection, recognizing that no single control is sufficient. These principles together provide the conceptual framework for analyzing, designing, and implementing security solutions.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Nature of Attacks-->
+<section id="natureofattacks">
+	<div class="container">
+		<div class="section-header">
+			<h2>Nature of <span class="accent">Threats and Attackers</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content" style="font-size:18px;">
+			<div class="text-primary">
+				<p>Threats to cybersecurity are diverse and dynamic, ranging from simple to highly sophisticated. Malware, in its many forms—viruses, worms, trojans, spyware, and ransomware—remains a central tool for attackers. Social engineering, particularly phishing, exploits human psychology rather than technical flaws, tricking individuals into revealing credentials or executing malicious actions. Denial of service attacks disrupt systems by overwhelming them with traffic, while man-in-the-middle attacks intercept communications to manipulate or steal data. Insider threats, whether intentional or negligent, remind us that the greatest risks may originate from within trusted boundaries.</p>
+				<p>Just as threats vary, so too do attackers. The landscape includes novices who use pre-packaged tools with little understanding, often called script kiddies, as well as hacktivists who attack organizations or governments in the name of ideology. Cybercriminals operate for profit, running transnational enterprises that rival legitimate industries in scale. Insiders exploit their privileged access for personal gain or in response to grievances. The most sophisticated attackers are nation-state actors, equipped with immense resources and strategic objectives, conducting espionage, sabotage, and even cyberwarfare. The diversity of threats and adversaries ensures that cybersecurity must constantly evolve in response.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- APT -->
+<section id="philosophy">
+    <div class="container">
+        <div class="philosophy-content">
+	        <div class="philosophy-quote">
+                <blockquote>
+                <b> Advanced Persistent Threats</b> : Nowhere to Hide???
+                </blockquote>
+            </div>
+            <div class="philosophy-details">
+                <p>Among the most formidable challenges in modern cybersecurity are advanced persistent threats, often abbreviated as APTs. Unlike opportunistic attacks, which strike indiscriminately, APTs are deliberate, sustained campaigns directed at specific high-value targets. They are characterized by their sophistication, their persistence, and their strategic intent.</p>
+				<p>The life cycle of an APT typically begins with reconnaissance, during which attackers gather intelligence about their target. This is followed by the initial compromise, often through phishing or exploiting vulnerabilities. Once access is gained, the attackers establish persistence, ensuring that they can return even if detected. They then escalate privileges and move laterally across the network, seeking out valuable assets. Finally, they exfiltrate data or sabotage systems, often over extended periods, while maintaining stealth and control.</p>
+				<p>Stuxnet remains the most famous example of an APT, disrupting industrial systems with surgical precision. Other APT groups, such as Fancy Bear and Cozy Bear, are linked to state-sponsored espionage, conducting campaigns against governments, corporations, and international institutions. The existence of APTs demonstrates that cybersecurity is no longer limited to personal devices or isolated organizations. It has become a theater of long-term strategic conflict among nations and powerful groups.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Current and Emerging Trends -->
+<section id="currenttrends">
+	<div class="container">
+		<div class="section-header">
+			<h2>Current and<span class="accent"> Emerging Trends</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content" style="font-size:18px;">
+			<div class="text-primary">
+				<h3>Advancements in Technology</h3><hr><br>
+				<p>Cybersecurity does not stand still. As technology advances, so too do the opportunities for both attackers and defenders. One of the most significant developments is the use of artificial intelligence and machine learning, which enable defenders to detect anomalies in real time while also allowing attackers to create adaptive and evasive malware. Cloud computing has introduced new challenges as organizations migrate to shared infrastructure, requiring new approaches to trust and responsibility. The principle of zero trust, which assumes no implicit trust in any user or device, has emerged as a powerful model for securing complex systems.</p>
+				<h3>Internet of Things and Cybersec</h3><hr><br>
+				<p>The rise of the Internet of Things has exponentially expanded the attack surface, as billions of devices, from household appliances to industrial sensors, connect to global networks. Ransomware has evolved into a professionalized economy, with ransomware-as-a-service allowing criminals with little technical skill to rent sophisticated attack tools. The looming threat of quantum computing has sparked research into post-quantum cryptography, recognizing that current encryption systems may one day be broken. Finally, cybersecurity has become inseparable from geopolitics, as cyberattacks are now widely recognized as instruments of statecraft and conflict.</p>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3>The Contemporary Landscape</h3>
+						<p>Today, cybersecurity is no longer confined to the realm of computer science. It has become a subject woven into the fabric of governance, commerce, and culture. The threats we face are diverse and unrelenting. Ransomware cripples hospitals and municipalities, demanding payment for the restoration of critical services. Phishing campaigns exploit human psychology, bypassing technical defenses by deceiving the very people those defenses are meant to protect. Botnets, composed of millions of compromised devices, can flood networks with overwhelming traffic, silencing voices and halting commerce. Meanwhile, supply chain compromises, like those seen in the SolarWinds attack, demonstrate that even trusted partners can become conduits of intrusion.</p>
+					</div>
+				</div><br>						
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">						
+						<h3>The Defenders</h3>
+						<p>The defenders, too, are evolving. Artificial intelligence and machine learning are being harnessed to detect anomalies in real time, identifying subtle patterns of malicious activity before they blossom into catastrophe. Cloud computing has introduced new paradigms of defense, even as it complicates the boundaries of trust. Concepts like Zero Trust architecture challenge the assumption that any system or user is inherently safe, demanding continuous verification at every step. Nations are building cyber commands alongside their armies and air forces, acknowledging that future conflicts will be fought not only on land, sea, and air but also in the invisible realm of code.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- projects section -->
+<section id="projects" style="display:none;"></section>
+<!-- contact section -->
+<section id="contact" style="display:none;"></section>
+<section id="skills">
+<div class="container">
+	<div class="section-header">
+		<h2>External<span class="accent"> Links</span></h2>
+		<div class="section-line"></div>
+	</div>
+	<div class="skills-content">
+<!-- Systems & Platforms - Scrolls Left -->
+                <div class="skills-category">
+                    <h3>Click the inline text to visit...</h3>
+                    <div class="skills-slider" data-direction="left">
+                        <div class="skills-track">
+                            <!-- First set -->
+                            <div class="skill-card">
+                   				<span><a href="https://www.w3schools.com/cybersecurity/?utm_source=chatgpt.com">W3 Schools Cybersec <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://www.techtarget.com/whatis/definition/Confidentiality-integrity-and-availability-CIA?utm_source=chatgpt.com">CIA Triad - TechTarget <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://securityscorecard.com/blog/what-is-the-cia-triad/?utm_source=chatgpt.com">CIA Triad - Security Scorecard <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://academy.hackthebox.com/?utm_source=chatgpt.com">HTB Cybersec Course<i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://en.wikipedia.org/wiki/Stuxnet?utm_source=chatgpt.com">Stuxnet Wiki <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>                  
+                            <!-- second set -->
+                            <div class="skill-card">
+                   				<span><a href="https://www.w3schools.com/cybersecurity/?utm_source=chatgpt.com">W3 Schools Cybersec <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://www.techtarget.com/whatis/definition/Confidentiality-integrity-and-availability-CIA?utm_source=chatgpt.com">CIA Triad - TechTarget <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://securityscorecard.com/blog/what-is-the-cia-triad/?utm_source=chatgpt.com">CIA Triad - Security Scorecard <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://academy.hackthebox.com/?utm_source=chatgpt.com">HTB Cybersec Course<i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://en.wikipedia.org/wiki/Stuxnet?utm_source=chatgpt.com">Stuxnet Wiki <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>                  
+                            <!-- Final set -->
+                            <div class="skill-card">
+                   				<span><a href="https://www.w3schools.com/cybersecurity/?utm_source=chatgpt.com">W3 Schools Cybersec <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://www.techtarget.com/whatis/definition/Confidentiality-integrity-and-availability-CIA?utm_source=chatgpt.com">CIA Triad - TechTarget <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://securityscorecard.com/blog/what-is-the-cia-triad/?utm_source=chatgpt.com">CIA Triad - Security Scorecard <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://academy.hackthebox.com/?utm_source=chatgpt.com">HTB Cybersec Course<i class="fas fa-external-link-alt"></i></a></span>
+                            </div>
+                            <div class="skill-card">
+                   				<span><a href="https://en.wikipedia.org/wiki/Stuxnet?utm_source=chatgpt.com">Stuxnet Wiki <i class="fas fa-external-link-alt"></i></a></span>
+                            </div>            
+                                                                                                                                                                                               
+                        </div>
+                    </div>
+                </div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

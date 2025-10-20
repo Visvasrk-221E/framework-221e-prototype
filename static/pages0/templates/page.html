@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ page.meta.title }}{% endblock %}
+{% block content %}
+
+<article class="idea-page">
+  <h1>{{ page.meta.title }}</h1>
+  <p class="meta">
+    <span>👤 {{ page.meta.author }}</span> •
+    <span>📅 {{ page.meta.date }}</span>
+  </p>
+
+  <div class="content">{{ page.html|safe }}</div>
+</article>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}My Ideas{% endblock %}
+{% block content %}
+
+<section class="ideas-list">
+  {% for post in posts %}
+  <article class="idea-card">
+    <h2><a href="{{ url_for('idea_page', path=post.path) }}">{{ post.meta.title }}</a></h2>
+    <p class="meta">
+      <span>👤 {{ post.meta.author }}</span> •
+      <span>📅 {{ post.meta.date }}</span>
+    </p>
+    <p class="summary">{{ post.meta.summary }}</p>
+    <a href="{{ url_for('idea_page', path=post.path) }}" class="btn">Read More →</a>
+  </article>
+  {% endfor %}
+</section>
+
+{% endblock %}

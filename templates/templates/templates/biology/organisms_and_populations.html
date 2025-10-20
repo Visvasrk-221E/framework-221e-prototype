@@ -1,0 +1,563 @@
+{% extends "base.html" %}
+{% block title %}Organisms and Populations{% endblock %}
+{% block content %}
+<!-- hero section -->
+<style>
+td, th {
+	border:1px solid white;
+	border-collapse:collapse;
+	padding:2px;
+	text-align:center;
+}
+</style>
+<section id="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="text-primary">Organisms and Populations</h1>
+            <div class="typewriter" style="display:none;">
+                <span id="typewriter-text"></span>
+                <span class="cursor-blink">|</span>
+	        </div>
+            <p class="hero-description">Ecology is the branch of science with deals with the relations among organisms and their physical environment and their biological surroundings.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('biology') }}#projects" class="btn primary">Explore Topics</a>
+            </div>
+        </div>
+	</div>
+	<div class="scroll-indicator">
+    	<div class="mouse">
+        	<div class="wheel"></div>
+        </div>
+        <div class="arrow">
+	        <span></span>
+    	    <span></span>
+        </div>
+    </div>
+</section>
+            
+<!-- about section : Introduction part --> 
+<section id="about">
+	<div class="container">
+		<div class="section-header">
+			<h2> Introductio<span class="accent">n</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3> Ecology</h3>
+				<hr><br>
+				<p>Ecology is the branch of science which deals with the relationships among different organisms and thier populations, their physical environment and biological surroundings.</p>
+				<p><b>[1] Levels in which ecology is focused : </b>
+				<br>Ecology mainly focuses on the four levels.
+				<ul style="padding-left:40px;">
+					<li>Organisms</li>
+					<li>Populations</li>
+					<li>Communities</li>
+					<li>Biomes</li>
+				</ul>
+				<br>
+				<b>[2] Habitat : </b><br>
+				The place where an organism live and interact with it's environment is called its habitat.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="biotechprinciples">
+	<div class="container">
+		<div class="section-header">
+			<h2>Organisms<span class="accent"> Debrief</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>What is an organism?</h3>
+				<hr><br>
+				<p>
+					<ul style="padding-left:40px;">
+						<li>Every Individual of a species is called as an organism</li>
+						<li>Organisms which naturally interbreed among themselves and produce a fertile offspring constitues a <b>population</b></li>
+						<li>At organim level, ecology is termed as physiological ecology where it deals with the adaptations observed in differenc organisms.</li>
+						<li>Adaptations are necessary for a population of organisms to survive and reproduce within their own habitats.</li>
+					</ul>
+				</p>
+				<h3>What is a population?</h3>
+				<hr><br>
+				<p>
+					<ul style="padding-left:40px;">
+						<li>Individuals of the same species in a given specific location and specific time constitue a population.</li>
+						<li>The individuals of the population are always subjected to the competition for basic needs such as food, water and shelter. Such a competition is known as <b>Intraspecific Competition</b></li>
+					</ul>
+				</p>
+				<h3>What is a community?</h3>
+				<hr><br>
+				<p>
+					<ul style="padding-left:40px;">
+						<li>A biological community is constituted by an <b>assemblage of populations of different species</b> that live in an area and interact among themselves.</li>
+						<li>A biotic community of any area has a peculiar species composition and structure.</li>
+					</ul>
+				</p>
+				<h3>What are biomes?</h3>
+				<hr><br>
+				<p>
+				A biome is a large unit, constituting of major vegetation type and associated with different flora and fauna in that specific climate zone.<br>
+				Major biomes of India includes:
+					<ul style="padding-left:40px;">
+						<li>Tropical forests</li>
+						<li>Decidious forests</li>
+						<li>Sea coasts</li>
+						<li>Deserts, etc</li>
+					</ul>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="population">
+	<div class="container">
+		<div class="section-header">
+			<h2><span class="accent"> Populations</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Population Attributes</h3>
+				<hr><br>
+				<p>
+					<b>Population ecology</b> is the link between the population, genetics and evolution.<br>
+					<b>Natural Selection</b> is a process for the survival of the fittest and it is established in population level, ie in each population.<br>
+					A population always has certain attributes (characteristics that are not found in individual organisms such as..)
+					<ul style="padding-left:40px;">
+						<li>Birth Rate(Natality)</li>
+						<li>Death Rate(Mortality)</li>
+						<li>Sex Ratio</li>
+						<li>Population Density</li>
+						<li>Population Pyramid, etc.</li>
+					</ul>
+				</p>
+				<h3> Population </h3>
+				<hr><br>
+				<p>
+					A population is composed of individuals that belong different age group and same species at a specific time.<br>
+					<b>The three ecological age groups are :</b>
+					<ul style="padding-left:40px;">
+						<li>Pre-reproductive age group : Those groups that has not yet achived the reproductive capability. They are often placed in the base of a population pyramid.</li>
+						<li>Reproductive age group : These are the members of population which has the ability to readily reproduce and give a healthy offspring. They come next to the pre-rep group</li>
+						<li>Post reproductive age group : These are members how have lost the capacity to reproduce and are on the top of the population pyramid.</li>
+					</ul>
+					<br>
+					If the age distribution, ie the number of individuals in the different age groups are plotted, it results in an age pyramid.<br>
+					The structure of age pyramid shows whether the population is declining, growing or stable.
+				</p>
+				<h3> Population Growth</h3>
+				<hr><br>
+				<p>
+				<b>[1] Size of Population :</b>
+				The size of any population depends on many factors and is never the same. It keeps on changing with respect to time.
+				The factors which affect the population are :
+				<ul style="padding-left:40px;">
+					<li>Food avaliablity</li>
+					<li>Predation Pressure</li>
+					<li>Weather</li>
+					<li>Competition among individuals</li>
+				</ul><br>
+				<b>[2] Population Density :</b>
+				The change in population density of a population in a given habitat during a given time interval is due to the four basic factors or processes :
+				<ul style="padding-left:40px;">
+					<li><b>Natality</b><br>Refers to the number of births during a given period in a population that are added to the initial density.</li>
+					<li><b>Mortality</b><br>It is the number of deaths in the population during a given period.</li>
+					<li><b>Immigration</b><br>It is the number of individuals of the same species that have come into the habitat from elsewhere during the time period under consideration.</li>
+					<li><b>Emmigration</b><br>It is the number of individuals of the population whho left the habitat and gone elsewhere during the time period under consideration.</li>
+				</ul>
+				Natality and immigration always contribute to the increase in the population density, wheras the factors Mortallity and Emmigraton decreases the population density.<br><br>
+				<b>[3] Equation for the population growth</b><br>
+				<code style="text-align:center;">
+					N(t+1) = N(t) + [(B + I) - (D + E)]	
+				</code></p><br><hr><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3 style="display:none;"></h3>
+						<h3> Some Basic Definitions </h3>
+						<p><b>Population</b><br>The organisms belonging to the same species which naturally interbreed among themselves to produce a fertile offspring, and located in a specific region in a given time constitues a population.<br><br><b>Population Density</b></br>The number of individuals which belong to same species that occupy per unit area in a given time is called as population density, often expressed in terms of sq.metre or sq.km<br><br><b>Birth Rate</b><br> The per capita births in a population per unit time is known as birth rate. It tells us how fast new individuals are added to the new population. It is expressed as the ratio of increase in population to the initial population. Say there are 20 lotus in a pond initially and the increase in population is 8 per week, then the birth rate is 8/20 = 0.4 per week.<br><br><b>Death Rate</b><br>The per capita number of deaths in a population per unit time is defined as Mortality or death rate. It quantifies the loss of individuals due to death. Say there was initially about 40 bees in a lab. Due to some env conditions, 4 of them died of starvation in one week, then the death rate can be defined as the ratio of loss to the initial population in a given time interval(note, not 40-4 = 36, which is population after the loss), ie 4/40 = 0.1 per week.<br><br><b>Sex Ratio</b><br>It is defined as the proportion of males and females in a population; in human demograpy it is always expressed in terms of number of females per 1000 males. It influences reproductive potential and growth because mating dynamics depend on the availability of both sexes.<br><br><b>Population Pyramid/Age Pyramid</b><br>Graphical representation of a population's age structure (pre-reproductive, rep, post), often plotted seperately for males and females, sometimes combined with sex ratio. Its shape(pyramidal/expanding, bell/stationary, urn/declining) indicates whether the population is growing, stable or shrinking.<br><br><b>Predation Pressure</b><br> The intensity of predation acting on a prey population, ie the mortailty risk imposed by predators over time and space is called as predation pressure. Higher predation pressure reduces prey abundance and can drive behavioural, morphological and life-history adaptations, influencing community stability.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="growth-models">
+	<div class="container">
+		<div class="section-header">
+			<h2>Population Growth<span class="accent">Models</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content" style="font-size:18px;">
+			<div class="text-primary">
+				<h3>What are population growth models?</h3><hr><br>
+				<p>Human beings have been concerned about the unbridled human population growth and problems created by it in our country and it is therfore natural for us to be <b>curious</b> if different animal populations in natre behave the same way or show some restraints on growth. Perhaps, we can learn a lesson or two from nature on how to control population growth.<br><br>Hence forth, it is necessary for us to develop a coherent mathematical model which can input data as population attributes and show output on how it is likely to change in the near future.<br><br> Such models to make observation on population, predict the forthcomming population and any history of records are called as population growth models.</p>
+				<h3>Two types of population growth models.</h3><hr><br>
+				<p><ul style="padding-left:40px;"><li>Exponential Growth model wich is on the basis that ther is unlimitted food and resource in the habitat and there is <b>zero intra or interspecific competition</b>, ie, the organisms do not starve each other to death by competition.</li><li>Logistic growth model, which is based on the principle that there are only limitted resources and operates till a carrying capacity, the maximum population that the habitat can withstand, ie it is a environmental constraint specific to the habitat.</li></ul></p><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3 style="display:none;"></h3>
+						<h3>[A] Exponential Growth Model</h3>
+						<p><ul style="padding-left:10px;"><li>This growth model follows an exponential rate of growth, gemometric fashion.</li><li>The rate of change of the population density is proportional to the initial population and the intrinsic rate of natural increase.</li><li>The intrinsic rate of natural increase is an important parameter to access the impacts of biotic or abiotic factors on the growth of population. It is expressed as r (r = b - d), ie it is the difference between the natality and mortality rates.</li><li>Wen a popoulation shows exponential growth, the curve plotted with N with respect to time t assumes <b>J shaped</b> pattern.</li></ul></p>
+					</div>
+				</div><br>
+				<h4 class="text-secondary">[1] Equations for EGM </h4>
+				<p><ul style="padding-left:40px;"><li>N(t) = N<sub>0</sub>e<sup>rt</sup> : This equation provides the population density for a given time t. </li><li>N<sub>0</sub> : It is the initial population density at time t = 0.</li><li>r : Intrinsic rate of natural increase.</li><li>e : euler's base of natural logarithm(2.7181...)</li></ul><p>
+				<h4 class="text-secondary">[2] Dependencies with the r value </h4>
+				<div class="table-responsive">
+				<table style="border:1px solid white;padding:5px;font-size:20px;overflow-wrap:break-text;border-collapse:collapse;">
+				<thead class="table-dark">
+					<tr>
+						<th>Parameter Value</th>
+						<th>Meaning of Growth</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> r>0 </td>
+						<td>Population grows rapidly</td>
+					</tr>
+					<tr>
+						<td> r = 0 </td>
+						<td>Population is stationary, ie no growth</td>
+					</tr>
+					<tr>
+						<td> r<0 </td>
+						<td>Population decays rapidly, exponential decay</td>
+					</tr>
+				</tbody>
+				</table>
+				</div><br>
+				<h4 class="text-secondary">[3] Graphical Review</h4>
+				<p>Shape of Curve : J Shaped<br>Initial Phase : Lag Phase, slow and steady<br>Second Phase : Exponential Phase, blazing fast growth.</p>				
+				<h4 class="text-secondary">[4] Real Life Example</h4>
+				<p>Bacteria, under lab conditions if perfect nutrition medium is provide, exhibits exponential growth for the initial amount of time. Binary fission causes the population to double every 20 minutes in case of E.coli. This happens untill intraspecific competition occurs.</p>
+				<h4 class="text-secondary">[5] Assumptions in this Model</h4>
+				<p><ul style="padding-left:40px;"><li>Unlimitted Resources(ideal)</li><li>No disease, predators, or space limitation occurs</li><li>Constant environment, no changes in the habitat</li><li>Instantaneous reproductoin.</li><li>It is a clean room stimulation perfect for theory, but rarely happens in real world for long time.</li></ul></p>
+				<h4 class="text-secondary">[6] Limitations </h4>
+				<p><ul style="padding-left:40px;"><li>Ignores K, predicts infinite growth</li><li>Ignores death by competition, unrealistic over long periods.</li><li>No resource depletion, not applicable to ecosystmes in long term.</li></ul></p>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3 style="display:non;"></h3>
+						<h3>[B] Pearl-Verhulst Logistic Growth Model</h3>
+						<p><ul style="padding-left:10px;"><li>Organisms(humans, animals, bactierias, etc) can not be growing forever. Resources like food, space, water, will run out.</li><li>So, unlike exponential growth, which assumes unlimitted everything, the logistic growth model shows how growth slows down as the population gets closer to a limit known as carrying capacity(K).</li><li>A population growing in a habitat with limitted resources shows initially a lag phase, followed by phases of accleration and finally and asymptote, when the population density reaches the carrying capacity.</li></ul></p>
+					</div>
+				</div><br>
+				<h4 class="text-secondary">[1] Equations</h4>
+				<p><ul style="padding-left:40px;"><li>dN/dt = N<sub>0</sub>r(1 - N<sub>0</sub>/K)</li><li>Where r is the intrinsic rate of natural increase</li><li>N = popoulation or population density at a given time</li><li>K is the carrying capacity, the maximum the environment can support.</li></ul></p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="lifehistoryvariations">
+	<div class="container">
+		<div class="section-header">
+			<h2>Life History<span class="accent"> Variations</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Reason for evolution</h3><hr><br>
+				<p>Populations evolve to maximise thier reproductive fitness, also called as <b>Darwinian fitness</b>. Species with darwinian fitness always has high r value, in the habitat in which they live. Under a particular set of selection pressures, organisms evolve towards the <b>most effective reproductive stage</b></p>
+				<h3>Breeding Strategies</h3><hr><br>
+				<p>Some organisms breed only once in thier lifetime(most birds and mammals), some produce a large number of small sided offspring(Oysters, pelagic fishes) while others produce a small number of large sized offspring(birds, mammals). So the optimise towards how to maximise thier reproductive fitness.</p>
+				<h3>Evolutionary Relationships</h3><hr><br>
+				<p>Some ecologists suggest that life history traits of organisms have evolved in relation to the constraints imposed by the abiotic and biotic components of the habitat in which they live in. Evolution of life history traits in different species is currently <b>important area of research being conduced by ecologists.</b></p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="populationinteractions">
+	<div class="container">
+		<div class="section-header">
+			<h2>Population<span class="accent"> Interactions</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Introduction</h3><hr><br>
+				<p><ul style="padding-left:20px;"><li>Living populations/ organisms can not live in siolation and they do interact in various ways to form biological communities.</li><li>Interspecific interactions are interactinos between individuals or poopulations of two <b> differenct species</b>.</li><li>Some may be beneficial to both the interacting organisms.(<b>Mutualism</b>)</li><li>Benificial to only one organsism and harmful to the other.(<b>Parasitism and predation</b>)</li><li>Benificial to one and neutral to another(<b> commensalism</b> )</li><li>Harmful to one and neutral to the other species(<b> Ammensalism</b>)</li><li>Or, sometimes harmful to both the interacting species(<b> competition </b>)</li></ul></p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="mutualism">
+	<div class="container">
+		<div class="section-header">
+			<h2><span class="accent">Mutualism</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Introduction to Mutualism</h3>
+				<p>It is an interspecific relation in which both the interacting species are benifitted. The following are examples of the mutualism</p>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3> Lichens</h3>
+						<p><ul style="padding-left:10px;"><li>Lichens are the best example for intimate mutualistic relationship between a fungus and an alga or a cyanobacteria.</li><li>Here the fungal component(mycobiont) helps in the absorbtion of nutrients and provides protection.</li><li>While the alga or cyanobacteria prepares the food for the system, symbiotic association(pycobiont component).</li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%">
+					<div class="project-content">
+						<h3> Mycorrhizae </h3>
+						<p><ul style="padding-left:10px;"><li>Mycorrhizae are mutualistic relationship between a fungi and roots of the plants.</li><li>In this, the fungus helps the plants in absorbtion of essential nutrients while the plants pfovides food for the fungus.</li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%">
+					<div class="project-content">
+						<h3> Plants and Pollinators</h3>
+						<p><ul style="padding-left:10px;"><li>The plants and pollinators are also a good example of mutualism in action for a long period of days.</li><li>Plants depend on insects for the pollination, the pollinators are rewarded in form of nector or edible pollen or <b>site for oviposition</b></li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%">
+					<div class="project-content">
+						<h3> Sexual deciet by Mediterranean orchid (Orphyrus)</h3>
+						<p><ul style="padding-left:10px;"><li>The mediterranena orchid orphyrus eomploys sexual deciet for pollinating its flowers</li><li>In this the orchid's flowers are <b>zygomorphic</b> where on petal of the flower ressembles the female bee species in size, colour and markings.</li><li>The male bee <b>pseudocopulates</b> with the floral petal perceiving it as a feemale bee.</li><li>During this process, the pollen grains are dusted on the body of the male bee</li><li>When the same male bee is attracted by another flower of this species, it repeates the process and the pollen grains are transferred to the  flower's stigma and ultimately pollination is achieved.</ul></p>
+					</div>
+				</div><br>
+				<h3> Case of Coevolution : Wasp</h3><hr><br>
+				<p>Plant animal interactons often involve co evolution of the mutualists, that is, the evolutions of the flower and its pollinator species are tightly linked with one another.  In many species of the fig trees, there is a tight <b>one to one</b> relationship between the fig species and the pollinator species of the wasp. It means that a given fig species can be pollinated by only it's partner wasp species and no other species. The female wasp uses the fruit not only as an <b> ovi positioning centre</b> but also uses the developing seeds as the nourishment for its larvae.</p>
+				<h3> Case Study : Is Sexual Deceit a 'real mutualism'?</h3><hr><br>
+				<h4>Skip this question. Ncert says that it is mutualism. (only for those who thinks out of system)</h4>
+				<p> No!. Ophrys 'sexual deceit' is not a mutualism; it is pollination by deception in which male bees are lured by female-mimicking sights and scents, but <b>receive no reward</b> such as nectar or a mating opportunity. The bee typically gains no benefit and can even incur costs like <b>wasted time and ejaculate</b> during pseudocopulation, so the interaction is exploitative rather than mutualistic. Mutualism requires benefits to both partners, but sexually deceptive orchids provide no food or mating payoff to thier pollinators, so the pollinator lacks a benefit. Given the absense of pollinator reward and the presense of deception, the relationship is <b>viewed as sensory exploitation/antagonism, not a mutualism! It is antagonistic(similar to parasitism or predation, one is harmed, another is benifits).</b></p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="predation">
+	<div class="container">
+		<div class="section-header">
+			<h2><span class="accent"> Predation</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Definition</h3><hr><br>
+				<p>Predation is an interspecific interaction where one animal (predator kills) the other animal,ie it's food (prey). In this relation, one species is benefitted, other is harmed.</p>
+				<h3>Predation as process for energy transfer</h3><hr><br>
+				<p>Predation is part of the food chain where the energy fiexed by plants is transferred to the higher trophic levels, for example the tiger eating deer, snake the frog, sparrow the insect.</p>
+				<h3>Role of predators in ecosystem</h3><hr><br>
+				<p><ol style="padding-left:40px;"><li>They act as a channel for energy transfer from lower to higher trophic leverls.</li><li>They keep the population of the preys in control, whereas otherwise, they will reach very high population density and disturb the ecosystem.</li><li>Species diversity in a community is maintained by reducing the intensity of competition among the competing prey species.</li></ol><p>
+				<h3>Predation defences and overexploitation</h3><hr><br>
+				<p>If a predator is too efficient and overexploits its prey, then the prey might become extinct and following it, the predator will also get extincet for lack of food. This is the reason why predators in nature are prudent. Prey species have evolved various defenses to lessen the impact of predation.Some of the methods are given below.</p>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3> Camouflage(cryptic coloration)</h3>
+						<p>It is observed in certain insect species and frogs to avoid detection by their predators, eg vietnamese mossy frog, the leaf mantis green chameleon camouflaged by taking colors.</p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3> Distastefulness</h3>
+						<p> Some animals are highly distasteful to thier predators, so are saved from being devoured by the predator. The monarch butterfly species accumulates a chemical compund by feeding on a poisonous weed (colotrophis) during its catepillar stage, and hence contributes towards its distastefullness.</p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3>Poison and toxin production</h3>
+						<p>Some prey are poisonous and hence are avoided by predators, eg Dart frogs, like phyllobates bicolour, dendrobates, etc.</p>
+					</div>
+				</div><br>
+				<h3>Herbivores are predators of plants</h3><hr><br>
+				<p>Phytophagus Organisms - Approximately, 25% of the known insects are phytophagous, ie they feed on the sap and other parts of plants. In order to evade from them, the plants have developed immense survival and defence mechanisms, such as following.<ul style="padding-left:40px;"><li>Thorns and spines are morphological means of defence</li><li>Plants produce certain active chemical compounds which functions, (They may make the animal turn sick, may inhibit them from feeding, many interfere with digestion, or even kill them.)</li></ul><br>Calotrophis weed produces a highly poisonous glycoside (sugar), that is a <b>cardiac poison</b>. Some compounds used by the plants for purpose of protection are used by us for production purposes ie, the secondary metabolites of plant.(eg Nicotine, opiods, strychnine, quinine, optimum, etc...</p>
+				<h3>Major examples in role of predators</h3><hr><br>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3>Prickly Pear Cactus --Australia</h3>
+						<p><ul style="padding-left:10px;"><li>When certain exotic species are introduced into a geographical ares, they become invasive and start spreading fast because the invaded land <b>does not have its natural predators</b>.</li><li>The prickly pear cacturs introduced into Australia in the early 1920's caused a havoc by spreading rapindly into millions of hectares of rangeland.</li><li>Finally, the invasive cactus was brought under control by <b> introduction of a cactus-feeding predator(a moth)</b> was introduced from its natural habitat.</li><li>Biological methods of control adopted in agricultural pest control and are based on the ability of the predator to <b>regulate its prey population</b></li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto;width:100%;">
+					<div class="project-content">
+						<h3>Pisaster Starfish --American Pacific Coast</h3>
+						<p><ul style="padding-left:10px;"><li>Predators also help in maintaining species diversity in a community, by reducing the intensity of competition among competing prey species.</li><li>In the rocky intertidal communities of the American Pacific Coast the starfish Pisaster is an important predator.</li><li>In a field experiment, when all the starfish were removed from an enclosed intertidal area, more than <b>10 species</b> of invertebrates became extinct within a year, <b>because of interspecific competition</b>.</li></ul></p>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+</section>
+<section id="commensalism">
+	<div class="container">
+		<div class="section-header">
+			<h2><span class="accent"> Commensalism</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Definition and Examples</h3><hr><br>
+				<p>Commensalism is defined as the interspecific interacton, where one species is benefitted while the other is neither harmed nor benefitted. Some common examples of commensalism are provided below...</p>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>Orchids and Mango</h3>
+						<p><ul style="padding-left:10px;"><li>Orchids grows as ephiphite on different trees like mangos or other fruit tree.</li><li>Orchids are benefitted by getting a shelter, while the tree is neither benefitted nor harmed by the action of orchids.</li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>Barnacles and Whales</h3>
+						<p><ul style="padding-left:10px;"><li>Barnacles are aquatic shells like creatures.</li><li>They grow on the whale and are benefitted to move from one location to another.</li><li>But the whale is neither benefitted, nor harmed by the action of barnacles.</li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>Cattle egrets and Cattles</h3>
+						<p><ul style="padding-left:10px;"><li>Cattle egrets always forage near to the grazing cattle, because...</li><li>While moving, the cattle animals force the insects to leave the vegetation and move out.</li><li>The egrets are benefitted by this action as they are able to spot the insects very easily, otherwise would have been very hard.</li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>Clown Fish and Sea Anemones</h3>
+						<p><ul style="padding-left:10px;"><li>The clown fish living among sea anemones get protection from thier predators, which stays away from the stinging tentacles of sea anemones.</li></ul></p>
+					</div>
+				</div>				
+				
+			</div>
+		</div>
+	</div>
+</section>
+<section id="ammensalism">
+	<div class="container">
+		<div class="section-header">
+			<h2><span class="accent">Ammensalism</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Definition and Example</h3><hr><br>
+				<p>Ammensalism can be defined as the type of interspecific interaction where one species gets harmed and the other interacting species is neither harmed nor benefitted. See the following example.</p>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>Antibiotic of Fungus vs Bacteria in Vincinity</h3>
+						<p><ul style="padding-left:10px;"><li>The antibiotic secreted by a fungus kills many other bacteria in its vincinity.</li><li>In this case, the fungus is neutral wheras the bacterial species are under harm.</li></ul></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="parasitism">
+	<div class="container">
+		<div class="section-header">
+			<h2><span class="accent"> Parasitism</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Definition and Host Specificity</h3><hr><br>
+				<p>Considering that the parasitic mode of life ensures free lodging and meals, it is not surprising that parasitism has evolved in so many taxonomic groups from plants to higher vertebrates.Many parasites have evolved to be host specific, meaning, they can parasitise only a single species of host in sucah a way that both host and the parasite tend to <b>co evolve</b>. That is, if the host evolves special mechanisms for rejecting ro resisting the parasite, then the parasite has to evolve mechanisms to counteract and neutralise them, in order to be competant with the same host species.</p><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>Evolved Adaptations</h3>
+						<p><ul style="padding-left:10px;"><li>Loss of unnecessary sense organs.</li><li>Presense of suckers hookers, adhesive organs.</li><li>Loss of digestive system</li><li>Complex and high reproductive capacity.</li><li>Compled and dual host reproduction, eg(liver fluke needs snail and a fish, malarial parasite needs anopheles and humans).</li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>Ways in which host is harmed</h3>
+						<p><ul style="padding-left:10px;"><li>Survival of the host is threatened</li><li>Growth and reproductive rates are adversly affected.</li><li>Might rendeer the host more vulnerable to predation by making it physically weak.</li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>Brood Parasitism in Birds</h3>
+						<p><ul style="padding-left:10px;"><li>It is a kind of parasitism in which the parasitic bird lays its eggs in the nest of its host and lests the host incubate them.</li><li>During the course of evolution, the eggs of the parasitic bird have evolved to resemble the host's egg in size and color to reduce the chances of the host bird detecting the alien eggs and ejecting them from the nest.</li><li>Cuckoo is the culprit here.</li></ul></p>
+					</div>
+				</div><br>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="competition">
+	<div class="container">
+		<div class="section-header">
+			<h2><span class="accent">Competition</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Darwinian Competition and Modern Views</h3><hr><br>
+				<p>When Darwin spoke of the struggle for existence and survival of the fittest, he was convinced that the interspecific competitionis a potent force in organinc evolution. It is generally believed that competition occurs when closely related species compete for the same resources that are limiting, but this is <b>not entirely true</b>.There are two modifications on the basis of competition, build on top of the Darwinian principles. They are as shown below.</p><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>Firstly..</h3>
+						<p>Totally unrelated species could also compete for the same resources. For einstance, in some shallow south american lakes, visiting flamingoes and resident fishes compete for their <b>common food, the zooplankton</b> in the lake.</p>
+						<h3>Secondly..</h3>
+						<p>Resources need not to be limitting for competition to occur, in interference competition, <b>the feeding efficiency</b> of one species might be reduced due to the interfering and inhibitory presence of the other species, even if the resources are abundant.
+					</div>
+				</div><br>
+				<h3>Definition of Competition</h3><hr><br>
+				<p>Competition is best defined as a process in which the fitness of one species(measured in terms of its r) is significantly lower in the presence of another species.There exists various evidences which showcases the occurance of competition among the organisms. Some principles are listed below</p><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3>[A] Gause Competitive Exculsion Principle</h3>
+						<p>This states that the two closely related species competing for the same resouces cannont co-exist indefinitely and the competitively inferior one will be eliminated eventually. This may be true if the resoures are limitting, but not otherwise.</p>
+						<h4>[1] Abingdon Tortoise --Galapagos Islands</h4>
+						<p>The abingdon tortoise of the galapagos islands became extinct within a decade after goats were introduced on the island, apparently due to greater-browising efficiency of the goats.</p>
+						<h4>[2] Connell's elegant field experiment : Balanus Barnacle --coasts of scott</h4>
+						<p>Connell's elegant field experiments showed that on the rocky sea coasts of scott, the larger and competitively superior barnacle Balanus dominates the intertidal coast zone, and excludes the smaller barnacle Chatamalus from that zone.</p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%">
+					<div class="project-content">
+						<h3>[B] Competitive Release</h3>
+						<p>Another evidence for the occurrence of competition in nature comes from what is called as competitive release. A species whose distribution is restricted to a small geographical area because of the presence of a competitively small geographical area because of the presence of a competitively superior species, is found to expand its distributional range dramatically when the competing species is experimentally removed.</p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%">
+					<div class="project-content">
+						<h3>[C] Resource Partitioning</h3>
+						<p>While this phenomenon opposes the gause principle, they do not rule out the occurrence of interspecific competition in nature, they point out that species facing competition might evolve mechanisms that promote co existing rather than exclusion. Once such mechanism is Resouce partitioning. One example is given below.</p>
+						<h4>[1] The Warbler Species --in a Tree</h4>
+						<p>If two species compete for the same resouce, they could avoid competition by choosing, for instance different times for feeding or different foraging patterns. Mac Arthur showed that five closely related species of warblers living on the same tree were able to avoid competion and co exist due to behavioural differences in their foraging activites.</p>
+					</div>
+				</div><br>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="generalsession">
+	<div class="container">
+		<div class="section-header">
+			<h2>General<span class="accent"> Section</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content" style="font-size:18px;">
+			<div class="text-primary">
+				<h3>Why does herbivores and plants appear to be more adversly affected by competition that carnivores?</h3>
+				<p>As per NCERT, herbivores and plants appear to be more adversely affected by competition than carnivores because herbivores depend directly on plants, which are limited and stationary resources. Plants compete intensely with each other for sunlight, nutrients, and space, and herbivores compete for this limited plant biomass as their sole food source. In contrast, carnivores often have a broader range of prey and can switch between different prey species, reducing their direct competition. Additionally, plants cannot escape herbivory and must develop various defenses, leading to stronger competitive pressures on both plants and herbivores. Thus, the limited and specialized food resources make herbivores and plants more vulnerable to adverse effects of competition compared to carnivores.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- projects section -->
+<section id="projects" style="display:none;"></section>
+<!-- skills section -->
+<section id="skills" style="display:none;"></section>
+<!-- contact section -->
+<section id="contact" style="display:none;"></section>
+<script>
+	const quotes = [
+		"The best way out is always through.",
+		"This is another quote for sake of reality",
+		"Harvard Business groups.",
+	];
+
+	function showRandomQuote() {
+		const randomIndex = Math.floor(Math.random() * quotes.length);
+		document.getElementById("quote").textContent = quotes[randomIndex];
+	}
+
+	// show one immediately
+	showRandomQuote();
+
+	// then repeat every 5 seconds
+	setInterval(showRandomQuote, 5000);
+</script>
+
+{% endblock %}

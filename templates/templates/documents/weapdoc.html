@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}WeapDoc{% endblock %}
+{% block content %}
+
+<section id="hero">
+<div class="container">
+	<div class="hero-content">
+		<h1 class="text-primary" data-text="DocHub">WeapDoc</h1>
+		<div class="typewriter" style="display:none;"> <!-- set display none for structure maintainence-->
+			<span id="typewriter-text"></span>
+			<span class="cursor-blink">|</span>
+		</div>
+		<p class="hero-description">
+		Under Construction Site
+		</p>
+		<div class="hero-buttons">
+			<a href="{{ url_for('home') }}" class="btn primary">Home</a>
+			<a href="{{ url_for('dochub') }}" class="btn secondary">DocHub</a>
+		</div>
+	</div>
+</div>
+<div class="scroll-indicator">
+    <div class="mouse">
+        <div class="wheel"></div>
+    </div>
+    <div class="arrow">
+    	<span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+</section>
+<section id="about">
+    <div class="container">
+        <div class="section-header">
+            <h2>Confirmation <span class="accent"></span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+            	<p>All these documents are legitimate to download and can be trusted to read. No illegal content is served as per my consent. Most of the documents are from unacademy and other verified sources. Click the download icon below the document to download it.</p>
+                <div class="about-quote">
+                    <blockquote>"Your choice : Free offer is available till user account feature kicks in."</blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2>Documents <span class="accent">Available</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+        {% for doc in docs %}
+            <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+                <div class="project-content">
+                {% if "[bio]" and "[Unacademy]" and ".pdf" in doc %}
+                    <h3>{{ doc| replace("[bio]", '')| replace("[Unacademy]",'') | replace(".pdf", '') | title }}</h3>
+                    <div class="project-stats">
+                        <span class="project-stat"><i class="fas fa-dna"></i> Biodoc - Unacademy Notes</span>
+                    </div>                    
+                    <div class="project-links">
+                        <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+                    </div>                    
+                {% else %}
+                	<h3>No Documents Found</h3>              	
+                {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Intentionally hidden to preserve the javascript functionality and content-->
+
+<section id="projects" style="display:none;"></section>
+<section id="skills" style="display:none;"></section>
+<section id="contact" style="display:none;"></section>
+{% endblock %}

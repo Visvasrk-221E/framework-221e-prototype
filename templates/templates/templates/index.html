@@ -1,0 +1,499 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+        <!-- hero section -->
+        <section id="hero">
+        <img id="headerbg" src="{{ url_for('static', filename='img/header-bg-dark.png') }}" style="position:absolute; z-index:-1;">                    
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="text-primary" data-text="Framework-221E">Framework-221E</h1>
+                    <div class="typewriter">
+                        <span id="typewriter-text" style="color:red;"></span>
+                        <span class="cursor-blink">|</span>
+                    </div>
+                    <p class="hero-description">Welcome to the world! This is a place where reality is manufactured for the sake of social good.</p>
+                    <div class="hero-buttons">
+                        <a href="{{ url_for('courses') }}" class="btn primary">Courses Page</a>
+                        <a href="{{ url_for('dochub') }}" class="btn secondary">DocHub</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="terminal-button close"></span>
+                                <span class="terminal-button minimize"></span>
+                                <span class="terminal-button maximize"></span>
+                            </div>
+                            <div class="terminal-title">system status</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="line"><span class="prompt">shellcode:~$</span><span class="command">sudo server status</span></div>
+                            <div class="ascii-art">
+[ Node : Framework-221E ]
+[ Operating System : Parrot OS ]
+[ Server Time : {{ time }} ]
+[ Integrity : ********** ]
+[ Deployment : render.com ]
+                            </div>
+                            <div class="line"><span class="prompt">shellcode:~$</span><span class="command blink"> _</span></div>
+                        </div>
+                    </div>
+                </div>          
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <div class="arrow">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+        </section>
+            
+    <!-- about section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>My <span class="accent">Info</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                    	<p> I am <strong>Visvasrk</strong>. I am an enthusiastic person, a programmer, a biology learner, and I have
+                    	 interest in a wide arena of subjects including intelligence analysis and non-ethical hacking. I have seen too
+                    	  much of environmental pollution, people destroying nature, deforestation and inhumane actions of war. I wanted 
+                    	  to have a change, and decided to make it from within. </p>
+                    	<p> With the development of artificial intelligence and lethal autonomous weapon systems, humanity has enhanced 
+                    	the power of self destruction about two folds higher. I am seeking for like minded persons who always think ahead and outside 
+                    	of the systems and has no human bound ethics. I love to live in nature, safeguard Earth, and form a community for that purpose. 
+                    	Born into the act of which is this prototype : Framework 221E.</p> 
+
+                        <div class="about-quote">
+                            <blockquote>"It is possible for us to tell that information has turned into weapon long ago, about 1980s. 
+                            It has now become virtually impossible to detect binary among reality."</blockquote>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label"><a href="{{ url_for('websites') }}"><i class="fas fa-external-link-alt"></i> Websites</a></div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-code"></i></div>
+                            <div class="stat-number" data-count="37">0</div>
+                            <div class="stat-label"><a href="{{ url_for('codes') }}"><i class="fas fa-external-link-alt"></i> My Codes</a></div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-book"></i></div>
+                            <div class="stat-number" data-count="{{ docnum }}">0</div>
+                            <div class="stat-label"><a href="{{ url_for('dochub') }}"><i class="fas fa-external-link-alt"></i> Document Hub</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<section id="philosophy">
+            <div class="container">
+                <div class="philosophy-content">
+                    <div class="philosophy-quote">
+                        <blockquote>
+                        karmaṇyevādhikāraste mā phaleṣu kadācana<br>mā karmaphalaheturbhūrmā te saṅgo’stvakarmaṇi
+                        </blockquote>
+                    </div>
+                    <div class="philosophy-details">
+                        <p>I am a follower of gita. Gita is life, gita is value and morale. I am not bound to any human ethics. Ethics are my limits. I am limitless. You have the right to perform your karma (prescribed duties), but you are not entitled to the fruits of your karma (actions). Never consider yourself the cause of the fruits of your actions, nor be attached to akarma (not doing your duty). There are three things to be considered here – Karma (Swadharma), Vikarma and Akarma: Karma (Swadharma) are those actions, whose orders are received in the form of qualities of nature. Actions done without the consent of the authority are called vikarma and akarma means not doing one’s actions. The Lord Krishna advised Arjuna not to be inactive, but to perform his duty without attachment to the fruit. One who is attached to the fruit of action is also the cause of action. Thus he is the enjoyer of the fruits of such actions.</p>
+                        <p>As far as prescribed actions are concerned, they can be of three sub-categories namely routine actions, emergency actions and desired actions. Daily actions are performed without any desire for the fruit, according to the instructions of the scriptures, while remaining in the mode of goodness. Fruitful actions are made due to bondage, so such actions are inauspicious. Every person has the right to his actions, but he should act without being attached to the fruit. Such selfless actions undoubtedly lead to the path of liberation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="framework-about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Framework <span class="accent">Info</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                    	<p>Framework 221E is an integrated intelligence platform focused on environmental, social, political, 
+                    	open-source, and military domains. It functions as a centralized hub for monitoring global dynamics, 
+                    	mapping instability, and forecasting future risks. The system operates by collecting, analyzing, and 
+                    	correlating information across multiple channels, transforming fragmented signals into coherent 
+                    	assessments.</p>
+                    	<p>In the environmental domain, it tracks resource competition, energy security, climate impacts, and 
+                    	ecological stress points that can drive instability. In the social domain, it monitors influence networks, 
+                    	demographic shifts, and unrest indicators to understand population behavior. Politically, it follows regime 
+                    	stability, policy shifts, and diplomatic alignments to assess state and non-state actors. 
+                    	Through OSINT, it extracts patterns from open chatter, news flows, digital exhaust, and information 
+                    	operations. Militarily, it evaluates force deployments, posture changes, escalation ladders, and the 
+                    	readiness of state and non-state forces.</p>
+                    	<p>The purpose of Framework 221E is not to drown operators in raw information but to deliver situational 
+                    	awareness, anticipate threats, and provide decision superiority. It is designed to help intelligence 
+                    	officers, analysts, and commanders operate with foresight, not hindsight. It is both a strategic lens 
+                    	for the long view and a tactical compass for the immediate fight.</p>
+                        <div class="about-quote">
+                            <blockquote>"In the noise, we find the pattern. In the pattern, we shape the outcome."</blockquote>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+                            <div class="stat-number" data-count="{{ subject_count }}">0</div>
+                            <div class="stat-label">Subjects and Domains</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="stat-number" data-count="0">0</div>
+                            <div class="stat-label">Courses</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-lock"></i></div>
+                            <div class="stat-number" data-count="0">0</div>
+                            <div class="stat-label">Secrets</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- courses section -->
+    <section id="skills">
+    <div class="container">
+    	<div class="section-header">
+    		<h2>Courses <span class="accent">Avaliable</span></h2>
+    		<div class="section-line"></div>
+    	</div>
+		<div class="skills-content">
+<!-- Systems & Platforms - Scrolls Left -->
+                    <div class="skills-category">
+                        <h3>Will Arrive Soon!</h3>
+                        <div class="skills-slider" data-direction="left">
+                            <div class="skills-track">
+                                <!-- First set -->
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                                        alt="Linux">
+                                    <span>Linux</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/archlinux/archlinux-original.svg"
+                                        alt="Arch Linux">
+                                    <span>Arch Linux</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rockylinux/rockylinux-original.svg"
+                                        alt="Rocky Linux">
+                                    <span>Rocky Linux</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg"
+                                        alt="Raspberry Pi">
+                                    <span>Raspberry Pi</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+                                        alt="Redis">
+                                    <span>Redis</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                        alt="Docker">
+                                    <span>Docker</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg"
+                                        alt="Nginx">
+                                    <span>Nginx</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg"
+                                        alt="Apache">
+                                    <span>Apache</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/1024px-Dell_Logo.svg.png"
+                                        alt="Dell PowerEdge">
+                                    <span>PowerEdge</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Ubiquiti_Logo_2023.svg"
+                                        alt="Ubiquiti">
+                                    <span>Ubiquiti</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://developer.android.com/static/images/brand/android-head_3D.svg"
+                                        alt="Android">
+                                    <span>Android</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://www.espressif.com/sites/all/themes/espressif/images/logo-guidelines/primary-vertical-logo.png"
+                                        alt="ESP32">
+                                    <span>ESP32</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/120px-UbuntuCoF.svg.png"
+                                        alt="Ubuntu">
+                                    <span>Ubuntu</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gentoo/gentoo-plain.svg"
+                                        alt="Gentoo">
+                                    <span>Gentoo</span>
+                                </div>
+
+                                <!-- Duplicate for infinite scroll -->
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                                        alt="Linux">
+                                    <span>Linux</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/archlinux/archlinux-original.svg"
+                                        alt="Arch Linux">
+                                    <span>Arch Linux</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rockylinux/rockylinux-original.svg"
+                                        alt="Rocky Linux">
+                                    <span>Rocky Linux</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg"
+                                        alt="Raspberry Pi">
+                                    <span>Raspberry Pi</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+                                        alt="Redis">
+                                    <span>Redis</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                        alt="Docker">
+                                    <span>Docker</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg"
+                                        alt="Nginx">
+                                    <span>Nginx</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg"
+                                        alt="Apache">
+                                    <span>Apache</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/1024px-Dell_Logo.svg.png"
+                                        alt="Dell PowerEdge">
+                                    <span>PowerEdge</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Ubiquiti_Logo_2023.svg"
+                                        alt="Ubiquiti">
+                                    <span>Ubiquiti</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://developer.android.com/static/images/brand/android-head_3D.svg"
+                                        alt="Android">
+                                    <span>Android</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://www.espressif.com/sites/all/themes/espressif/images/logo-guidelines/primary-vertical-logo.png"
+                                        alt="ESP32">
+                                    <span>ESP32</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/120px-UbuntuCoF.svg.png"
+                                        alt="Ubuntu">
+                                    <span>Ubuntu</span>
+                                </div>
+                                <div class="skill-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gentoo/gentoo-plain.svg"
+                                        alt="Gentoo">
+                                    <span>Gentoo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+		</div>
+	</div>
+    </section>
+    <!-- projects section aka, subjects available in framework 221e-->
+        <section id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Subjects <span class="accent">Available</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="projects-grid">
+                {% for subject, description in subjects.items() %}  
+                	{% if subject %}
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>{{ subject|title }}</h3>
+                            <div class="project-stats">
+                            {% set parts = description.split('[') %}
+                            {% if parts|length > 1 %}
+                            	{% set inner = parts[1].split(']') %}
+                                <span class="project-stat"><i class="fas fa-dna"></i> {{ inner[0] }}</span>
+                            {% endif %}
+                            </div>
+                            <p>{{ parts[0] }}</p>
+                            <div class="project-links">
+                                <a href="{{ url_for('route_subject', subject=subject) }}" class="project-link"><i
+                                        class="fas fa-external-link-alt"></i> View It</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                   		<span style="display:none;">
+                   	{% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+    <!-- Analytical Domain section available in framework 221e-->
+        <section id="analyticaldomains">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Analytical <span class="accent">Domains</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="projects-grid">
+                {% for anadomain, description in anadomains.items() %}  
+                	{% if anadomain %}
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>{{ anadomain|title }}</h3>
+                            <div class="project-stats">
+                            {% set parts = description.split('[') %}
+                            {% if parts|length > 1 %}
+                            	{% set inner = parts[1].split(']') %}
+                                <span class="project-stat"><i class="fas fa-lock"></i> {{ inner[0] }}</span>
+                            {% endif %}
+                            </div>
+                            <p>{{ parts[0] }}</p>
+                            <div class="project-links">
+                                <a href="{{ url_for('route_analytical_domain', anadomain=anadomain) }}" class="project-link"><i
+                                        class="fas fa-external-link-alt"></i> View It</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                   		<span style="display:none;">
+                   	{% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </section>        
+
+<!--hidden-->
+<section id="privacy-demo" class="section" style="display:none;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Digital <span class="accent">Fingerprint</span></h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="privacy-demo-container">
+                    <div class="tracking-indicator">
+                        <div class="tracking-progress">
+                            <div class="tracking-bar"></div>
+                        </div>
+                        <div class="tracking-status">Observing your digital footprint...</div>
+                    </div>
+
+                    <div class="tracking-hints-container">
+                        <!-- Hints will appear here dynamically -->
+                    </div>
+
+                    <div class="fingerprint-reveal-container hidden">
+                        <button id="reveal-fingerprint" class="reveal-button">
+                            <span class="fingerprint-icon">👁️</span>
+                            <span>Reveal what I've learned about you</span>
+                        </button>
+                    </div>
+
+                    <div id="fingerprint-results" class="hidden">
+                        <div class="fingerprint-header">
+                            <h3>Your Digital Fingerprint</h3>
+                            <p class="fingerprint-subtitle">Information collected during this single visit</p>
+                        </div>
+
+                        <div class="fingerprint-sections">
+                            <div class="fingerprint-section" id="technical-profile">
+                                <div class="fingerprint-section-header">
+                                    <h4>Technical Profile</h4>
+                                    <span class="confidence-indicator high">Factual Data</span>
+                                </div>
+                                <div class="section-content">
+                                    <!-- Will be filled dynamically -->
+                                </div>
+                            </div>
+
+                            <div class="fingerprint-section" id="behavioral-insights">
+                                <div class="fingerprint-section-header">
+                                    <h4>Behavioral Insights</h4>
+                                    <span class="confidence-indicator medium">Based on Interactions</span>
+                                </div>
+                                <div class="section-content">
+                                    <!-- Will be filled dynamically -->
+                                </div>
+                            </div>
+
+                            <div class="fingerprint-section" id="inferred-profile">
+                                <div class="fingerprint-section-header">
+                                    <h4>What I Can Infer About You</h4>
+                                    <span class="confidence-indicator low">AI-Generated Inferences</span>
+                                </div>
+                                <div class="section-content">
+                                    <!-- Will be filled dynamically -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="privacy-message">
+                            <h4>The Bigger Picture</h4>
+                            <p><strong>Everything above was determined without cookies, login information, or tracking
+                                    across sites.</strong></p>
+                            <p>This demonstration used only a fraction of the techniques available to commercial
+                                trackers. Companies like Google, Facebook, and data brokers collect thousands of
+                                additional data points by:</p>
+                            <ul>
+                                <li>Tracking you across multiple sites and apps</li>
+                                <li>Combining this with your search history, location data, and purchase history</li>
+                                <li>Accessing your social graph (who you know and communicate with)</li>
+                                <li>Analyzing your content consumption over months and years</li>
+                                <li>Purchasing additional data from third-party brokers</li>
+                            </ul>
+                            <p class="privacy-highlight"><strong>All data collected in this demo remained entirely in
+                                    your browser and will be deleted when you close this page.</strong></p>
+
+                            <div class="privacy-resources">
+                                <h4>Protect Your Privacy</h4>
+                                <div class="resource-links">
+                                    <a href="https://privacytools.io" target="_blank" rel="noopener noreferrer">Privacy
+                                        Tools</a>
+                                    <a href="https://www.eff.org/issues/privacy" target="_blank"
+                                        rel="noopener noreferrer">EFF Privacy Resources</a>
+                                    <a href="https://spreadprivacy.com" target="_blank"
+                                        rel="noopener noreferrer">Privacy Education</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-disclaimer">
+                            <p>This is an educational demonstration. No data leaves your browser. The code is <a
+                                    href="https://github.com/micr0-dev/site2.0" target="_blank"
+                                    rel="noopener noreferrer">open source</a> and can be inspected.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}

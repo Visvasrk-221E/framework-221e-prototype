@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visvasrk | Terminal Portfolio</title>
+
+  <!-- Importmap for Three.js -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180/examples/jsm/"
+    }
+  }
+  </script>
+
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    html,body {
+      width:100%;height:100%;
+      background:#010409;color:#cfd8e3;
+      font-family:"JetBrains Mono","Courier New",monospace;
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
+
+    #bg {position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;}
+
+    nav {
+      position:fixed;top:0;left:0;width:100%;
+      height:60px;display:flex;align-items:center;justify-content:center;
+      background:rgba(3,7,18,0.75);backdrop-filter:blur(8px);
+      border-bottom:1px solid #0b2a44;
+      z-index:20;transition:opacity 0.5s ease;
+    }
+
+    nav ul {list-style:none;display:flex;gap:40px;}
+    nav a {
+      text-decoration:none;color:#7fc7ff;font-weight:500;
+      letter-spacing:1px;transition:color 0.3s ease;
+    }
+    nav a:hover {color:#d0ecff;}
+
+    main {
+      position:relative;z-index:10;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      padding-top:100px;
+    }
+
+    section {
+      width:100%;max-width:1000px;
+      text-align:center;
+      padding:120px 20px;
+    }
+
+    h1 {
+      font-size:3rem;color:#8ec8ff;margin-bottom:10px;
+      letter-spacing:2px;
+    }
+    h2 {font-size:2rem;color:#9fcfff;margin-bottom:10px;}
+    p {line-height:1.6;color:#9faec0;font-size:1rem;}
+
+    footer {
+      text-align:center;padding:40px 0;
+      border-top:1px solid #0b2a44;
+      background:rgba(3,7,18,0.95);
+      color:#607183;font-size:0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="bg"></div>
+
+  <nav id="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h1>Visvasrk</h1>
+      <p>Web Developer • System Architect • Tech Visionary</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Building digital infrastructures designed for scale and resilience.  
+      Structured, high-performance, future-ready systems.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Reach out: <strong>visvasrk@domain.com</strong></p>
+    </section>
+  </main>
+
+  <footer>© 2025 Visvasrk | Engineered with Three.js</footer>
+
+  <script type="module" src="apocalyptic.js"></script>
+</body>
+</html>

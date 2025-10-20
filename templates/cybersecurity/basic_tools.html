@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}Cybersecurity | Basic Tools{% endblock %}
+{% block content %}
+
+<section id="hero">
+<div class="container">
+	<div class="hero-content">
+		<h1 class="text-primary" data-text="Biology">Cybersecurity | Basic Tools</h1>
+		<div class="typewriter" style="display:none;"> <!-- set display none for structure maintainence-->
+			<span id="typewriter-text"></span>
+			<span class="cursor-blink">|</span>
+		</div>
+		<p class="hero-description">
+		Cybersecurity tools are specialized software and utilities designed to protect, test, and investigate digital systems. They help detect vulnerabilities, monitor threats, prevent attacks, and analyze evidence after incidents. From scanners like Nmap to forensic suites like Autopsy, these tools form the essential toolkit for securing the digital world.
+		</p>
+		<div class="hero-buttons">
+			<a href="{{ url_for('cybersecurity') }}" class="btn primary">Cybersecurity</a>
+			<a href="{{ url_for('home') }}" class="btn secondary">Home</a>
+		</div>
+	</div>
+</div>
+<div class="scroll-indicator">
+    <div class="mouse">
+        <div class="wheel"></div>
+    </div>
+    <div class="arrow">
+    	<span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+</section>
+<section id="about">
+    <div class="container">
+        <div class="section-header">
+            <h2>What are those<span class="accent"> tools?</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+            	<p>Cybersecurity, as both a discipline and a practice, relies heavily on specialized tools to identify vulnerabilities, monitor threats, and defend digital infrastructure. These tools form the technical backbone of modern defense strategies and are essential for individuals, organizations, and governments alike. They do not operate in isolation but instead integrate into broader security frameworks such as defense-in-depth, zero-trust architecture, and threat intelligence cycles. To understand their importance, it is necessary to examine the various categories of tools, their functions, and their role in the larger security ecosystem.</p>
+                <div class="about-quote">
+                    <blockquote>"Everyone, regardless of their background in computer science, must know how to use basic cybersecurity tools : Just to Survive."</blockquote>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-link"></i></div>
+                    <div class="stat-number" data-count="{{ tool_dict|length }}">0</div>
+                    <div class="stat-label">Tools Recorded</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-book"></i></div>
+		            <div class="stat-number" data-count="0">0</div>
+                    <div class="stat-label">Tool Documentations</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="philosophy">
+    <div class="container">
+        <div class="philosophy-content">
+	        <div class="philosophy-quote">
+                <blockquote>
+                	Cybersecurity tools are not mere programs or utilities; they are instruments of perception, action, and understanding in the digital realm.
+                </blockquote>
+            </div>
+            <div class="philosophy-details">
+            	Each one extends human sight and touch into the invisible world of data flows, protocols, and hidden vulnerabilities. A scanner like Nmap allows us to map the unseen terrain of networks, while analyzers such as Wireshark let us listen to the whispers of machines in conversation. Tools of offense, such as Metasploit or Hydra, paradoxically serve the purpose of defense, for in simulating the mindset of the attacker we strengthen the resilience of the defender. Others, like Snort or OpenVAS, embody vigilance, standing as guardians at the gates of systems, alert to anomalies and weaknesses. Forensic instruments such as Autopsy remind us that in cyberspace, every action leaves a trace, and truth can be reconstructed from the smallest fragments.<br><br>The underlying philosophy of these tools is that security is not static; it is an ongoing dialogue between discovery and concealment, between attack and protection. They are not weapons in isolation but part of a larger ecosystem where knowledge is both shield and sword. To master these tools is to embrace a mindset of curiosity, discipline, and responsibility. They teach us that every system has flaws, every defense has limits, and every secret can be revealed with the right key. Yet they also remind us that the ethical application of power defines the boundary between the protector and the adversary.
+            </div>
+        </div>
+    </div>
+</section>
+<!-- the topics -->
+<section id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2>Avaliable <span class="accent">Tools</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+        {% for tool, description in tool_dict.items() %}
+            <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+                <div class="project-content">
+                {% if '_' in tool %}
+                    <h3>{{ tool| replace('_', ' ') | title }}</h3>
+                {% else %}
+                	<h3>{{ tool|title }}</h3>
+                {% endif %}
+                {% set parts = description.split('[') %}
+                {% if parts|length > 1 %}
+                	{% set inner = parts[1].split(']') %}
+                {% endif %}
+                    <div class="project-stats">
+                        <span class="project-stat"><i class="fas fa-terminal"></i> {{ inner[0] }} </span>
+                    </div>
+                    <p>{{ parts[0] }}</p>
+                    <div class="project-links">
+                        <a href="{{ url_for('render_basic_tools', tool_name=tool) }}" class="project-link"><i class="fas fa-external-link-alt"></i> View It</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Intentionally hidden to preserve the javascript functionality and content-->
+
+<section id="projects" style="display:none;"></section>
+<section id="skills" style="display:none;"></section>
+<section id="contact" style="display:none;"></section>
+{% endblock %}

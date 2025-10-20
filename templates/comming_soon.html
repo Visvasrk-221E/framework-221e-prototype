@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cryo.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;700&display=swap>
+    <meta name="framework-version:221e" content="build:prototype0.1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  background-image: url("{{ url_for('static', filename='img/header.png') }}");
+  background-position: center;
+  background-size:cover;
+  background-repeat : no-repeat;
+}
+
+.bgimg {
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.8);
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  padding:30px;  
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+</head>
+<body>
+<div class="bgimg">
+  <div class="topleft">
+    <p><a href="{{ url_for('home') }}">Home</a></p>
+  </div>
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p>{{ title }}</p>
+  </div>
+  <div class="bottomleft">
+    <p>{{ pgdesc }}</p>
+  </div>
+</div>
+</body>
+</html>

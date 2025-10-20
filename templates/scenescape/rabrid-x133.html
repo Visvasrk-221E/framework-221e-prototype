@@ -1,0 +1,321 @@
+{% extends "base.html" %}
+{% block title %}Rabrid-x133 | Engineered Lab Leak{% endblock %}
+{% block content %}
+<!-- hero section -->
+<style>
+td, th {
+	border:1px solid white;
+	border-collapse:collapse;
+	padding:2px;
+	text-align:center;
+}
+#bg {width:100%;height:100%;z-index:-1;}
+
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.180.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="{{ url_for('static', filename='rabrid-x133-header-bg.js') }}"></script>
+<section id="hero">
+<div id="bg" style="position:absolute;"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="text-primary">Rabrid-x133 | A Lab Leak</h1>
+            <div class="typewriter" style="display:none;">
+                <span id="typewriter-text"></span>
+                <span class="cursor-blink">|</span>
+	        </div>
+            <p class="hero-description">The fictional Rabrid-X133 outbreak scenario presents a technically grounded yet cautionary exploration of how engineered pathogens, geopolitical mistrust, and inadequate verification mechanisms could converge into a catastrophic biowarfare crisis by 2030. This comprehensive analysis examines the scientific plausibility, institutional vulnerabilities, and policy implications of such an accidental biowarfare outbreak, drawing on current research in synthetic biology, biosecurity governance, and pandemic preparedness.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('scene_scape') }}#projects" class="btn primary">Explore Scenarios</a>
+            </div>
+        </div>
+	</div>
+	<div class="scroll-indicator">
+    	<div class="mouse">
+        	<div class="wheel"></div>
+        </div>
+        <div class="arrow">
+	        <span></span>
+    	    <span></span>
+        </div>
+    </div>    
+</section>
+            
+<!-- about section : Introduction part --> 
+<div class="alpha-box">
+<div class="alpha-nav">
+<div>
+      <h2 class="accent">Table of Contents</h2>
+      <ul>
+        <li><a href="#about">Introduction</a></li>
+        <li><a href="#prerequisites">Pre-requisites</a></li>
+        <li><a href="#prior_assumptions">Prior Assumptions</a></li>
+        <li><a href="#scenario_depiction">Scenario Depiction</a></li>
+      </ul>
+      <br>
+      <details>
+      <br>
+      <p>--The Scenes</p>
+      <ol style="padding-left:20px;">
+        <li><a href="#scene1">The Breach</a></li>
+        <li><a href="#scene2">The Fever in Novy Hradek</a></li>
+        <li><a href="#scene3">The Market Incident</a></li>
+        <li><a href="#">...</a></li>      	
+      </ol>
+      </details>
+</div>
+</div>
+<div class="alpha-content">
+<section id="about">
+	<div class="container">
+		<div class="section-header">
+			<h2> Introducti<span class="accent">on</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Rabies Virus as a Bioengineering Platform</h3><hr><br>
+				<p>The choice of rabies virus (RABV) as the foundation for Rabrid-X133 demonstrates sophisticated understanding of viral bioengineering possibilities. RABV possesses several characteristics that make it both a realistic choice for gain-of-function research and a particularly alarming bioweapon candidate.<br><br> As a member of the Lyssavirus genus within the Rhabdoviridae family, rabies virus has a well-characterized 12-kilobase negative-sense RNA genome encoding five essential proteins: nucleoprotein (N), phosphoprotein (P), matrix protein (M), glycoprotein (G), and RNA-dependent RNA polymerase (L). The virus's natural neurotropic properties and nearly 100% fatality rate once symptoms appear make it inherently dangerous. Current epidemiological data indicates approximately 59,000 annual deaths from natural rabies infections globally, primarily in Asia and Africa. The scenario's description of engineering enhanced neurotoxicity targeting the thalamus and basal ganglia reflects accurate understanding of rabies pathogenesis and the neural circuits controlling aggression and feeding behavior.</p>
+				<h3>Synthetic Biology and AI-Enabled Pathogen Design</h3><hr><br>
+				<p>The scenario's emphasis on AI-assisted design and portable gene synthesis reflects genuine current trends in biotechnology that pose emerging biosecurity challenges. Recent assessments by biosecurity experts confirm that AI-enabled protein design tools are rapidly advancing, potentially allowing creation of novel pathogenic proteins that evade current screening protocols. A 2024 study led by Microsoft researchers demonstrated that current biosecurity screening software struggles to detect AI-designed proteins based on toxins, with roughly 3% of potentially functional toxins slipping through even after system updates.<br><br>The convergence of artificial intelligence and synthetic biology is creating unprecedented capabilities for both beneficial and malicious applications. The combination enables acceleration and scale-up of research, testing, and production of novel genes that could transform economies and societies, but also poses risks including "to biodiversity and from malevolent actors". The scenario's depiction of portable gene synthesis lowering barriers to gain-of-function bioengineering aligns with expert warnings about the democratization of biotechnology capabilities.</p>
+				<div class="img-card"> <img src="{{ url_for('static', filename='rabridx133/synthbio.png') }}" class="confined"><br></div><i>Fig 1 : Image showing steps in synthetic biology(biotechnology).</i><br><br>								
+				<h3>Aerosol Transmission and Laboratory Containment</h3><hr><br>
+				<p>The scenario's premise of accidental aerosolized release during scale-up production reflects documented vulnerabilities in high-containment laboratory operations. Historical data shows that aerosol transmission of rabies virus, while rare, has been documented in both laboratory and natural settings. A laboratory worker infection via airborne transmission was reported in 1973, and subsequent experimental studies demonstrated that bats and mice could be infected through aerosol exposure to rabies virus, with different susceptibility patterns between species.<br><br>Laboratory biosafety incidents remain a persistent concern despite advanced containment protocols. A comprehensive analysis identified 94 separate incidents of laboratory leaks between 2000 and 2021, infecting 309 people and killing some individuals. Recent biosafety status analyses indicate that major problems in biosafety management stem from organizational management (39.76%), laboratory housekeeping (28.97%), and facilities and equipment (14.69%). These data suggest that even in BSL-4 facilities, mechanical failures and human errors remain possible vectors for pathogen release.</p>
+				<div class="img-card"> <img src="{{ url_for('static', filename='rabridx133/bsl4.png') }}" class="confined"><br></div><i>Fig 2 : Image showing features of a Bio Safety Level 4 lab.</i><br><br>								
+
+			</div>
+		</div>
+	</div>
+</section>
+<section id="prerequisites">
+	<div class="container">
+		<div class="section-header">
+			<h2> Prerequisites<span class="accent"> of Scenario</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Introduction</h3><hr><br>
+				<p>Pathogen name (scenario): Rabrid-x133 — an engineered variant of lyssavirus-type rabies with altered neurotropism and modestly increased transmissibility via close-contact salivary aerosols in addition to bites. Incubation median ~14 days (range 3–60 days), prodrome → neuropsychiatric dysregulation → aggressive biting → terminal phase with very high case-fatality over months absent advanced care. Primary transmission: saliva into wounds and mucous membranes; secondary: high-concentration salivary aerosols in confined spaces. No efficient long-range airborne transmission. Probabilistic assumptions used in scenario: engineered origin likely (~60% prior), presence in a clandestine government research facility likely (~90%), chance of a lab accident in such a setting moderate (40%). Outcome depends on recognition speed, health system capacity, global coordination, and social behavior.</p>
+				<h3>What is Rabrid-x133</h3><hr><br>
+				<p><b>Nature and lineage (non-technical)</b>:<br>Rabrid-x133 is portrayed as a modified lyssavirus (rabies-family) variant with changes in the virus’s surface proteins and neuroinvasive behavior that increase its ability to infect human nerve tissue and make saliva highly infectious earlier in disease than wild-type rabies. Clinically it still targets the central nervous system.</p>
+				<p><b>Transmission Modes : </b><br>
+					<ul style="padding-left:20px;">
+						<li>Primary (dominant): direct inoculation of infectious saliva into breaks in skin or mucous membranes (bites, scratches, spat).</li>
+						<li>Secondary (enhanced vs classic rabies): short-range salivary aerosolization in very confined, high-saliva settings (e.g., poorly ventilated wards where symptomatic, hypersalivating patients are restrained) — this increases risk for caregivers and crowd contacts — but Rabrid-x133 does not sustain efficient long-range airborne spread like influenza.</li>
+						<li>Fomite risk: minor; virus survives on surfaces briefly but environmental transmission is rare compared with direct saliva exposures.</li>
+					</ul>
+				</p>
+				<p><b>Incubation and timeline : </b><br>
+					<ul style="padding-left:20px;">
+						<li>Incubation: median ≈ 14 days; can be as short as 3 days after a severe inoculation or months after small peripheral exposure.</li>
+						<li>Prodrome (first few days of symptoms): malaise, fever, headache, anxiety, insomnia.</li>
+						<li>Early neurophase (days to weeks): irritability, disinhibition, abnormal vocalization, hypersalivation, hydrophobia/airflow aversion in many patients.</li>
+						<li>Agitation/assaultive phase (weeks): compulsive biting, close-contact aggression, decreased pain sensation in some. This is the major driver of human-to-human spread.</li>
+						<li>Terminal phase (weeks → months): progressive coma and death over weeks–months in most untreated cases. In some, the “predatory” behavior becomes pronounced for a period before death.</li>
+					</ul>				
+				</p>
+				<p><b>Severity and outcomes : </b><br>
+					<ul style="padding-left:20px;">
+						<li>Without very early, high-quality neuro-intensive care, the case-fatality is extremely high (majority over months). Some survivors may have severe neurological sequelae.</li>
+						<li>Timeline to death in the majority of severe cases: median about 2–3 months from symptom onset in this scenario.</li>																								
+					</ul>				
+				</p>				
+				<p><b>Why this is dangerous(epdemiologic point) : </b><br>
+					<ul style="padding-left:20px;">
+						<li>High contact rates in cities, combined with a short incubation and increased early salivary infectivity, allow human-to-human chains that classic rabies rarely supports.</li>
+						<li>Pre-symptomatic (incubating) people can travel; early prodrome is nonspecific → delayed recognition and contact tracing.</li>
+						<li>Social response (fear, barricading, violence) and political secrecy multiply risk by degrading public health response.</li>																								
+					</ul>				
+				</p>
+				<p><b>Attribution (Who Created) : </b><br>
+					<ul style="padding-left:20px;">
+						<li>For plausibility: the scenario assumes the most probable source is a clandestine state research program studying host range and neurotropism (not forensic proof). I will avoid naming real entities. Attribution in real life requires transparent, forensic access — politically fraught.</li>																								
+					</ul>				
+				</p>
+				<p><b>Key constraints for realism : </b><br>
+					<ul style="padding-left:20px;">
+						<li>No long-range airborne transmission (keeps scenario plausible and constrained).</li>
+						<li>Human societies still have tools (surveillance, quarantine, therapeutics) that can shape outcomes; the failure or success of those systems determines severity.</li>																								
+					</ul>				
+				</p>												
+			</div>
+		</div>
+	</div>
+</section>
+<section id="prior_assumptions">
+	<div class="container">
+		<div class="section-header">
+			<h2>Prior <span class="accent">Assumptions of Scenario</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<p>
+					<ol style="padding-left:20px;">
+						<li>Engineered probability prior: 60% (user-provided context used).</li>
+						<li>Existence in clandestine lab: 90% prior probability.</li>
+						<li>Probability of lab accident in such labs: 40% (user-provided).</li>
+						<li>Baseline urban contact patterns reflect 2030 mobility (dense public transit, global air travel).</li>
+						<li>Healthcare resources are limited regionally; global inequalities large.</li>
+						<li>Salivary aerosol risk: short-range only; close quarters (confined hospital rooms, buses) carry ~10–15% incremental transmission risk vs bites.</li>
+						<li>No effective mass vaccine or cure at start; development takes months—years and is constrained by manufacturing.</li>
+					</ol>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="scenario_depiction">
+	<div class="container">
+		<div class="section-header">
+			<h2> Scenario<span class="accent"> Depiction</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Introduction</h3><hr><br>
+				<p>This comprehensive narrative analysis traces the Rabrid-X133 outbreak from its origins in a BSL-4 laboratory accident through five years of global crisis, recovery, and the emergence of a "new normal." Using probabilistic modeling and realistic crisis management parameters, this scene-by-scene breakdown reveals how engineered pathogens could trigger cascading societal collapse, geopolitical warfare, and fundamental transformation of human civilization.</p>
+				<div class="img-card"> <img src="{{ url_for('static', filename='rabridx133/basetimeline.png') }}" class="confined"><br></div><i>Fig 3 : Timeline of the scenario.</i><br><br>								
+			</div>
+		</div>
+	</div>
+</section>
+<!-- scenes begin -->
+<section id="scene1">
+	<div class="container">
+		<div class="section-header">
+			<h2> Scene-1 : <span class="accent"> The Breach</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<div class="about-quote">
+					<blockquote>
+						<kbd>Stimulation Day : 0</kbd><br>
+						<kbd>Location : Clandestine Government Research Wing, Eastern Europe — outskirts of Brno, Czech Republic</kbd><br>
+						<kbd>Date : 2030-02-03</kbd><br>
+						<kbd>Time : 22 : 47 local</kbd><br>
+					</blockquote>
+				</div><br>
+				<h3>Scenario : </h3>
+				<p>Winter air drifts across the Moravian plain, rattling the perimeter fence of a low-profile industrial compound officially registered as an agricultural-pathogen diagnostics centre. Inside, in the sub-basement “Wing E-7,” five researchers are finishing a late-shift viability test on Rabrid-X133—a recombinant lyssavirus developed under the Defense Biological Response Initiative. The project’s cover lists it as a vector-stability study for rabies vaccines in wildlife; in practice, the team is evaluating neuro-invasive behaviour under modified glycoprotein coding.</p>
+				<p>Technician <b> Lenka Veselý, 28</b>, removes her gloves to adjust a sensor lead. A small nick from a fractured pipette tip passes unnoticed. Minutes later, an animal cage malfunctions: a macaque jolts, spraying saliva that splashes her forearm. She rinses with ethanol, logs a “minor contact,” and re-seals the chamber. Under internal protocol, she should report for immediate serum testing, but the safety officer has already signed off for the night.</p>
+				<p>At 23 : 10 hrs, a biosafety monitor flags an airflow imbalance. The duty engineer silences the alert; audits are due the next morning, and alarms during classified work trigger scrutiny from the Ministry. Negative-pressure integrity is compromised for roughly nine minutes—enough for micro-aerosol escape into the anteroom.</p>
+				<h3>Technical Failure Point : </h3>
+				<p>Over-aged filter gasket in a glove-box air-line; pressure differential error ignored. Aerosolised viral droplets settle on workstation surfaces and personal protective gear.</p>
+				<h3>Government Response : </h3>
+				<p><b>None.</b> Incident automatically encrypted in internal server logs, awaiting supervisor clearance. No notification to civilian health agencies or the WHO’s BioHub network.</p>
+				<h3>People Response : </h3>
+				<p>Researchers finish data logging and leave the facility. Veselý experiences slight dizziness on the tram ride home, attributes it to exhaustion. Two colleagues meet later at a café; both unknowingly carry minute viral traces on clothing fibres.</p>
+				<h3>Resource Constraints : </h3>
+				<p>Procurement delays from sanctions have limited HEPA replacements and reagent imports. Only one of three autoclaves remains fully functional.</p>
+				<h3>Suspision Rate : </h3>
+				<p>0 % — classified project; external oversight minimal.</p>
+				<h3>Assumptions : </h3>
+				<p><ul style="padding-left:20px;"><li>Rabrid-X133 engineered for extended incubation (~14 days) and increased salivary shedding.</li><li>60 % likelihood of intentional engineering under defence research; 90 % chance of being unregistered internationally.</li></ul></p>
+				<h3>Risk Factors : </h3>
+				<p><ul style="padding-left:20px;"><li>Over-centralised secrecy impeding occupational health.</li><li>Ageing containment infrastructure.</li><li>Regional political tension diverting funds from safety to development speed.</li></ul></p>
+				<h3>Spread Rate : </h3>
+				<p>Localized contamination — estimated 1 to 3 potential exposures. No community spread detected.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="scene2">
+	<div class="container">
+		<div class="section-header">
+			<h2> Scene-2 : <span class="accent"> The Fever in Novy Hradek</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<div class="about-quote">
+					<blockquote>
+						<kbd>Stimulation Day : 12</kbd><br>
+						<kbd>Location : Nový Hrádek, small commuter town outside Brno, Czech Republic</kbd><br>
+						<kbd>Date : 2030-02-15</kbd><br>
+						<kbd>Time : 18 : 40 local</kbd><br>
+					</blockquote>
+				</div><br>
+				<h3>Scenario : </h3>
+				<p>Snowmelt turns the streets to slush. Apartment blocks glow with yellow light as families return from work. In a third-floor flat above a bakery, Lenka Veselý’s husband, Petr, leans against the kitchen counter, hands trembling. He’s been running a fever for three days, sleeping in erratic bursts and complaining that the ceiling hums at night. Their daughter notices him muttering at the sink, rinsing his mouth over and over.</p>
+				<p>Lenka, still unaware she’s incubating something herself, assumes influenza. She hasn’t mentioned her workplace accident—non-disclosure agreements and national-security clearances forbid it. The local clinic’s physician, Dr. Jana Horáková, examines Petr the next morning. No animal bite marks, no foreign travel, normal cerebrospinal fluid glucose; she labels the case “idiopathic viral encephalitis,” prescribes antipyretics, and sends him home. Blood samples are sent to the regional lab under standard protocols—results expected in a week.</p>
+				<p>Over the following days Petr’s behavior worsens. He startles easily, flinches from running water, snaps at noises. During one episode of confusion, he grabs his brother’s arm hard enough to break the skin. The incident stays inside the family; they chalk it up to delirium. Two other relatives sustain minor scratches and saliva exposure while helping restrain him. None seek care.</p>
+				<h3>Technical Failure Point : </h3>
+				<p>Absence of occupational health reporting chain between the research facility and civilian clinicians. No integration with the national zoonotic-disease registry; patient samples coded as “non-priority.”</p>
+				<h3>Government Response : </h3>
+				<p><b>None.</b>The Ministry of Health’s case-tracking algorithms flag a single encephalitis cluster but dismiss it as seasonal. Security services maintain silence to avoid connecting civilian physicians to classified research.</p>
+				<h3>People Response : </h3>
+				<p>Neighbors begin gossiping about “the nervous illness” in the Veselý family. Dr. Horáková emails a neurologist in Prague for advice but receives an automated vacation reply. Family members alternate between denial and panic, attempting home isolation without understanding contagion risk.</p>
+				<h3>Resource Constraints : </h3>
+				<p>Regional hospital short on virologists and PCR kits after recent influenza season. Only 60 % of rural clinics have full protective stocks. Ambulance crews rotate from COVID-residual duties; burnout high.</p>
+				<h3>Suspision Rate : </h3>
+				<p>2 % — a few clinicians notice irregularities but lack data access; no escalation to WHO event-based surveillance.</p>
+				<h3>Assumptions : </h3>
+				<p><ul style="padding-left:20px;"><li>Incubation averages 14 days; early carriers shed virus through saliva and micro-aerosols before neurological onset.</li><li>No visible lesions or animal exposures delay suspicion of lyssavirus origin.</li></ul></p>
+				<h3>Risk Factors : </h3>
+				<p><ul style="padding-left : 20px;"><li>Secrecy between defense research and civilian health sectors.</li><li>Underreporting of household transmission.</li><li>Cultural reluctance to involve authorities in family illness.</li></ul></p>
+				<h3>Spread Rate : </h3>
+				<p>Estimated 5–7 secondary exposures within the town; low but growing due to undetected salivary shedding during pre-symptomatic phase.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="scene3">
+	<div class="container">
+		<div class="section-header">
+			<h2> Scene-3 : <span class="accent"> The Market Incident</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<div class="about-quote">
+					<blockquote>
+						<kbd>Stimulation Day : 21</kbd><br>
+						<kbd>Location : Central Market, Nový Hrádek, South Moravia, Czech Republic</kbd><br>
+						<kbd>Date : 2030-02-24</kbd><br>
+						<kbd>Time : 10 : 15 local</kbd><br>
+					</blockquote>
+				</div><br>
+				<h3>Scenario : </h3>
+				<p>The Saturday market is crowded with vendors selling vegetables, cheese, and smoked meat. Winter sunlight glints off puddles of melted snow. Among the shoppers, Petr Veselý, unshaven and pale, staggers between stalls. Witnesses later describe him as “confused but furious,” muttering incoherently. When a vendor tries to help, Petr lunges and bites his arm, then spits at bystanders. Panic erupts—crates topple, people scatter. Two men and a police constable manage to pin him down, sustaining scratches and bites in the process.</p>
+				<p>A phone video, shaky and frantic, captures the scene. Within hours it circulates on local Telegram and Facebook groups under the caption <em>“Madman at the market — drug attack?”</em> Local news outlets pick up the footage, speculating about narcotics or mental illness.</p>
+				<p>Petr is transported to the regional hospital’s isolation ward. On arrival he’s combative, hypersalivating, and alternately silent or shouting. He deteriorates within 36 hours, lapsing into coma. The admitting physician, Dr. Horáková, now alarmed by the combination of hydrophobia, aggression, and rapid neurologic decline, requests rabies serology. The test panel returns <b>inconclusive.</b></p>
+				<p>Meanwhile, four individuals exposed at the market present with fever, anxiety, and throat spasms by Day 24. None report animal bites.</p>
+				<h3>Technical Failure Point : </h3>
+				<p>No functional coordination between the Ministry of Interior (handling the police incident) and the public health authority. Patient samples routed through civilian channels; the defense research wing withholds internal data on Rabrid-X133.</p>
+				<h3>Government Response : </h3>
+				<p>The regional governor orders a brief police inquiry into <b>“psychotic disturbance”</b> at the market but no public health alert. The Ministry of Defense quietly instructs the research institute to perform an internal audit, sealing records of previous containment faults.</p>
+				<h3>People Response : </h3>
+				<p>Fear spreads through town. Parents keep children home from school. Pharmacists sell out of masks and disinfectants. Social media fills with speculation about a new drug, “rabid meth,” allegedly circulating among workers.</p>
+				<h3>Resource Constraints : </h3>
+				<p>The hospital’s isolation capacity is two beds; both occupied. No stock of human rabies immunoglobulin within 200 km. National reference lab turnaround time for viral sequencing: 10 days.</p>
+				<h3>Suspision Rate : </h3>
+				<p>6 % — several infectious-disease specialists suspect a novel rabies-variant or lyssavirus spillover but cannot trace a source.</p>
+				<h3>Assumptions : </h3>
+				<p><ul style="padding-left:20px;"><li>Early neurophase coincides with peak viral shedding in saliva and micro-aerosols.</li><li>Patients in agitation phase expel droplets through shouting, coughing, and spitting, enabling short-range transmission.</li></ul></p>
+				<h3>Risk Factors : </h3>
+				<p><ul style="padding-left : 20px;"><li>Dense public gathering, poor ventilation, physical restraint contact.</li><li>Delayed sample confirmation due to bureaucratic routing.</li><li>Social media misinformation accelerating panic rather than containment.</li></ul></p>
+				<h3>Spread Rate : </h3>
+				<p>Estimated 25–40 secondary exposures, with 10 probable infections pending incubation.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- projects section -->
+<section id="projects" style="display:none;"></section>
+<!-- skills section -->
+<section id="skills" style="display:none;"></section>
+<!-- contact section -->
+<section id="contact" style="display:none;"></section>
+<!-- Alpha content is ending hereafter -->
+</div>
+</div>
+{% endblock %}

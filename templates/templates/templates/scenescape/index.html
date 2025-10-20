@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}SceneScape{% endblock %}
+{% block content %}
+
+<section id="hero">
+<div class="container">
+	<div class="hero-content">
+		<h1 class="text-primary" data-text="SceneScape">SceneScape</h1>
+		<div class="typewriter" style="display:none;"> <!-- set display none for structure maintainence-->
+			<span id="typewriter-text"></span>
+			<span class="cursor-blink">|</span>
+		</div>
+		<p class="hero-description">SceneScape employs AI, specifically ChatGPT’s Advanced Data Analysis capability, to ingest and analyze uploaded CSV files and then generate plausible, testable narrative scenarios from the patterns it detects in the data. The workflow leverages the model’s built‑in data handling for .csv, executes Python/pandas behind the scenes for aggregation and feature extraction, and translates findings into structured scenario write‑ups aligned to decision needs. </p>
+		<div class="hero-buttons">
+			<a href="{{ url_for('home') }}" class="btn primary">Home</a>
+			<a href="{{ url_for('home') }}#contact" class="btn secondary">Contact Us</a>
+		</div>
+	</div>
+</div>
+<div class="scroll-indicator">
+    <div class="mouse">
+        <div class="wheel"></div>
+    </div>
+    <div class="arrow">
+    	<span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+</section>
+<section id="about">
+    <div class="container">
+        <div class="section-header">
+            <h2>Subject <span class="accent">Description</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+            	<p>SceneScape begins by validating and profiling CSV datasets using the AI’s native data analysis features to parse tabular inputs, summarize distributions, uncover correlations, and prepare derived features that capture trends, segments, and anomalies suitable for downstream scenario logic. The analysis environment is designed for .csv and .txt files and commonly uses Python/pandas under the hood, enabling group‑bys, time‑series transforms, and lightweight modeling that the AI can surface transparently for review and iteration. Extracted signals are then mapped into a STEEP framing (Social, Technological, Economic, Environmental, Political) to structure drivers and uncertainties before scenario drafting, ensuring that narratives are anchored to external forces rather than raw datapoints alone.<p>
+            	<p>Using a generative AI scenario‑planning approach, SceneScape converts these drivers into multiple plausible pathways with explicit hypotheses, assumptions, branch points, and early‑warning indicators to link foresight with timely action. To maintain plausibility, drafts are stress‑tested with adversarial prompts and likelihood–impact lenses, drawing on best practices that show gen AI can accelerate scenario creation while benefiting from structured constraints and review. Final outputs are concise narrative vignettes with indicator sets, decision triggers, and implications that support agile planning and rapid updates as new CSVs or signals arrive, keeping scenarios dynamic rather than static forecasts.</p>
+                <div class="about-quote">
+                    <blockquote>"Knowing the emerging threats provides you what we call : The Information Advantage ,over others. Congratulations, you have a higher chance of survival."</blockquote>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-link"></i></div>
+                    <div class="stat-number" data-count="{{ topic_count }}">0</div>
+                    <div class="stat-label">Topics</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-book"></i></div>
+		            <div class="stat-number" data-count="{{ docnum }}">0</div>
+                    <div class="stat-label"><a href="{{ url_for('biodoc') }}"><i class="fas fa-external-link-alt"></i> Documents</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- the topics -->
+<section id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2>Scenarios <span class="accent">Available</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+        {% for topic, description in topics.items() %}
+            <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+                <div class="project-content">
+                {% if '_' in topic %}
+                    <h3>{{ topic| replace('_', ' ') | title }}</h3>
+                {% else %}
+                	<h3>{{ topic|title }}</h3>
+                {% endif %}
+                {% set parts = description.split('[') %}
+                {% if parts|length > 1 %}
+                	{% set inner = parts[1].split(']') %}
+                {% endif %}
+                    <div class="project-stats">
+                        <span class="project-stat"><i class="fas fa-dna"></i> {{ inner[0] }}</span>
+                    </div>
+                    <p>{{ parts[0] }}</p>
+                    <div class="project-links">
+                        <a href="{{ url_for('scene_scape_topic', topic=topic) }}" class="project-link"><i class="fas fa-external-link-alt"></i> View It</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Intentionally hidden to preserve the javascript functionality and content-->
+
+<section id="projects" style="display:none;"></section>
+<section id="skills" style="display:none;"></section>
+<section id="contact" style="display:none;"></section>
+{% endblock %}

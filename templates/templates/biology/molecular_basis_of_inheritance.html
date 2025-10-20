@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% block title %}Molecular Basis of Inheritance{% endblock %}
+{% block content %}
+<!-- hero section -->
+<style>
+td, th {
+	border:1px solid white;
+	border-collapse:collapse;
+	padding:2px;
+	text-align:center;
+}
+</style>
+<section id="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="text-primary">Molecular Basis of Inheritance</h1>
+            <div class="typewriter" style="display:none;">
+                <span id="typewriter-text"></span>
+                <span class="cursor-blink">|</span>
+	        </div>
+            <p class="hero-description">Over the next hundred years, the genetic nature of the putative genetic material was investigated culmunating in the realisation that DNA - deoxyribonucleic acid is the genetic material, at least for the majority of the organisms. However, still a vast variety of viruses and other group of rare organisms use RNA - ribonucleic acid as their genetic material, their life's blueprint.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('biology') }}#projects" class="btn primary">Explore Topics</a>
+            </div>
+        </div>
+	</div>
+	<div class="scroll-indicator">
+    	<div class="mouse">
+        	<div class="wheel"></div>
+        </div>
+        <div class="arrow">
+	        <span></span>
+    	    <span></span>
+        </div>
+    </div>
+</section>
+            
+<!-- about section : Introduction part --> 
+<section id="about">
+	<div class="container">
+		<div class="section-header">
+			<h2> Introducti<span class="accent">on</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+			<h3>What are the two types of nucleic acids? How are they used?</h3><hr><br>
+			<p><b>Deoxyribonucleic acid and ribonucleic acid (DNA and RNA)</b> respectively are the two types of nucleic acids found in living systems.<br><br> DNA acts as a genetic material in most organisms. RNA though it also acts as a genetic material in some viruses, mostly functions as a messanger. RNA has additional roles as well. RNA has a function as adapter, structural and in some case as a catalytic molecule.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="thednaintro">
+	<div class="container">
+		<div class="section-header">
+			<h2>The<span class="accent"> Deoxyribonucleic Acid</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>DNA Base Pairing</h3>
+				<hr><br>
+				<p>
+					<ul style="padding-left:40px;">
+						<li>DNA is a long polymer of deoxyribonucleotides, and hence called as a hereropolymer (meaning : it has different types of nucleotides and not all are of the same kind).</li>
+						<li>It consists of a helix of two polynucleotide chains attached to each other by <em>hydrogen bonds.</em></li>
+						<li>The <em>length of the DNA</em> is usually determinaed by the number of nucleotides (or the pair of nucleotides called base pairs) present in it.</li>
+					</ul>
+				</p>
+				<h3>Some Examples with BPs(Base Pairs)</h3>
+				<hr><br>
+				<p>
+				In case if you are preparing for examinations, it is better to memorize these numbers as phone numbers
+					<ul style="padding-left:40px;">
+						<li>Phi x 174 Bacteriophage has 5386 bp</li>
+						<li>Bacteriophage Lambda, scientifically known as the <em>Lambdavirus lambda</em> which attacks the <em>E.coli</em> bacteria has 48502 bp</li>
+						<li>The <em>Escherichia coli</em> bacteria has 4.6 x 10^6 bp</li>
+						<li>The average human haploid cell has 3.3 x 10^9 bp</li>
+						<li>The most dreaded rabies virus has approximately just 12,000 bp, easy to edit!</li>
+					</ul>
+				</p>
+				<h3>What are nitrogen bases?</h3>
+				<hr><br>
+				<p>
+					Nitrogen bases are nitrogen compounds that form an essential part of nucleotides, the building blocks of the nucleic acids. They are heterocyclic aromatic compounds, that is they have rings containing both carbon and nitrogen atoms. These are of two types : Purines and Pyrimidines.Purines usually have 6 membered pyrimidine ring fused with 5 membered imidazole ring.
+				</p>
+				<h3>The DNA structure as equation</h3>
+				<hr><br>
+				<p>
+				Consider the following. DNA is the binary alternative for the biological system. Instead of 0s and 1s making up the instruction manual, these are chemicals with letters like A, T, G, C making up the entire sequence of code. It has similar properties to a binary code. Binary is a two digit system, wheras DNA is a four digit system. Just like 011001 makes up some character or has some meaning in unicode or hexadecimal literal, AGTCAG also has some instruction to convey to our cell's internal chemistry manual. Analogy goes like this : A computer programmer uses high level languages like go, c++ or python which is interpretted by the interpreter as binary hexcode which is then processed by the cpu, similarly the chromosome is a high level language, these are then interpretted and uncoiled in the stage of metaphase as chromatin, the chromatin is like the dna hexcode, which further is read by an interpreter like enzymes(DNA polymerase, etc) and the dna code is transformed into biochemical instructions.
+					<ul style="padding-left:40px;">
+						<li>DNA = polynucleotide (very large)</li>
+						<li>Polynucleotide = made up of many monomeric units called nucleotide.</li>
+						<li>Nucleoside = Purine or Pyrimidine Bases (Nitrogen Bases) + Ribose or Deoxyribose (Pentose sugar)</li>
+						<li>Nucleotide = Nucleoside + Phosphate Group = Nitrogen Base + Pentose Sugar + Phosphate group</li>
+						<li>DNA has Deoxyribose as the pentose sugar...</li>
+						<li>RNA has Ribose as the pentose sugar...</li>
+					</ul>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="dnastructure">
+	<div class="container">
+		<div class="section-header">
+			<h2><span class="accent">Structure of DNA</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Nitrogen Bases : Build up of Nucleic Acids</h3>
+				<hr><br>
+				<p>
+					The nitrogen bases in the nucleic acids are of two types. Purines and Pyrimidines. Purines are double ringed structure with a six membered ring fused with a five member ring. That is pyrimidine + imidazole ring is purine. The nitrogen base derivatives of purines are Adinine and Guanine. Wheras pyrimidines are six membered ring structure whose derivative nitrogen bases are Thymine, Uracil, Cytozine.
+				</p>
+				<h3> What is a nucleoside and nucleotide? </h3>
+				<hr><br>
+				<p>
+				Nucleoside is a biomolecule that consists of a nitrogenous base (either purine/pyrimidine) linked to sugar molecule (either ribose or deoxyribose). Examples are Adenosine, guanosine, thymidine, cytidine, uridine.
+				</p>
+				<p>If a phosphate group is also found to be esterified with a nucleoside, then it is known as nucleotide, the basic monomer of nucleic acids. Examples are Adenylic acid, thymidylic acid, guanylic acid, uridylic acid, cytidylic acid.</p>
+				<h3>Structure of DNA</h3>
+				<hr><br>
+				<p>A nitrogen base is linked to the hydroxyl group (-OH) of the 1'C (Carbon) of pentose sugar through <b>N-glycosidic linkage</b> to form a nucleoside. A phosphage group is linked to (-OH) of the 5'C of a nucleoside trhough <b>phosphoester linkage</b> to form a nucleotide. The nucleotides are linked through 3'-5' <b>phosphodiester linkage</b> to form a polynucleotide chain whcih has 5'-end formed by a free phosphate moiety and a 3'-end formed by a free (-OH) of 3'C group of the sugar. Therefore the 5'-end has phosphate end, 3'-end has free hydroxy end.</p>
+				<p>The pentose sugar and phosphate group form the backbone of the polynucleotide chain form which nitrogen bases project. The base pairing pattern between the two polynucleotide chains showed that they are complementary to each other. Thus if the sequence of bases in one strand is knwon then one can predict the sequence in another strand. It was also inferred that, if each strand from a DNA (parent DNA) acts as a template for synthesis of a new daughter strand, the two double stranded DNA, thus produced, would be identical to the parental DNA.</p>
+				
+			</div>
+		</div>
+	</div>
+</section>
+<section id="dnafeatures">
+	<div class="container">
+		<div class="section-header">
+			<h2>Salient Features of <span class="accent">DNA</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content" style="font-size:18px;">
+			<div class="text-primary">
+				<h3>What is DNA made up of?</h3><hr><br>
+				<p>DNA is made up of two polynucleotide chains, where the backbone is made by pentose sugar, phosphate group, and the nitrogenous bases <b> project inside</b> .</p>
+				<h3>Provide the description of DNA</h3><hr><br>
+				<p><ul style="padding-left:40px;"><li>DNA is <em>negatively charged</em> due to the presense of phophate groups in its backbone.</li><li>The nitrogen bases in the two polynucleotide strands are paired through hydrogen bonds (H-bonds) forming base pairs.</li><li>Adenine of one strand forms two hydrogen bonds with thymine of opposite strand and vice versa (A double bond T). Guanine of one strand forms three hydrogen bonds with cytosine of the opposite strand(G tripple bond C).</li><li>As a result of complementary base pairing, always purine comes opposite to a pyrimidine. This generates uniform distance between the two strands of DNA helix. Diameter of DNA is 2 nm(nanometer). </li><li>The two chains have antiparallel polarity because of the pairing between purines and pyrimidines i.e one chains has 5' to 3' polarity, other has 3' to 5' polarity.</li></ul></p><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3 style="display:none;"></h3>
+						<h3>Salient Features of DNA</h3>
+						<p><ul style="padding-left:10px;"><li>The two chains are coiled in a right handed helical fashion.</li><li>This coiling produces minor and major grooves.</li><li>There are 10bp in each turn.</li><li>Distance between two adjacent bp is 0.34 nm</li><li>The plate of one nitrogenous base pair stacks over the other on top of each other in a double helix. This in addition to H bonds confers to <em>stability of the helical structure.</em></li></ul></p>
+					</div>
+				</div><br>
+				<div class="project-card" style="height:auto; width:100%;">
+					<div class="project-content">
+						<h3 style="display:non;"></h3>
+						<h3>The Central Dogma</h3>
+						<p>The Central Dogma of Molecular Biology is a fundamental framework describing the flow of genetic information within a biological system. It states that genetic information flows in one direction from DNA to RNA to protein. DNA serves as the template for its own replication and is transcribed into RNA, which in turn is translated into protiens, the functional molecules responsible for cellular structure and function. The central dogma consists of the following processes : </p>
+						<p><ul style="padding-left:10px;"><li>Replication : DNA makes an exact copy of itself to pass genetic information to daughter cells.</li><li>Transcription : The information encoded in a DNA strand is copied into messenger RNA(mRNA) by the enzyme RNA polymerase. </li><li>Translation : The mRNA sequence is decoded by ribosomes to synthesize proteins by assembling amino acids in the correct order.</li></ul></p>
+						<p>This theory was first formulated by <b>Francis Crick</b> in 1958, who emphasized that information cannot flow back from protein to nucleic acid, although exceptions exist (such as reverse transcription in <b>retroviruses</b> and <b>Non coding RNA functions</b>, the Central Dogma remains a core principle explaining how genetic informatoin directs cellular functions.</p>
+					</div>
+				</div><br>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="lifehistoryvariations">
+	<div class="container">
+		<div class="section-header">
+			<h2>Packaging of <span class="accent">DNA</span></h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="about-content">
+			<div class="text-primary" style="font-size:18px;">
+				<h3>Length of DNA</h3><hr><br>
+				<p>The length of DNA double helix in a typical mammalian cell is approximately 2.2 meters (total number of bp i.e 6.6 x 10^9 bp x distance between two adjacent base pairs i.e 0.34 x 10^(-9)m . Therefore the length of DNA for a specified number of base pairs is given by the product of number of base pairs and the distance between two base pairs.</p>
+				<h3>DNA packing in prokaryotes</h3><hr><br>
+				<p>In prokaryotes, due to the absense of a defined nucleus, the DNA present is in the cytoplasm. But the prokaryotic DNA is not scattered throughout the cytoplasm, but it is supercoiled with the help of RNAs and some positively charged protiens that are non histone proteins like polyamines to form a compact space of mass called <b>nucleoid</b>.</p><br>
+				<div class="img-card"> <img src="{{ url_for('static', filename='img/bio/labeled_prokaryote.png') }}" class="confined"></div><br>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- projects section -->
+<section id="projects" style="display:none;"></section>
+<!-- skills section -->
+<section id="skills" style="display:none;"></section>
+<!-- contact section -->
+<section id="contact" style="display:none;"></section>
+<script>
+	const quotes = [
+		"The best way out is always through.",
+		"This is another quote for sake of reality",
+		"Harvard Business groups.",
+	];
+
+	function showRandomQuote() {
+		const randomIndex = Math.floor(Math.random() * quotes.length);
+		document.getElementById("quote").textContent = quotes[randomIndex];
+	}
+
+	// show one immediately
+	showRandomQuote();
+
+	// then repeat every 5 seconds
+	setInterval(showRandomQuote, 5000);
+</script>
+
+{% endblock %}
