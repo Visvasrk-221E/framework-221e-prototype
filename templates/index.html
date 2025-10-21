@@ -168,11 +168,11 @@
 <div class="ideas-list">
   {% for post in posts %}
   <article class="idea-card">
+    <div style="border-radius:20px;padding:5px;float:right;">
+      <span><i class="fas fa-user"></i> {{ post.meta.author }}</span> |
+      <span><i class="fas fa-calendar"></i> {{ post.meta.date }}</span>    
+    </div><br><hr><br>
     <h4>{{ post.meta.title }}</h4>
-    <p class="about-quote">
-      <span><i class="fas fa-user"></i> Author : {{ post.meta.author }}</span> |
-      <span><i class="fas fa-calendar"></i> Date : {{ post.meta.date }}</span>
-    </p>
     <p class="summary">{{ post.meta.summary }}</p>
     <a style="border-radius:20px;border:1px solid gray;" href="{{ url_for('idea_page', path=post.path) }}" class="btn secondary">Read More →</a>
   </article>
