@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "dd5c6f023350a40b",
+        "id": "66bab7e6019d89b1",
         "type": "tabs",
         "children": [
           {
-            "id": "97c6274306bc39b4",
+            "id": "962187ee172fee30",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Brand Mania and Teenagers.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Brand Mania and Teenagers"
+              "title": "New tab"
             }
           }
         ]
@@ -150,6 +146,30 @@
               "icon": "lucide-list",
               "title": "Outline of Brand Mania and Teenagers"
             }
+          },
+          {
+            "id": "6d9753a3dabfddef",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {},
+              "icon": "lucide-file-signature",
+              "title": "Footnotes"
+            }
+          },
+          {
+            "id": "92f794e3310158f9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
           }
         ]
       }
@@ -166,10 +186,15 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "markdown-importer:Open format converter": false,
+      "publish:Publish changes...": false,
+      "random-note:Open random note": false,
+      "zk-prefixer:Create new unique note": false,
+      "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "97c6274306bc39b4",
+  "active": "962187ee172fee30",
   "lastOpenFiles": [
     "Brand Mania and Teenagers.md"
   ]
