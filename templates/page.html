@@ -127,14 +127,6 @@ line-height:1.2rem;
 font-size:15px;
 }
 
-@media (min-width: 700px) {
-.content{
-font-size: 24px;
-line-height:2rem;
-padding:5px;
-}
-
-}
 .topper{
 position:fixed;
 background-color:rgba(1, 13, 17, 0.8);
@@ -150,6 +142,60 @@ height:35px;
 bottom:10px;
 z-index:1;
 }
+
+
+.dropdown-toc {
+position:fixed;
+top:1rem;
+right:10px;
+z-index:2;
+}
+
+.dropdown-toc ul {
+padding-left:0.2rem;
+}
+.dropdown-toc li ul {
+padding-left:1.5rem;
+}
+
+.dropdown-toc .dropdown-menu {
+max-height:300px;
+overflow-y:auto;
+width:300px;
+font-size:12px;
+}
+
+.dropdown-toc a {
+text-decoration:none;
+color:rgba(0,0,0,0.8);
+}
+
+.dropdown-toc a:hover{
+color:rgba(0,0,0,1);
+font-weight:bolder;
+}
+
+.dropdown-toc .dropdown-menu::-webkit-scrollbar {
+display:none;
+}
+
+@media (min-width: 700px) {
+.content{
+font-size: 24px;
+line-height:2rem;
+padding:5px;
+}
+
+.dropdown-toc .dropdown-menu {
+max-height:300px;
+overflow-y:auto;
+font-size: 18px;
+width:500px;
+}
+.dropdown-toc {
+width:30%;
+}
+}
 </style>
 </head>
 <body>
@@ -162,6 +208,10 @@ z-index:1;
   <main>
 
 <a class="topper text-white" href="#top-of-page"><i class="fa-solid fa-arrow-up"></i></a>
+<div class="dropdown dropdown-toc">
+<button class="btn btn-outline-primary dropdown-toggle text-light"  style="background:rgba(0,0,0,0.8);border:none; float:right;" type="button" id="tocDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></button>
+<ul class="dropdown-menu" style="background:rgba(225,225,225,0.99);" aria-labelledby="tocDropdown">{{ toc|safe }}</ul>
+</div>
 <article class="idea-page" id="top-of-page">
   <div class="card">
   <div class="card-header"><h1>{{ page.meta.title }}</h1>

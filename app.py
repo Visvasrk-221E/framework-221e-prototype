@@ -19,13 +19,22 @@ docsdir = os.path.join(app.static_folder, "documents")
 # Configure flat pages
 app.config['FLATPAGES_EXTENSION'] = '.md'
 app.config['FLATPAGES_ROOT'] = 'pages'
-app.config['FLATPAGES_MARKDOWN_EXTENSIONS'] = ['fenced_code', 'codehilite', 'tables', 'toc']
+app.config['FLATPAGES_MARKDOWN_EXTENSIONS'] = ['fenced_code', 'codehilite', 'tables', 'toc', 'attr_list']
 app.config['FLATPAGES_MARKDOWN_EXTENSION_CONFIGS'] = {
     'codehilite': {'linenums': False}
 }
 
 pages = FlatPages(app)
 
+
+#[Utilities]============================================================================================================
+# Create the utility functions
+
+def render_markdown(text):
+	md = markdown.Markdown(extensions=['toc', 'fenced_code', 'tables', 'attr_list', 'codehilite'])
+	html = md.convert(text)
+	toc = md.toc
+	return html, toc
 
 #[Routes]===============================================================================================================
 # Create the roots for the app
@@ -53,7 +62,9 @@ def home():
 @app.route('/ideas/<path:path>')
 def idea_page(path):
     page = pages.get_or_404(path)
-    return render_template('page.html', page=page)
+    #return render_template('page.html', page=page)
+    html, toc = render_markdown(page.body)
+    return render_template('page.html', page=page, html=html, toc=toc)
 
 @app.route('/dochub')
 def dochub():

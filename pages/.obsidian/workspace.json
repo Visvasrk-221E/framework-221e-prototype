@@ -4,21 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "66bab7e6019d89b1",
+        "id": "3aaa74e282612b1f",
         "type": "tabs",
         "children": [
           {
-            "id": "54b71d60b0b2f52f",
+            "id": "29d408d0e372f4d7",
             "type": "leaf",
             "state": {
               "type": "webviewer",
               "state": {
-                "url": "http://127.0.0.1:5000/ideas/Intelligence%20Frameworks",
+                "url": "http://127.0.0.1:5000/ideas/Intelligence%20Frameworks#more-complex-and-comprehensive-frameworks",
                 "title": "What should you do to control the narratives and manufacture the reality? Learn what 'Intelligence' truly is.",
                 "mode": "webview"
               },
               "icon": "globe-2",
               "title": "What should you do to control the narratives and manufacture the reality? Learn what 'Intelligence' truly is."
+            }
+          },
+          {
+            "id": "48a36efb9492b4f9",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -199,7 +209,7 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "54b71d60b0b2f52f",
+  "active": "29d408d0e372f4d7",
   "lastOpenFiles": [
     "Brand Mania and Teenagers.md",
     "Intelligence Frameworks.md"
