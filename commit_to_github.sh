@@ -24,6 +24,6 @@ echo "[Fetched the latest commit ID]"
 echo "[Commid ID] : ${commit_id}"
 echo "[DEPLOYING]..."
 sleep 2
-render deploys create srv-d307mabe5dus73dfct1g ${commit_id}
+render deploys create srv-d307mabe5dus73dfct1g --commit ${commit_id}
 
 echo "[SUCCESS]..."
