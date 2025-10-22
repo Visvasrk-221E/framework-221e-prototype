@@ -16,14 +16,22 @@ git push
 echo "[SUCCESS] : Push Successfull..."
 
 sleep 3
-echo "[Create a new render deploy]..."
-echo "[Fetching the latest commit ID]..."
-commit_id=$(git rev-parse HEAD)
-sleep 1
-echo "[Fetched the latest commit ID]"
-echo "[Commid ID] : ${commit_id}"
-echo "[DEPLOYING]..."
-sleep 2
-render deploys create srv-d307mabe5dus73dfct1g --commit ${commit_id}
+clear
+echo "Do you want to deploy this commit on render?"
+read prompt
 
-echo "[SUCCESS]..."
+if [[ $prompt == 1 ]]; then
+	echo "[Create a new render deploy]..."
+	echo "[Fetching the latest commit ID]..."
+	commit_id=$(git rev-parse HEAD)
+	sleep 1
+	echo "[Fetched the latest commit ID]"
+	echo "[Commid ID] : ${commit_id}"
+	echo "[DEPLOYING]..."
+	sleep 2
+	render deploys create srv-d307mabe5dus73dfct1g --commit ${commit_id}
+	sleep 2
+	echo "[SUCCESS]..."
+else
+	echo "Only commited to github. One publish pending..."
+fi
