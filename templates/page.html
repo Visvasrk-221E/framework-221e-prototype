@@ -21,7 +21,7 @@ crossorigin="anonymous"></script>
 /* Base Layout */
 body {
   font-family: "Inter", system-ui, sans-serif;
-  background: #f7f7f8;
+  background: white;
   color: #222;
   margin: 0;
   padding: 0;
@@ -60,7 +60,7 @@ a:hover {
   width:100%;
   max-width: 1300px;
   margin: 3rem auto;
-  padding: 0 1rem;
+  padding:0.5rem;
 }
 
 
@@ -123,6 +123,7 @@ border-bottom: 1px solid #e5e7eb;
 .content {
 max-width:1200px;
 overflow-x:scroll;
+background:white;
 line-height:1.2rem;
 font-size:15px;
 }
@@ -179,6 +180,16 @@ font-weight:bolder;
 display:none;
 }
 
+.tagged {
+padding:10px;
+border:1px solid black;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+
+
+
 @media (min-width: 700px) {
 .content{
 font-size: 24px;
@@ -213,13 +224,13 @@ width:30%;
 <ul class="dropdown-menu" style="background:rgba(225,225,225,0.99);" aria-labelledby="tocDropdown">{{ toc|safe }}</ul>
 </div>
 <article class="idea-page" id="top-of-page">
-  <div class="card">
-  <div class="card-header"><h1>{{ page.meta.title }}</h1>
-  	<h4 class="text-muted">
+  <div class="card" style="border:none;background:white;">
+  <div class="card-header" style="border-bottom:5px solid black;"><h1 class="display-3">{{ page.meta.title }}</h1><br>
+  	<h6 class="text-muted tagged" style="float:right;">
     	<span><i class="fas fa-user"></i> {{ page.meta.author }}</span> •
 	    <span><i class="fas fa-calendar"></i> {{ page.meta.date }}</span> •
 	    <span><i class="fas fa-book"></i> {{ page.meta.readtime }}</span>
-	</h4>
+	</h6>
   </div>
   <div class="card-body">
   <div class="lead content">{{ page.html|safe }}</div>
