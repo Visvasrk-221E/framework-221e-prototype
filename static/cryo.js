@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+if (document.documentElement.classList.contains('no-js')) {
+    console.info('Site JavaScript disabled by user preference.');
+} else {
+    document.addEventListener('DOMContentLoaded', function () {
     const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
 
@@ -14,8 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
             cursorFollower.style.top = e.clientY + 'px';
         }, 50);
     });
-
-
 
     // Handle cursor hover effects
     const hoverElements = document.querySelectorAll('a, button, .btn, .card, .project-card, .interest-card, .social-icon, input, textarea, select, .nav-link, .theme-toggle');
@@ -62,37 +63,43 @@ document.addEventListener('DOMContentLoaded', function () {
         'Safeguard Earth',
     ];
 
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 70;
 
-    function typeWriter() {
-        const currentPhrase = phrases[phraseIndex];
+    if (typewriterText) {
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
 
-        if (isDeleting) {
-            typewriterText.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            typingSpeed = 50;
-        } else {
-            typewriterText.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            typingSpeed = 70;
+        // Remove the static fallback text once JS takes over
+        typewriterText.textContent = '';
+
+        function typeWriter() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                typewriterText.textContent = currentPhrase.substring(0, Math.max(charIndex - 1, 0));
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                typewriterText.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 1000; // Pause at the end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before typing next phrase
+            }
+
+            setTimeout(typeWriter, typingSpeed);
         }
 
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            isDeleting = true;
-            typingSpeed = 500; // Pause at the end
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            typingSpeed = 300; // Pause before typing next phrase
-        }
-
-        setTimeout(typeWriter, typingSpeed);
+        typeWriter();
     }
-
-    typeWriter();
 
     // Animate stats counter
     const stats = document.querySelectorAll('.stat-number');
@@ -203,8 +210,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
 
@@ -392,81 +397,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.head.appendChild(style);
     }
 
-    // Preloader
-    const preloader = document.createElement('div');
-    preloader.className = 'preloader';
-    preloader.innerHTML = `
-        <div class="preloader-content">
-            <div class="logo-text">Framework<span class="accent">-221E</span></div><br>
-            <p class="description-text">Prototype Build...</p><br>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(preloader);
+    // Blog listen buttons
+    initBlogAudio();
 
-    // Add CSS for preloader
-    const preloaderStyle = document.createElement('style');
-    preloaderStyle.textContent = `
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-primary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .preloader-content {
-            text-align: center;
-        }
-
-        .preloader .logo-text {
-            font-family: var(--font-mono);
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            background: linear-gradient(to right, var(--text-primary), var(--accent-primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .loading-bar {
-            width: 200px;
-            height: 4px;
-            background-color: var(--bg-secondary);
-            border-radius: 2px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-
-        .loading-progress {
-            height: 100%;
-            width: 0;
-            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
-            animation: loading 1.5s ease forwards;
-        }
-
-        @keyframes loading {
-            0% { width: 0; }
-            100% { width: 100%; }
-        }
-    `;
-    document.head.appendChild(preloaderStyle);
-
-    // Hide preloader after loading
-    window.addEventListener('load', function () {
-        setTimeout(function () {
-            preloader.style.opacity = '0';
-            preloader.style.visibility = 'hidden';
-        }, 1000);
-    });
+    // Ownership verification display
+    initVerificationSection();
 });
 
 // Initialize skill sliders for proper infinite scrolling
@@ -504,6 +439,352 @@ document.addEventListener('DOMContentLoaded', function () {
     // Wait for images to load before initializing sliders
     window.addEventListener('load', initSkillSliders);
 });
+
+function initBlogAudio() {
+    if (document.documentElement.classList.contains('no-js')) {
+        return;
+    }
+
+    const listenButtons = document.querySelectorAll('.blog-listen');
+    const audioElements = document.querySelectorAll('.blog-audio');
+
+    const getProgressElements = (audio) => {
+        const footer = audio.closest('.blog-card-footer');
+        if (!footer) {
+            return { progress: null, seek: null };
+        }
+
+        const progress = footer.querySelector('.blog-card-progress');
+        const seek = progress?.querySelector('.blog-audio-seek') || null;
+
+        return { progress, seek };
+    };
+
+    const resetProgress = (audio) => {
+        const { progress, seek } = getProgressElements(audio);
+        if (seek) {
+            seek.value = 0;
+        }
+
+        if (progress) {
+            progress.hidden = true;
+            progress.classList.remove('is-visible');
+        }
+    };
+
+    const resetButton = (button) => {
+        if (!button) return;
+        button.classList.remove('is-playing');
+        button.textContent = button.getAttribute('data-label-play') || 'Listen';
+        button.setAttribute('aria-pressed', 'false');
+    };
+
+    const stopOthers = (currentAudio) => {
+        audioElements.forEach(audio => {
+            if (audio !== currentAudio) {
+                audio.pause();
+                audio.currentTime = 0;
+                const relatedButton = audio.closest('.blog-card')?.querySelector('.blog-listen');
+                resetButton(relatedButton);
+                resetProgress(audio);
+            }
+        });
+    };
+
+    listenButtons.forEach(button => {
+        const target = button.getAttribute('data-audio');
+        const audio = document.getElementById(`blog-audio-${target}`);
+
+        if (!audio) {
+            return;
+        }
+
+        const playLabel = button.textContent.trim() || 'Listen';
+        button.setAttribute('data-label-play', playLabel);
+        button.setAttribute('data-label-pause', 'Pause');
+        button.setAttribute('data-label-resume', 'Resume');
+        button.setAttribute('aria-pressed', 'false');
+
+        const { progress, seek } = getProgressElements(audio);
+        let pendingSeekValue = null;
+        let isScrubbing = false;
+        let resumeAfterScrub = false;
+
+        if (progress) {
+            progress.hidden = true;
+            progress.classList.remove('is-visible');
+        }
+
+        const showProgress = () => {
+            if (progress) {
+                progress.hidden = false;
+                progress.classList.add('is-visible');
+            }
+        };
+
+        const syncSeek = (force = false) => {
+            if (!seek || (!force && isScrubbing)) {
+                return;
+            }
+
+            if (isNaN(audio.duration) || !isFinite(audio.duration) || audio.duration === 0) {
+                return;
+            }
+
+            const percent = (audio.currentTime / audio.duration) * 100;
+            seek.value = Number.isFinite(percent) ? String(percent) : '0';
+        };
+
+        const applySeek = (rawValue, { forceUpdate = false } = {}) => {
+            if (!seek) {
+                return;
+            }
+
+            if (!Number.isFinite(rawValue)) {
+                return;
+            }
+
+            const clamped = Math.min(Math.max(rawValue, 0), 100);
+            seek.value = String(clamped);
+
+            if (isNaN(audio.duration) || !isFinite(audio.duration) || audio.duration === 0) {
+                pendingSeekValue = clamped;
+                return;
+            }
+
+            pendingSeekValue = null;
+            const targetTime = (clamped / 100) * audio.duration;
+
+            if (typeof audio.fastSeek === 'function') {
+                try {
+                    audio.fastSeek(targetTime);
+                } catch {
+                    audio.currentTime = targetTime;
+                }
+            } else {
+                audio.currentTime = targetTime;
+            }
+
+            if (forceUpdate) {
+                syncSeek(true);
+            }
+        };
+        if (seek) {
+            seek.value = '0';
+            const extractValue = (event) => {
+                const { valueAsNumber, value } = event.target;
+                if (Number.isFinite(valueAsNumber)) {
+                    return valueAsNumber;
+                }
+                return Number(value);
+            };
+
+            const beginScrub = () => {
+                if (isScrubbing) return;
+                isScrubbing = true;
+                resumeAfterScrub = !audio.paused && !audio.ended;
+                if (resumeAfterScrub) {
+                    audio.pause();
+                }
+            };
+
+            const endScrub = () => {
+                if (!isScrubbing) return;
+                isScrubbing = false;
+                const shouldResume = resumeAfterScrub;
+                resumeAfterScrub = false;
+
+                if (shouldResume) {
+                    audio.play()
+                        .catch(() => {
+                            setToResume();
+                        });
+                }
+            };
+
+            seek.addEventListener('pointerdown', beginScrub);
+            seek.addEventListener('pointerup', endScrub);
+            seek.addEventListener('pointercancel', endScrub);
+            seek.addEventListener('blur', endScrub);
+
+            seek.addEventListener('input', (event) => {
+                applySeek(extractValue(event), { forceUpdate: true });
+            });
+
+            seek.addEventListener('change', (event) => {
+                applySeek(extractValue(event), { forceUpdate: true });
+                endScrub();
+            });
+        }
+
+        const setToPause = () => {
+            button.classList.add('is-playing');
+            button.textContent = button.getAttribute('data-label-pause') || 'Pause';
+            button.setAttribute('aria-pressed', 'true');
+        };
+
+        const setToResume = () => {
+            button.classList.remove('is-playing');
+            button.textContent = button.getAttribute('data-label-resume') || 'Resume';
+            button.setAttribute('aria-pressed', 'false');
+        };
+
+        audio.addEventListener('timeupdate', () => {
+            syncSeek();
+        });
+
+        audio.addEventListener('seeked', () => {
+            syncSeek(true);
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            syncSeek(true);
+            if (pendingSeekValue !== null) {
+                applySeek(pendingSeekValue, { forceUpdate: true });
+                pendingSeekValue = null;
+            }
+        });
+
+        audio.addEventListener('canplay', () => {
+            if (pendingSeekValue !== null) {
+                applySeek(pendingSeekValue, { forceUpdate: true });
+                pendingSeekValue = null;
+            }
+        });
+
+        audio.addEventListener('pause', () => {
+            if (audio.ended || audio.currentTime === 0) {
+                return;
+            }
+            setToResume();
+        });
+
+        audio.addEventListener('play', () => {
+            showProgress();
+            syncSeek(true);
+            setToPause();
+        });
+
+        audio.addEventListener('ended', () => {
+            audio.currentTime = 0;
+            resetButton(button);
+            resetProgress(audio);
+        });
+
+        button.addEventListener('click', () => {
+            if (audio.paused) {
+                stopOthers(audio);
+                if (audio.preload !== 'auto') {
+                    audio.preload = 'auto';
+                }
+                if (audio.readyState < 1) {
+                    audio.load();
+                }
+
+                audio.play()
+                    .then(() => {
+                        showProgress();
+                        syncSeek(true);
+                        setToPause();
+                    })
+                    .catch(() => {
+                        resetButton(button);
+                        resetProgress(audio);
+                        window.location.href = audio.querySelector('source')?.src || audio.src || '#';
+                    });
+            } else {
+                audio.pause();
+                setToResume();
+            }
+        });
+    });
+}
+
+function initVerificationSection() {
+    const container = document.getElementById('profile-verifications');
+    if (!container) return;
+
+    const setMessage = (message) => {
+        container.innerHTML = '';
+        const messageEl = document.createElement('div');
+        messageEl.className = 'verification-item loading';
+        messageEl.textContent = message;
+        container.appendChild(messageEl);
+    };
+
+    fetch('/.well-known/identity.json', { cache: 'no-cache' })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const profiles = Array.isArray(data.profiles) ? data.profiles : [];
+
+            if (!profiles.length) {
+                setMessage('No public profile proofs are published yet.');
+                return;
+            }
+
+            container.innerHTML = '';
+
+            profiles.forEach(profile => {
+                const link = document.createElement('a');
+                link.className = 'verification-item';
+                link.href = profile.url || '#';
+                link.target = '_blank';
+                link.rel = 'noopener me';
+
+                const info = document.createElement('div');
+                info.className = 'verification-info';
+
+                const platform = document.createElement('span');
+                platform.className = 'verification-platform';
+                platform.textContent = profile.platform || profile.type || 'Profile';
+                info.appendChild(platform);
+
+                if (profile.handle) {
+                    const handle = document.createElement('span');
+                    handle.className = 'verification-handle';
+                    handle.textContent = profile.handle;
+                    info.appendChild(handle);
+                } else if (profile.url) {
+                    const handle = document.createElement('span');
+                    handle.className = 'verification-handle';
+                    handle.textContent = profile.url.replace(/^https?:\/\//, '');
+                    info.appendChild(handle);
+                }
+
+                const methodWrapper = document.createElement('div');
+                methodWrapper.className = 'verification-method';
+
+                const methodTag = document.createElement('span');
+                methodTag.className = 'verification-tag';
+                const methodName = (profile.verification && profile.verification.method)
+                    ? profile.verification.method
+                    : 'link';
+                methodTag.textContent = methodName.replace(/[\W_]+/g, ' ').toUpperCase().trim();
+                methodWrapper.appendChild(methodTag);
+
+                const icon = document.createElement('i');
+                icon.className = 'fas fa-arrow-up-right-from-square';
+                methodWrapper.appendChild(icon);
+
+                if (profile.verification && profile.verification.expected) {
+                    link.title = `Expects back-link or handle match: ${profile.verification.expected}`;
+                }
+
+                link.appendChild(info);
+                link.appendChild(methodWrapper);
+                container.appendChild(link);
+            });
+        })
+        .catch(error => {
+            console.error('Failed to load identity.json', error);
+            setMessage('Unable to load verification data right now. Please try again later.');
+        });
+}
 
 // Handle interest card flipping
 document.addEventListener('DOMContentLoaded', function () {
@@ -736,9 +1017,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function createTerminalEasterEgg() {
     const micr0Card = document.querySelector('.micr0Card');
     const takeThereLink = document.querySelector('.take-there-link');
-
-    // Unlink the "Take me there!" link
-    takeThereLink.removeAttribute('href');
 
     let isTerminalActive = false;
     let terminalContainer;
@@ -1855,7 +2133,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Visual feedback
                 copyButton.classList.add('copy-success');
                 const originalIcon = copyButton.innerHTML;
-                copyButton.innerHTML = '<i class="fas fa-check"></i>';
+                copyButton.innerHTML = '<i class="fas fa-check" aria-hidden="true" data-icon="✔"></i>';
 
                 // Reset after 2 seconds
                 setTimeout(() => {
@@ -1868,3 +2146,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+}

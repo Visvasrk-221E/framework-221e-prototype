@@ -4,39 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "b357fe4d91b88789",
+        "id": "e6ec72d971bee7ca",
         "type": "tabs",
         "children": [
           {
-            "id": "e07f09a59621b285",
+            "id": "74402438b4342c68",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Intelligence Frameworks.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Intelligence Frameworks"
-            }
-          },
-          {
-            "id": "ebd4b52ef4dc6d22",
-            "type": "leaf",
-            "state": {
-              "type": "webviewer",
-              "state": {
-                "url": "http://127.0.0.1:5000/ideas/Intelligence%20Frameworks",
-                "title": "What should you do to control the narratives and manufacture the reality? Learn what 'Intelligence' truly is.",
-                "mode": "webview"
-              },
-              "icon": "globe-2",
-              "title": "What should you do to control the narratives and manufacture the reality? Learn what 'Intelligence' truly is."
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,8 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "d14789a8c59cc5e9",
@@ -214,7 +194,7 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "ebd4b52ef4dc6d22",
+  "active": "74402438b4342c68",
   "lastOpenFiles": [
     "Intelligence Frameworks.md",
     "Untitled.md",
