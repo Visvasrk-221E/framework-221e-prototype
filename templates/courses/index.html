@@ -69,7 +69,7 @@
         <div class="projects-grid">
         {% for course, description in courses.items() %}
             <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;background:url('static/img/{{ course }}_header.png');background-size:cover;background-position:center left;">
-            <div style="background:rgba(0,0,0,0.9);">
+            <div style="background:rgba(0,0,0,0.8);">
                 <div class="project-content">
                 {% if '_' in course %}
                     <h3 style="colour:white;">{{ course| replace('_', ' ') | course }}</h3>

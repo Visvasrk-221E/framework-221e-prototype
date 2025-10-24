@@ -65,9 +65,9 @@ a:hover {
 
 
 .idea-page pre {
-  background: #272822;
-  color: #f8f8f2;
-  border-radius: 10px;
+  background: rgba(220,220,220,0.5);
+  color: rgba(0,0,0,0.9);
+  border-radius: 5px;
   padding: 1rem;
   overflow-x: auto;
 }
@@ -124,7 +124,7 @@ border-bottom: 1px solid #e5e7eb;
 max-width:1200px;
 overflow-x:scroll;
 background:white;
-line-height:1.2rem;
+line-height:1.5rem;
 font-size:15px;
 }
 
@@ -211,18 +211,20 @@ width:30%;
 </head>
 <body>
 
-  <header class="container-fluid p-5 bg-dark text-white text-center">
-    <h1><a style="text-decoration:none;" href="{{ url_for('bash_course') }}#projects"> <i class="fas fa-bash"></i> Bash Scripting</a></h1>
+  <header class="container-fluid p-5 bg-dark text-white text-center" style="background:url('/static/img/bash_header.png');background-size:cover;background-repeat:no-repeat;">
+  <div class="container-sm" style="border-radius:10px;border:none;background:rgba(0,0,0,0.8);padding:20px;">
+    <h1><a style="text-decoration:none;color:white;" class="display-1" href="{{ url_for('bash_course') }}#projects"> <i class="fas fa-bash"></i> Bash Scripting</a></h1>
     <p>Your complete learning partner — powered by Bootstrap5</p>
+  </div>
   </header>
 
   <main>
 
 <a class="topper text-white" href="#top-of-page"><i class="fa-solid fa-arrow-up"></i></a>
-<div class="dropdown dropdown-toc">
+<!--<div class="dropdown dropdown-toc">
 <button class="btn btn-outline-primary dropdown-toggle text-light"  style="background:rgba(0,0,0,0.8);border:none; float:right;" type="button" id="tocDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></button>
 <ul class="dropdown-menu" style="background:rgba(225,225,225,0.99);" aria-labelledby="tocDropdown"></ul>
-</div>
+</div> Currently Hidden, will be allowed to be visible once chapter is done...-->
 <article class="idea-page" id="top-of-page">
   <div class="card" style="border:none;background:white;">
   <div class="card-header" style="border-bottom:5px solid black;"><h1 class="display-3">Module 0 : Bash - Introduction</h1><br>
@@ -233,15 +235,88 @@ width:30%;
 	</h6>
   </div>
   <div class="card-body">
-  <div class="lead content"></div>
+  <div class="lead content"> 
+  	<h1>What is bash? Introduction to bash and linux</h1>
+  	<p>Bash is the GNU Bourne-Again Shell, a command interpreter and scripting language that reads input, performs expansions and redirections, and executes commands on Unix-like systems [1]. Linux is a Unix-like operating system whose kernel runs in privileged kernel space, while user tools such as Bash run in user space and interact with the kernel via system calls [2].</p>
+  	<h1>What is Bash and a Shell?</h1>
+  	<p>Bash is the default GNU shell, largely compatible with the traditional Bourne shell, and incorporating useful features from the Korn shell and C shell [1-1]. It aims to conform to the POSIX Shell and Utilities specification while offering enhancements for both interactive use and scripting [1-2].</p>
+  	<p>A shell is both a command language interpreter and a programming environment: it reads input, tokenizes and parses it, expands variables and patterns, redirects I/O, and executes commands [1-3]. Shells may be interactive or non-interactive and provide variables, control flow, functions, history, job control, and line editing facilities [1-4].</p>
+  	<h1>Why Bash matters?</h1>
+  	<p>Bash is widely deployed as the standard login and interactive shell across GNU/Linux systems and is portable to many Unix variants and other platforms [1-5]. It provides builtins like cd and exec that directly manipulate the running shell and cannot be implemented as external programs, making it central to both daily interaction and automation [1-6].</p>
+  	<h1>What is Linux?</h1>
+  	<p>Linux, strictly speaking, refers to the kernel that runs in kernel mode and provides scheduling, memory management, device drivers, filesystems, and the system call interface [2-1]. Userland software—shells, libraries, and utilities—runs in user mode and requests services from the kernel through the system call interface exposed via C libraries such as glibc or musl [2-2].</p>
+  	<h1>Kernal vs User Space</h1>
+  	<p>Kernel space is a privileged execution domain reserved for the operating system kernel and most device drivers, whereas user space is where applications and daemons run with restricted privileges [2-3]. This separation enforces memory protection and typically provides each process its own virtual address space for isolation and security [2-4].</p>
+  	<h1>Filesystem Basics</h1>
+  	<p>The Filesystem Hierarchy Standard (FHS) defines conventional directory purposes so software and administration are predictable across distributions, including required top-level directories such as <kbd>/</kbd>,  <kbd>/bin</kbd>,  <kbd>/etc</kbd>,  <kbd>/usr</kbd>, and  <kbd>/var</kbd> [3]. Essential user and system binaries reside in /bin and /sbin for early boot and recovery, while most user commands and architecture-independent data live under /usr and /usr/share, respectively [3-1].</p>
+  	<h1>Terminals and sessions</h1>
+  	<p>Interactive Bash uses the Readline interface to provide prompts, line editing, completion, history, and job control for a convenient CLI experience [1-7]. Depending on how it is invoked, Bash reads startup files such as <kbd>/etc/profile</kbd>, <kbd>~/.bash_profile</kbd>, <kbd>~/.bash_login</kbd>, <kbd>~/.profile</kbd>, and <kbd>~/.bashrc</kbd> as defined by its login, interactive, and POSIX-mode rules [4].</p>
+  	<h1>How Bash runs commands</h1>
+  	<p>Bash processes input by tokenizing, parsing into simple or compound commands, performing expansions (parameter, command, arithmetic, pathname), applying redirections, executing, and then reporting an exit status [1-8]. When resolving a command name, Bash consults functions and builtins before searching the directories listed in PATH, and may treat a non-executable file as a script if execution fails appropriately [5].</p>
+  	<h1>Let's write some commands</h1>
+  	<pre><code>
+# Where am I?
+pwd
+
+# List files with details
+ls -lah
+
+# Print a message
+echo "Hello, Bash"
+
+# Who am I and what kernel?
+whoami
+uname -a
+
+# Current date/time
+date  		
+  	</code></pre>
+	<h1>Your first script</h1>
+	<p>A shell script is a text file of shell commands executed by a non-interactive Bash process, commonly starting with a shebang like <kbd> #!/usr/bin/env bash </kbd>and made executable with <kbd>chmod +x</kbd> [1-9][6]. When invoked with a filename, Bash sets $0, searches the current directory first and then PATH for the script, executes its commands, and exits with the last command’s status while applying its invocation and startup-file rules [4-1][5-1].</p>
+	<h1>Pro tips for beginners</h1>
+	<p>
+	<ul>
+		<li>Use man bash and the GNU Bash Reference Manual for authoritative behavior, options, and builtins, especially when writing portable scripts</li>
+		<li>Learn core options via set and shopt to control error handling and parsing semantics, for example enabling stricter modes or POSIX conformance when needed</li>
+		<li>Distinguish login shells from interactive non-login shells so you configure the right files: profile files for login shells and ~/.bashrc for interactive behavior</li>				
+	</ul>
+	</p>
+	<h1>Where this course goes next</h1>
+	<p>Subsequent chapters will build a deep mastery of Bash syntax, quoting, parameters, expansions, redirections, pipelines, control structures, functions, arrays, debugging, job control, and POSIX portability [1-12]. Alongside Bash language features, the course will leverage the FHS and GNU core utilities to navigate, inspect, and automate Linux systems in a robust, reproducible way [3-2][7].</p>
+	<h1>Differences between Bash and other shells</h1>
+	<p>Bash differs from other shells primarily in its POSIX-oriented scripting semantics, Bourne-shell compatibility, and balanced mix of interactive and programming features, whereas zsh emphasizes advanced interactive capabilities, fish focuses on usability over POSIX compatibility, dash targets a minimal POSIX sh, and ksh93 offers a standards-centric programming shell with strong sh compatibility [59][60][61][62][63]. Choosing among them depends on whether the priority is portability, interactive convenience, minimalism, or advanced language features aligned with POSIX [59-1][60-1][61-1][62-1][63-1].<p>
+	<h2>Overview of differences</h2>
+	<p>Bash is the GNU Bourne-Again Shell, largely compatible with the historical Bourne shell, incorporating features from ksh and csh, and intended to conform to the POSIX Shell and Utilities specification for both interactive use and scripting [59-2]. Zsh most closely resembles ksh but includes many enhancements and is not POSIX-compatible in its default mode unless configured for compatibility [60-2].
+	Fish is a “friendly” interactive shell that prioritizes usability, discoverability, and immediate productivity, and it documents explicit shebang usage for fish scripts and cautions when setting fish as a login shell on systems expecting Bourne-compatible shells [61-2]. Dash is a small, POSIX-focused sh implementation that includes only POSIX features plus a few Berkeley extensions, making it suitable as a lean /bin/sh for scripting [62-2].Ksh93 (KornShell) is intended to be upward-compatible with sh and to conform to the POSIX shell standard, providing an enhanced programming environment while preserving sh script compatibility.</p>
+	<h2>Portability and standards</h2>
+	<p>For maximum portability across Unix-like systems, target POSIX sh semantics—with dash or ksh93 as interpreters—or enable POSIX-conforming behavior in shells designed for POSIX conformance such as Bash’s intended conformance to the POSIX shell specification [62-7][63-7][59-7]. Fish’s distinct language requires explicit shebang usage and is not a drop-in replacement for Bourne-compatible scripts, especially on systems that expect login shells to be Bourne-compatible</p>
+	<h2>Interactive experience</h2>
+	<p>Zsh provides a rich interactive environment with programmable completion, extensive line editing, and loadable modules that extend functionality, catering to power users who customize prompts and workflows deeply [60-7]. Fish emphasizes immediate usability with documentation, interactive guidance, and configuration patterns that help new users be productive quickly, while also documenting safe default-shell considerations</p>
+	<h2>Scripting focus</h2>
+	<p>Bash balances interactive usability with scripting, remaining Bourne-compatible and offering ksh-inspired features while aiming at POSIX conformance for portable scripting practices when needed [59-8]. Dash intentionally restricts itself to POSIX and a small set of extensions, making it a strong choice for lean and predictable /bin/sh scripts in constrained or standards-driven environments</p>
+	<h2>Choosing the right shell</h2>
+	<p>
+	<ul>
+		<li>Prefer Bash for a widely available default with strong Bourne-compatibility and POSIX-oriented behavior suitable for both interactive use and scripting on GNU/Linux systems</li>
+		<li>Prefer Zsh for advanced interactive features, programmable completion, and power-user customization when POSIX-by-default behavior is not required</li>
+		<li>Prefer Fish for user-friendly, discoverable interactive workflows and fish-native scripts, while using a Bourne-compatible shell for system scripts and login environments that expect POSIX sh semantics</li>
+		<li>Prefer Dash for minimal, fast-starting POSIX /bin/sh scripts where only standard features are desired and extensions are avoided</li>
+		<li>Prefer Ksh93 when a standards-centric shell with strong sh compatibility and enhanced language features aligned with POSIX is required for robust scripting</li>								
+	</ul>
+	</p><hr>
+	<h1>what is a POSIX?</h1>
+	<p>POSIX is the Portable Operating System Interface, a family of IEEE/ISO standards (IEEE 1003, ISO/IEC 9945) that define a common operating system interface—including C APIs, a command interpreter, and standard utilities—to ensure software portability across Unix-like systems and others [170][171]. In practice, POSIX specifies what programs, shells, and utilities should provide and how they should behave so the same source code and scripts can run reliably across compliant systems</p>
+	
+		
+  </div>
   </div>
 </article>
 
   </main>
 
   <footer class="container-fluid p-5 text-center text-white bg-dark">
-    <p>Made with : Flask FlatPages and Array of Thoughts...</p>
-    <a href="{{ url_for('home') }}#ideas-list" class="btn btn-outline-primary">Back to Home</a>
+    <p>Made with : Thirst to Learn</p>
+    <a href="{{ url_for('bash_course') }}#projects" class="btn btn-outline-primary">Back</a>
   </footer>
 
 </body>
