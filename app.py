@@ -37,6 +37,8 @@ def render_markdown(text):
 	return html, toc
 
 #[Routes]===============================================================================================================
+
+#[Create the utils for main routes]
 # Create the roots for the app
 
 @app.route('/')
@@ -59,6 +61,8 @@ def home():
 	crt_time = datetime.now()
 	return render_template('index.html', time=crt_time, subjects=subjects, posts=posts, subject_count=subject_count, docnum=docnum, anadomains=anadomains)
 
+# Create the route for blog perceptions
+
 @app.route('/ideas/<path:path>')
 def idea_page(path):
     page = pages.get_or_404(path)
@@ -66,22 +70,31 @@ def idea_page(path):
     html, toc = render_markdown(page.body)
     return render_template('page.html', page=page, html=html, toc=toc)
 
+#[Create the utils for the sub main routes]===============================================================================================================
+
+# Create route for dochub
 @app.route('/dochub')
 def dochub():
 	return render_template('documents/index.html')
 
+
+# Create dowload file facility
 @app.route('/dochub/<path:filename>')
 def download_file(filename):
 	return send_from_directory('static/documents', filename, as_attachment=True)
 
-@app.route('/subjects/<subject>')
-def route_subject(subject):
-	return redirect(url_for('subject'))
 
-@app.route('/analytical_domains/<anadomain>')
-def route_analytical_domain(anadomain):
-	return redirect(url_for('anadomain'))
+# Create route for the courses mains
+@app.route('/courses')
+def courses():
+	docnum = len([f for f in os.listdir(docsdir) if "[course]" in f])
+	courses = {
+		"bash" : "Learn Bash programming from scratch and master in 10 days by hands on projects, tutorials and linux system guidance, assuming that you have a linux system ready to run bash scripts. This is modular course, we increment step by step.[Essentials, Scripting]",
+	}
+	course_count = len(courses)
+	return render_template('courses/index.html', courses=courses, course_count=course_count, docnum=docnum)
 
+# Create route for the biology subject
 @app.route('/subjects/biology')
 def biology():
 	docnum = len([f for f in os.listdir(docsdir) if "[bio]" in f])
@@ -92,6 +105,8 @@ def biology():
 	topic_count = len(topics)
 	return render_template('biology/index.html', topics=topics, topic_count=topic_count, docnum=docnum)
 
+
+# Create route for cybersecurity mains
 @app.route('/subjects/cybersecurity')
 def cybersecurity():
 	topics = {
@@ -101,6 +116,7 @@ def cybersecurity():
 	topic_count = len(topics)
 	return render_template('cybersecurity/index.html', topics=topics, topic_count=topic_count)
 
+# Create route for sec-reports mains
 @app.route('/analytical_domains/sec-reports')
 def sec_reports():
 	docnum = len([f for f in os.listdir(docsdir) if "[secreport]" in f])
@@ -109,6 +125,7 @@ def sec_reports():
 	topic_count = len(topics)
 	return render_template('secreports/index.html', topics=topics, topic_count=topic_count, docnum=docnum)
 
+# Create route for scene-scape mains
 @app.route('/analytical_domains/scene-scape')
 def scene_scape():
 	docnum = len([f for f in os.listdir(docsdir) if "[scenescape]" in f])
@@ -118,17 +135,57 @@ def scene_scape():
 	topic_count = len(topics)
 	return render_template('scenescape/index.html', topics=topics, topic_count=topic_count, docnum=docnum)
 
+
+#[Create dynamic routes]===============================================================================================================
+
+# Create dynamic route for subject
+@app.route('/subjects/<subject>')
+def route_subject(subject):
+	return redirect(url_for('subject'))
+
+# Create dynamic route for anadomain
+@app.route('/analytical_domains/<anadomain>')
+def route_analytical_domain(anadomain):
+	return redirect(url_for('anadomain'))
+
+# Create dynamic route for courses
+@app.route('/courses/<course_name>')
+def return_course(course_name):
+	return redirect(url_for('course_name'))
+
+# Create dynamic route for biology subject
 @app.route('/subjects/biology/<topic>')
 def biology_topic(topic):
 	return redirect(url_for('topic'))
 
+# Create dynamic route for cybersecurity topics
 @app.route('/subjects/cybersecurity/<topic>')
 def cybersecurity_topic(topic):
 	return redirect(url_for('topic'))
 
+# Create dynamic route for scene-scape topics
 @app.route('/analytical_domains/scene-scape/<topic>')
 def scene_scape_topic(topic):
 	return redirect(url_for('topic'))
+
+# Create dynamic route for cybersec tools
+@app.route('/subjects/cybersecurity/basic_tools/<tool_name>')
+def render_basic_tools(tool_name):
+	return redirect(url_for('tool_name'))
+
+# Create dynamic route for bash lessons
+@app.route('/courses/bash/<module_name>')
+def return_bash_module(module_name):
+	return redirect(url_for('module_name'))
+
+#[Routes for serving final html files]===============================================================================================================
+
+@app.route('/courses/bash/')
+def bash_course():
+	modules = {
+	"introduction" : "A shell is both a command language interpreter and a programming environment: it reads input, tokenizes and parses it, expands variables and patterns, redirects I/O, and executes commands.[module 0]",
+	}
+	return render_template('courses/bash/index.html', modules=modules)
 
 @app.route('/analytical_domains/scene-scape/rabrid-x133')
 def scene_scape_rabrid_x133():
@@ -153,15 +210,26 @@ def basic_tools():
 	}
 	return render_template('cybersecurity/basic_tools.html', tool_dict=tool_dict)
 
-@app.route('/subjects/cybersecurity/basic_tools/<tool_name>')
-def render_basic_tools(tool_name):
-	return redirect(url_for('tool_name'))
 
+
+
+
+#[Routes for cybersec tools]===============================================================================================================
 
 @app.route('/subjects/cybersecurity/basic_tools/nmap')
 def nmap():
 	return render_template('cybersecurity/basic_tools/nmap.html')
 
+
+#[Routes for bash lessons ]===============================================================================================================
+
+@app.route('/courses/bash/introduction')
+def bash_scripting_introduction():
+	return render_template('courses/bash/introduction.html')
+
+#[Routes for dochub]===============================================================================================================
+
+# biodoc route
 @app.route('/dochub/biodoc')
 def biodoc():
 	unacademydocs = [f for f in os.listdir(docsdir) if "[bio]" and "[unacademy]" in f]
@@ -170,6 +238,7 @@ def biodoc():
 	doccount = len(unacademydocs) + len(qbdocs) + len(gendocs)
 	return render_template('documents/biodoc.html',unacademydocs=unacademydocs, qbdocs=qbdocs, gendocs=gendocs)
 
+# compdoc route
 @app.route('/dochub/compdoc')
 def compdoc():
 	netdocs = [f for f in os.listdir(docsdir) if "[comp]" and "[net]" in f] #Networking
@@ -183,22 +252,30 @@ def compdoc():
 	doccount = len([f for f in os.listdir(docsdir) if "[comp]" in f])
 	return render_template('documents/compdoc.html', netdocs=netdocs, hackdocs=hackdocs, pydocs=pydocs, gendocs=gendocs, cdocs=cdocs, jsdocs=jsdocs, javadocs=javadocs, fsdocs=fsdocs)
 
+# weapdoc route
 @app.route('/dochub/weapdoc')
 def weapdoc():
 	docs = [f for f in os.listdir(docsdir) if "[weap]" in f]
 	return render_template('documents/weapdoc.html', docs=docs)
 
+
+
+
+#[Routes for comming soons]===============================================================================================================
+
+# websites
 @app.route('/websites')
 def websites():
 	return render_template('comming_soon.html', title="My Websites", pgdesc="Welcome to my websites page. Here you can find the links to all of my other websites. Currently site under development.")
 
-@app.route('/courses')
-def courses():
-	return render_template('comming_soon.html', title="Courses", pgdesc="Welcome to courses, site currently under development. We will add the courses as soon as possible.")
-
+# codes
 @app.route('/codes')
 def codes():
 	return render_template('comming_soon.html', title="My Codes", pgdesc="Welcome to my codes. Here you can find all of my codes. Soon I will post them all.")
+
+
+
+#[main if condn for the sys]===============================================================================================================
 
 if __name__ == "__main__":
 	app.run(host="0.0.0.0", port=port)
