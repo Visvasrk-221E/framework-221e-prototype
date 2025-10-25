@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bash : Basic Commands</title>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='codehilite-monokai.css') }}">
+<!-- Bootstrap 5.3.8 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Bootstrap 5.3.8 JS Bundle (with Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
+crossorigin="anonymous"></script>
+
+  
+<style>
+/* Base Layout */
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: white;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+
+img {
+display:block;
+width:100%;
+height:auto;
+border-radius:0.75rem;
+object-fit:cover;
+box-shadow: 0 4px 16px rgba(0,0,0,0.01);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+transform: scale(1.01);
+box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+
+a {
+  text-decoration: none;
+  color: #0056b3;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #007bff;
+}
+
+
+/* Single Idea Page */
+.idea-page {
+  width:100%;
+  max-width: 1300px;
+  margin: 3rem auto;
+  padding:0.5rem;
+}
+
+
+.idea-page pre {
+  background: rgba(220,220,220,0.5);
+  color: rgba(0,0,0,0.9);
+  border-radius: 5px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+/* Table Styling */
+.idea-page table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.idea-page table, th, td {
+  border: 1px solid #ddd;
+}
+
+.idea-page th, td {
+  padding: 0.6rem;
+}
+
+.idea-page tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+table {
+width : 100%;
+border-collapse:collapse;
+border-spacing: 0;
+font-size:0.95rem;
+color: #1f1f1f;
+background-color: #fff;
+border-radius: 0.75rem;
+overflow:hidden;
+box-shadow: 0 2px 12px rgba(0,0,0, 0.05);
+}
+
+thead {
+background-color: #f9fafb;
+text-transform: uppercase;
+font-size:0.8rem;
+letter-spacing:0.05em;
+}
+
+
+th {
+padding: 0.75rem 1rem;
+text-align:left;
+font-weight: 600;
+color: #374151;
+border-bottom: 1px solid #e5e7eb;
+
+}
+
+.content {
+max-width:1200px;
+overflow-x:scroll;
+background:white;
+line-height:1.5rem;
+font-size:15px;
+}
+
+.topper{
+position:fixed;
+background-color:rgba(1, 13, 17, 0.8);
+font-size:20px;
+padding:5px;
+right:10px;
+text-align:center;
+colour:white;
+border-radius:10px;
+float:right;
+width:35px;
+height:35px;
+bottom:10px;
+z-index:1;
+}
+
+
+.dropdown-toc {
+position:fixed;
+top:1rem;
+right:10px;
+z-index:2;
+}
+
+.dropdown-toc ul {
+padding-left:0.2rem;
+}
+.dropdown-toc li ul {
+padding-left:1.5rem;
+}
+
+.dropdown-toc .dropdown-menu {
+max-height:300px;
+overflow-y:auto;
+width:300px;
+font-size:12px;
+}
+
+.dropdown-toc a {
+text-decoration:none;
+color:rgba(0,0,0,0.8);
+}
+
+.dropdown-toc a:hover{
+color:rgba(0,0,0,1);
+font-weight:bolder;
+}
+
+.dropdown-toc .dropdown-menu::-webkit-scrollbar {
+display:none;
+}
+
+.tagged {
+padding:10px;
+border:1px solid black;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+
+.btn-close{
+color:white;
+width:5px;
+height:5px;
+font-weight:bolder;
+background:rgba(0,0,0,0.3);
+border-radius:5px;
+text-align:center;
+float:left;
+font-size:40px;
+}
+
+.btn-close:hover{
+background:red;
+color:black;
+}
+
+.left-border-bold{
+border-left:10px solid green;
+}
+
+@media (min-width: 700px) {
+.content{
+font-size: 24px;
+line-height:2rem;
+padding:5px;
+}
+
+.dropdown-toc .dropdown-menu {
+max-height:300px;
+overflow-y:auto;
+font-size: 18px;
+width:500px;
+}
+.dropdown-toc {
+width:30%;
+}
+}
+</style>
+</head>
+<body>
+
+  <header class="container-fluid p-5 bg-dark text-white text-center" style="background:url('/static/img/bash_header.png');background-size:cover;background-repeat:no-repeat;">
+  <div class="container-sm" style="border-radius:10px;border:none;background:rgba(0,0,0,0.8);padding:20px;">
+    <h1><a style="text-decoration:none;color:white;" class="display-1" href="{{ url_for('bash_course') }}#projects"> <i class="fas fa-bash"></i> Bash Scripting</a></h1>
+    <p>Your complete learning partner — powered by Bootstrap5</p>
+  </div>
+  </header>
+
+<main class="container-fluid p-0">
+
+<a class="topper text-white" href="#top-of-page"><i class="fa-solid fa-arrow-up"></i></a>
+<!--<div class="dropdown dropdown-toc">
+<button class="btn btn-outline-primary dropdown-toggle text-light"  style="background:rgba(0,0,0,0.8);border:none; float:right;" type="button" id="tocDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></button>
+<ul class="dropdown-menu" style="background:rgba(225,225,225,0.99);" aria-labelledby="tocDropdown"></ul>
+</div> Currently Hidden, will be allowed to be visible once chapter is done...-->
+<article class="idea-page" id="top-of-page">
+  <div class="card" style="border:none;background:white;">
+  <div class="card-header" style="border-bottom:5px solid black;"><h1 class="display-3">Module 1 : Bash - Basic Commands</h1><br>
+    <a style="float:left;width:20%;" href="{{ url_for('bash_scripting_introduction') }}" class="btn btn-outline-secondary">Previous Lesson</a>
+  	<h6 class="text-muted tagged" style="float:right;">
+    	<span><i class="fas fa-user"></i> Perplexity</span> •
+	    <span><i class="fas fa-calendar"></i> Anytime</span> •
+	    <span><i class="fas fa-book"></i> 60 min</span>
+	</h6>
+  </div>
+  <div class="card-body">
+  <div class="lead content"> 
+  	<div class="card bg-dark text-white left-border-bold">
+  	<div class="card-body">
+  		<h1>What is a shell?</h1>
+  		<p>A Unix shell is both a command interpreter and a programming language, providing an interface to system utilities and a language to compose them into repeatable workflows [1-6]. Shells can run interactively by reading from a terminal or non‑interactively by reading from a file or string, enabling both ad‑hoc use and automation [1-7]. Bash, ksh, and csh are different shells with overlapping purposes and varying features and syntax.</p>
+  		<h1>What you’ll learn</h1>
+  		<p><ul>
+  			<li>Define a shell and Bash, and understand interactive vs non‑interactive modes</li>
+  			<li>Run common commands, check your Bash version, and discover the built‑in help system</li>
+  			<li>Write and execute a first script with the right shebang and permissions, and know why ./script.sh is required</li>  			  			
+  			<li>Grasp exit status, pipelines, redirection, and the evaluation steps Bash applies to input</li>  			
+  			<li>Use time‑saving keyboard shortcuts powered by GNU Readline for history and editing</li>  			
+  		</ul></p>
+  		<h1>How does a terminal look like?</h1>
+  		<div>
+  		<img src="{{ url_for('static', filename='img/bash/m1/mate-terminal.png') }}" alt="Mate terminal of parrot os"><br>
+  		<p class="alert alert-info">This is the standard Mate Terminal, configured the ~/.zshrc file. Default, the shell starts with zsh or bash. To start bash interpreter, you have to type <kbd>bash</kbd> in the terminal prompt.</p>
+  		</div>
+  	</div>
+  	</div>
+
+
+
+
+  	
+  </div>
+  </div>
+
+</article>
+    <a style="float:left;width:20%;" href="{{ url_for('bash_scripting_introduction') }}" class="btn btn-outline-primary">Back</a>
+    <a style="float:right;width:20%;" href="{{ url_for('bash_scripting_introduction') }}" class="btn btn-success">Next</a>    
+</main>
+
+  <footer class="container-fluid p-5 text-center text-white bg-dark">
+    <p>This is the official bash course offered by Framework-221E, content not copied from anywhere. Novelly generated by Perplexity Pro by customised instructions. All you have to do is <b>Self Learning</b>.</p>
+    <p>Built with Bootstrap5</p>
+  </footer>
+
+</body>
+</html>

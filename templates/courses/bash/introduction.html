@@ -16,6 +16,7 @@ crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
 crossorigin="anonymous"></script>
+
   
 <style>
 /* Base Layout */
@@ -188,7 +189,22 @@ margin-bottom:15px;
 }
 
 
+.btn-close{
+color:white;
+width:5px;
+height:5px;
+font-weight:bolder;
+background:rgba(0,0,0,0.3);
+border-radius:5px;
+text-align:center;
+float:left;
+font-size:40px;
+}
 
+.btn-close:hover{
+background:red;
+color:black;
+}
 
 @media (min-width: 700px) {
 .content{
@@ -218,7 +234,7 @@ width:30%;
   </div>
   </header>
 
-  <main>
+<main class="container-fluid p-0">
 
 <a class="topper text-white" href="#top-of-page"><i class="fa-solid fa-arrow-up"></i></a>
 <!--<div class="dropdown dropdown-toc">
@@ -236,11 +252,15 @@ width:30%;
   </div>
   <div class="card-body">
   <div class="lead content"> 
-  	<h1>What is bash? Introduction to bash and linux</h1>
-  	<p>Bash is the GNU Bourne-Again Shell, a command interpreter and scripting language that reads input, performs expansions and redirections, and executes commands on Unix-like systems [1]. Linux is a Unix-like operating system whose kernel runs in privileged kernel space, while user tools such as Bash run in user space and interact with the kernel via system calls [2].</p>
-  	<h1>What is Bash and a Shell?</h1>
-  	<p>Bash is the default GNU shell, largely compatible with the traditional Bourne shell, and incorporating useful features from the Korn shell and C shell [1-1]. It aims to conform to the POSIX Shell and Utilities specification while offering enhancements for both interactive use and scripting [1-2].</p>
-  	<p>A shell is both a command language interpreter and a programming environment: it reads input, tokenizes and parses it, expands variables and patterns, redirects I/O, and executes commands [1-3]. Shells may be interactive or non-interactive and provide variables, control flow, functions, history, job control, and line editing facilities [1-4].</p>
+  	<div class="card bg-dark text-white" style="border-left:10px solid green;" id="intro">
+  	<div class="card-body">
+	  	<h1>What is bash? Introduction to bash and linux</h1>
+  		<p>Bash is the GNU Bourne-Again Shell, a command interpreter and scripting language that reads input, performs expansions and redirections, and executes commands on Unix-like systems [1]. Linux is a Unix-like operating system whose kernel runs in privileged kernel space, while user tools such as Bash run in user space and interact with the kernel via system calls [2].</p>
+	  	<h1>What is Bash and a Shell?</h1>
+	  	<p>Bash is the default GNU shell, largely compatible with the traditional Bourne shell, and incorporating useful features from the Korn shell and C shell [1-1]. It aims to conform to the POSIX Shell and Utilities specification while offering enhancements for both interactive use and scripting [1-2].</p>
+	  	<p>A shell is both a command language interpreter and a programming environment: it reads input, tokenizes and parses it, expands variables and patterns, redirects I/O, and executes commands [1-3]. Shells may be interactive or non-interactive and provide variables, control flow, functions, history, job control, and line editing facilities [1-4].</p>
+	</div>
+  	</div><br>
   	<h1>Why Bash matters?</h1>
   	<p>Bash is widely deployed as the standard login and interactive shell across GNU/Linux systems and is portable to many Unix variants and other platforms [1-5]. It provides builtins like cd and exec that directly manipulate the running shell and cannot be implemented as external programs, making it central to both daily interaction and automation [1-6].</p>
   	<h1>What is Linux?</h1>
@@ -303,20 +323,172 @@ date
 		<li>Prefer Dash for minimal, fast-starting POSIX /bin/sh scripts where only standard features are desired and extensions are avoided</li>
 		<li>Prefer Ksh93 when a standards-centric shell with strong sh compatibility and enhanced language features aligned with POSIX is required for robust scripting</li>								
 	</ul>
-	</p><hr>
-	<h1>what is a POSIX?</h1>
-	<p>POSIX is the Portable Operating System Interface, a family of IEEE/ISO standards (IEEE 1003, ISO/IEC 9945) that define a common operating system interface—including C APIs, a command interpreter, and standard utilities—to ensure software portability across Unix-like systems and others [170][171]. In practice, POSIX specifies what programs, shells, and utilities should provide and how they should behave so the same source code and scripts can run reliably across compliant systems</p>
+	</p><hr><br>
+	<div class="card bg-dark text-white" id="posix" style="border-left:10px solid green;">
+	<div class="card-body">
+		<h1>what is a POSIX?</h1>
+		<p>POSIX is the Portable Operating System Interface, a family of IEEE/ISO standards (IEEE 1003, ISO/IEC 9945) that define a common operating system interface—including C APIs, a command interpreter, and standard utilities—to ensure software portability across Unix-like systems and others [170][171]. In practice, POSIX specifies what programs, shells, and utilities should provide and how they should behave so the same source code and scripts can run reliably across compliant systems</p>
+		<h1>Scope and Components</h1>
+		<p>POSIX defines the base operating system interface and environment, covering process control, files and directories, I/O, signals, and related C library functions for application portability at the source level [^3_4]. It also includes a command interpreter (the POSIX shell) and a set of standard utilities that specify command syntax and semantics for interoperable scripting and interactive use.</p>
+	</div>
+	</div><br>
+	<h2>Governance and versions</h2>
+	<p>The standard is jointly maintained by the Austin Group—a collaboration between IEEE, The Open Group, and ISO/IEC—bringing together the former POSIX.1 and POSIX.2 into a unified specification [174]. The current edition is POSIX.1-2024, with official numbering of the form IEEE Std 1003.n-yyyy and alignment to the C language standard used by the APIs (as of 2024, C17)</p>
+	<h2>POSIX vs SUS (Single UNIX Specification)</h2>
+	<p>The Single UNIX Specification uses POSIX as its core “Base Specifications,” adds items such as X/Open Curses, and provides certification for systems that want to use the UNIX trademark [176]. Few Linux and BSD systems are formally SUS-certified even though developers broadly target POSIX conformance for portability, so POSIX-compliant behavior is widely available without formal certification</p>
+	<h2>POSIX and the shell</h2>
+	<p>POSIX standardizes the shell command language and the behavior of built-in features such as I/O redirection, pipelines, quoting, expansions, and job control, enabling compatible scripts across conforming shells [177]. Bash implements the POSIX shell specification and can enable stricter conformance in “posix mode” via --posix or set -o posix, especially where its defaults differ from the specification or when invoked as sh</p>
+	<h2>Practical implications for Bash scripting</h2>
+	<p>Writing portable scripts means targeting the POSIX shell language (often with a /bin/sh shebang), avoiding non-standard “bashisms,” and testing with a POSIX sh interpreter such as dash to catch non-portable constructs [178]. Some features popular in Bash (like indexed arrays) are not part of the POSIX shell, so relying on them reduces portability and should be avoided in scripts intended to run everywhere.</p>			
+	<h2>Tools and environment notes</h2>
+	<p>The Open Group hosts the freely accessible online specification for Issue 8 (POSIX.1-2024), which is the canonical reference for shell syntax and utility semantics [172-2]. Many GNU utilities aim to conform to the POSIX edition standard on the system and can be adjusted via environment variables like POSIXLY_CORRECT to suppress GNU extensions when strict conformance is required.</p>
+	<hr><br>	
+	<div class="card bg-dark text-white" id="roadmap" style="border-left:10px solid green;">
+	<div class="card-body">
+		<h1>What should we learn in Bash to gain expertise?</h1>
+		<p>Here is a master-level roadmap of everything to learn in Bash shell scripting, with what each topic is and how to approach it step by step for practical mastery [228]. The outline aligns with Bash’s reference manual, the bash(1) man page, and the POSIX shell command language so you can build portable, robust scripts and become productive interactively and in automation contexts.</p>
+	</div>
+	</div><br>	
+	<h2>Foundations</h2>
+	<p>
+		<ul>
+			<li>What Bash is: A Bourne-compatible shell with features from ksh and csh used for interactive command execution and scripting; start by reading the manual’s overview and the bash(1) description to understand scope and capabilities .</li>
+			<li>How to run Bash: Launch interactive shells, invoke scripts with a shebang, or use bash -c, and learn where Bash reads input and how it tokenizes and executes commands.</li>
+			<li>Shell startup files: Learn login vs non-login and interactive vs non-interactive startup files like /etc/profile, ~/.bash_profile, and ~/.bashrc to configure environments correctly.</li>
+		</ul>
+	</p>
+	<h2>Core language</h2>
+	<p>
+		<ul>
+			<li>Syntax and quoting: Learn words, operators, tokenization, parsing, and quoting rules to control literal text vs expansions in commands and scripts</li>
+			<li>Variables: Understand shell and environment variables, naming, scoping, export, and important special variables that influence Bash behavior</li>
+			<li>Parameter expansion: Master expansions for defaults, substring operations, pattern removal, case modification, and indirect references to write concise, safe scripts</li>
+			<li>Arithmetic evaluation: Use arithmetic expansion for integer math and counters inside scripts, keeping in mind its parsing rules and typical pitfalls</li>
+			<li>Command lists and grouping: Use separators, lists, subshells with ( ), and grouping with { } to control scope, redirections, and flow</li>
+		</ul>
+	</p>
+	<h2>Control Flow</h2>
+	<p>
+		<ul>
+			<li>Conditionals and tests: Use if, elif, else, and conditional expressions … and test primitives for files, strings, and integers to make decisions</li>
+			<li>Loops: Practice for, while, and until loops with break and continue for iteration over arguments, globs, and command output</li>
+			<li>Case statements: Use case for multi-branch pattern-based dispatch to keep decision logic clear and efficient</li>
+		</ul>
+	</p>
+	<h2>Functions and modularity</h2>
+	<p>
+		<ul>
+			<li>Functions: Define and call functions, pass parameters, manage local scope, and return statuses to organize scripts into reusable components</li>
+			<li>Libraries and sourcing: Use source (.) to load function libraries and shared configuration across scripts for DRY, modular code</li>
+		</ul>
+	</p>
+	<h2>I/O, redirection, and pipelines</h2>
+	<p>
+		<ul>
+			<li>Redirections: Master >, >>, <, n>, n>&m, here-documents, and here-strings to control standard streams, files, and descriptors precisely</li>
+			<li>Pipelines: Chain commands with | and manage pipe exit statuses and error handling patterns for robust data flows</li>
+			<li>Command substitution: Use $( … ) for capturing command output and understand quoting interactions to prevent word-splitting bugs</li>												
+		</ul>
+	</p>
+	<h2>Command execution model</h2>
+	<p>
+		<ul>
+			<li>Command search: Learn the resolution order across functions, builtins, and PATH search, plus hashing and the role of hash to optimize repeated lookups</li>
+			<li>Exit status and error handling: Check statuses via $? and structure scripts to fail fast or continue appropriately using idioms and options</li>
+			<li>Background jobs and job control: Start, stop, foreground, and list jobs, and understand signals and terminal control in interactive shells</li>
+		</ul>
+	</p>
+	<h2>Builtins and shell options</h2>
+	<p>
+		<ul>
+			<li>Essential builtins: Learn cd, exec, eval, export, readonly, read, getopts, trap, test/[, times, ulimit, and others that shape the running shell’s behavior</li>
+			<li>set builtin: Configure parsing and error-handling semantics and positional parameters, and display variables and options with set </li>
+			<li>shopt: Toggle Bash-specific behaviors such as extended globbing and other optional features to tailor the shell to your needs</li>
+		</ul>
+	</p>
+	<h2>Expanisions and patterns</h2>
+	<p>
+		<ul>
+			<li>Globbing and pattern matching: Use *, ?, and [...] patterns and extended globbing to match pathnames and filter lists safely</li>
+			<li>Brace expansion: Generate sequences and cartesian expansions for filenames and arguments to simplify repetitive tasks</li>
+			<li>Word splitting and quoting: Control IFS, word splitting, and quoting to keep arguments intact and avoid subtle bugs in pipelines and command substitutions</li>
+		</ul>
+	</p>
+	<h2>Scripting essentials</h2>
+	<p>
+		<ul>
+			<li>Scripts and shebangs: Write scripts with #!/usr/bin/env bash (or an absolute path) and learn how Bash executes files, sets $0 and positional parameters, and searches PAT</li>
+			<li>Arguments and options: Parse command-line options with getopts and structuring usage messages for predictable interfaces</li>
+			<li>Logging and tracing: Print to stderr, capture exit codes, and structure logs to aid operations and debugging in production environments </li>
+			
+															
+		</ul>
+	</p>
+	<h2>Debugging and reliability</h2>
+	<p>
+		<ul>
+			<li>Tracing and xtrace: Use set -x (and PS4) to trace execution, and combine with selective tracing around tricky blocks</li>
+			<li>Strict modes: Explore enabling stricter semantics to catch errors early, and understand their interactions with pipelines and subshells</li>
+			<li>trap and cleanup: Use trap to handle signals and EXIT for deterministic cleanup of temp files and background resources</li>
+			
+															
+		</ul>
+	</p>
+	<h2>Interactive productivity</h2>
+	<p>
+		<ul>
+			<li>Readline, history, and editing: Leverage line editing, history search, and re-execution to speed up interactive work and prototyping</li>
+			<li>Prompt control: Customize PS1 and related variables and PROMPT_COMMAND for context-rich prompts and status displays</li>
+			<li>Completion basics: Use and tune programmable completion to accelerate command entry for frequently used tools</li>
+			
+															
+		</ul>
+	</p>
+	<h2>Advanced Bash features</h2>
+	<p>
+		<ul>
+			<li>Arrays and associative arrays: Use indexed arrays and key-value maps for structured data handling within scripts</li>
+			<li>Process substitution and coprocesses: Connect commands via <( … ), >( … ), and coproc for flexible data flows and bidirectional IPC patterns</li>
+			<li>Timers, time, and measurement: Use time and TIMEFORMAT to benchmark commands and scripts consistently</li>
+			
+															
+		</ul>
+	</p>
+	<h2>POSIX and portability</h2>
+	<p>
+		<ul>
+			<li>POSIX shell language: Learn the standardized shell grammar and utility behavior to write portable scripts that work beyond Bash</li>
+			<li>Bash POSIX mode: Enable --posix or set -o posix when needed to align behavior with the standard where Bash defaults differ</li>
+			<li>Portable practices: Prefer POSIX-specified constructs and utilities, and consult Autoconf guidance on portable shell usage for cross-platform projects</li>
+			
+															
+		</ul>
+	</p>
+	<h2>External toolchain fluency</h2>
+	<p>
+		<ul>
+			<li>Core utilities: Get comfortable with canonical text-processing and filesystem tools such as cat, ls, cp, mv, rm, sort, uniq, cut, tr, head, tail, wc, and tee as the foundation of shell pipelines</li>
+			<li>Find and xargs: Combine find predicates with -print0 and xargs -0 for robust file processing at scale across directories</li>
+			<li>Manual pages: Use man and --help to learn options and behavior of every tool you compose in pipelines and scripts</li>															
+		</ul>
+	</p>
+<div class="alert alert-danger">
+ <p> <strong>Note : </strong> <br>This is not a spoon feeding bash program. You will be able to learn it only if you are going to try it in your own system. We do not believe in interactive sessions, quizes, etc. It is not for memorizers. It is for understanders. We recommend that you open up your terminal, create a seperate folder and move along with us in learning Bash.</p>
+</div>
+
+
+
 	
-		
   </div>
   </div>
 </article>
-
-  </main>
+    <a style="float:left;width:20%;" href="{{ url_for('bash_course') }}#projects" class="btn btn-outline-primary">Back</a>
+    <a style="float:right;width:20%;" href="{{ url_for('bash_scripting_module1') }}" class="btn btn-success">Next</a>    
+</main>
 
   <footer class="container-fluid p-5 text-center text-white bg-dark">
-    <p>Made with : Thirst to Learn</p>
-    <a href="{{ url_for('bash_course') }}#projects" class="btn btn-outline-primary">Back</a>
+    <p>This is the official bash course offered by Framework-221E, content not copied from anywhere. Novelly generated by Perplexity Pro by customised instructions. All you have to do is <b>Self Learning</b>.</p>
+    <p>Built with Bootstrap5</p>
   </footer>
 
 </body>

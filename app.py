@@ -184,6 +184,7 @@ def return_bash_module(module_name):
 def bash_course():
 	modules = {
 	"introduction" : "A shell is both a command language interpreter and a programming environment: it reads input, tokenizes and parses it, expands variables and patterns, redirects I/O, and executes commands.[module 0]",
+	"basic_commands" : "In interactive mode, Bash reads commands from a terminal and provides features like prompts, history, and job control to aid live use. In non‑interactive mode, Bash reads commands from a file or string, which is how scripts run to automate tasks consistently and unattended.[module 1]",
 	}
 	return render_template('courses/bash/index.html', modules=modules)
 
@@ -226,6 +227,16 @@ def nmap():
 @app.route('/courses/bash/introduction')
 def bash_scripting_introduction():
 	return render_template('courses/bash/introduction.html')
+
+@app.route('/courses/bash/basic_commands')
+def bash_scripting_module1():
+	return render_template('courses/bash/module1.html')
+
+
+
+
+
+
 
 #[Routes for dochub]===============================================================================================================
 
